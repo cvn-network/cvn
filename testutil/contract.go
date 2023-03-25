@@ -75,7 +75,6 @@ func DeployContractWithFactory(
 	cvnApp *app.CVN,
 	priv cryptotypes.PrivKey,
 	factoryAddress common.Address,
-	queryClientEvm evm.QueryClient,
 ) (common.Address, abci.ResponseDeliverTx, error) {
 	chainID := cvnApp.EvmKeeper.ChainID()
 	from := common.BytesToAddress(priv.PubKey().Address().Bytes())

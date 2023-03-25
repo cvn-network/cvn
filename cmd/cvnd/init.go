@@ -83,7 +83,6 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config.P2P.MaxNumInboundPeers = 240
 			config.P2P.MaxNumOutboundPeers = 30
 
-			// TODO: [PROD] Update default seeds
 			// Set default seeds
 			seeds := []string{
 				"40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.evmos.jerrychong.com:26656",                 // jerrychong
@@ -104,8 +103,9 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			// Get bip39 mnemonic
 			var mnemonic string
-			recover, _ := cmd.Flags().GetBool(genutilcli.FlagRecover)
-			if recover {
+
+			recoverKey, _ := cmd.Flags().GetBool(genutilcli.FlagRecover)
+			if recoverKey {
 				inBuf := bufio.NewReader(cmd.InOrStdin())
 				value, err := input.GetString("Enter your bip39 mnemonic", inBuf)
 				if err != nil {
