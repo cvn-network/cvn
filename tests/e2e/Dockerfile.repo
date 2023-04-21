@@ -1,0 +1,36 @@
+FROM golang:1.20.0-bullseye AS build-env
+
+ARG BRANCH_NAME
+
+WORKDIR /go/src/github.com/cvn-network/
+
+RUN git clone "https://github.com/cvn-network/cvn.git"
+# COPY ../../. .
+
+WORKDIR /go/src/github.com/cvn-network/cvn
+
+RUN apt-get update -y
+
+RUN git checkout v12
+
+RUN make build
+
+FROM golang:1.20.0-bullseye
+
+RUN apt-get update \ 
+&& apt-get install jq=1.6-2.1 -y --no-install-recommends \ 
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+
+WORKDIR /go/src/github.com/cvn-network/cvn
+
+COPY ./init-node.sh .
+
+# perms to make init-node.sh executable
+RUN chmod +x init-node.sh
+
+COPY --from=build-env /go/src/github.com/cvn-network/cvn/build/cvnd /usr/bin/cvnd
+
+EXPOSE 26656 26657 1317 9090 8545 8546
+
+CMD ["sh", "./init-node.sh"]

@@ -1,0 +1,21 @@
+{
+  "metadata": [
+    {
+      "description": 1,
+      "denom_units": [
+        {
+          "denom": "acvnt",
+          "exponent": 0
+        },
+        {
+          "denom": "evmos",
+          "exponent": 18
+        }
+      ],
+      "base": "acvnt",
+      "display": "acvnt",
+      "name": "acvnt",
+      "symbol": "EVMOS"
+    }
+  ]
+}
