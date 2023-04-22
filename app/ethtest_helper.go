@@ -73,7 +73,7 @@ func EthSetupWithDB(isCheckTx bool, patchGenesis func(*CVN, simapp.GenesisState)
 		// Initialize the chain
 		app.InitChain(
 			abci.RequestInitChain{
-				ChainId:         "cvn_8007-1",
+				ChainId:         "cvn_2031-1",
 				Validators:      []abci.ValidatorUpdate{},
 				ConsensusParams: DefaultConsensusParams,
 				AppStateBytes:   stateBytes,

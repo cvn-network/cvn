@@ -254,10 +254,10 @@ func (tx DynamicFeeTx) Validate() error {
 		)
 	}
 
-	if !(chainID.Cmp(big.NewInt(8008)) == 0 || chainID.Cmp(big.NewInt(8007)) == 0) {
+	if !(chainID.Cmp(big.NewInt(2032)) == 0 || chainID.Cmp(big.NewInt(2031)) == 0) {
 		return errorsmod.Wrapf(
 			errortypes.ErrInvalidChainID,
-			"chain ID must be 8007 or 8008 on CVN, got %s", chainID,
+			"chain ID must be 2031 or 2032 on CVN, got %s", chainID,
 		)
 	}
 

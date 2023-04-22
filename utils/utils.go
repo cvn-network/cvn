@@ -16,9 +16,9 @@ import (
 const (
 	// TODO:[PROD] change these chain ids to unique values
 	// MainnetChainID defines the Evmos EIP155 chain ID for mainnet
-	MainnetChainID = "cvn_8008"
+	MainnetChainID = "cvn_2032"
 	// TestnetChainID defines the Evmos EIP155 chain ID for testnet
-	TestnetChainID = "cvn_8007"
+	TestnetChainID = "cvn_2031"
 	// BaseDenom defines the Evmos mainnet denomination
 	BaseDenom = "acvnt"
 )

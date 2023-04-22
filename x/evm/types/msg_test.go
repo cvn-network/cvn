@@ -133,7 +133,7 @@ func (suite *MsgsTestSuite) TestMsgEthereumTx_BuildTx() {
 func (suite *MsgsTestSuite) TestMsgEthereumTx_ValidateBasic() {
 	var (
 		hundredInt   = big.NewInt(100)
-		validChainID = big.NewInt(8007)
+		validChainID = big.NewInt(2031)
 		zeroInt      = big.NewInt(0)
 		minusOneInt  = big.NewInt(-1)
 		//nolint:all
@@ -431,7 +431,7 @@ func (suite *MsgsTestSuite) TestMsgEthereumTx_ValidateBasic() {
 			errMsg:     "failed to unpack tx data",
 		},
 		{
-			msg:        "invalid chain ID (neither 8007 nor 8008)",
+			msg:        "invalid chain ID (neither 2031 nor 2032)",
 			to:         suite.to.Hex(),
 			amount:     hundredInt,
 			gasLimit:   1000,
@@ -441,7 +441,7 @@ func (suite *MsgsTestSuite) TestMsgEthereumTx_ValidateBasic() {
 			accessList: &ethtypes.AccessList{},
 			chainID:    hundredInt,
 			expectPass: false,
-			errMsg:     "chain ID must be 8007 or 8008 on Evmos",
+			errMsg:     "chain ID must be 2031 or 2032 on Evmos",
 		},
 	}
 

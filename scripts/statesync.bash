@@ -31,7 +31,7 @@ go install ./...
 # go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb' -tags boltdb ./...
 
 # Initialize chain.
-cvnd init test --chain-id cvn_8007-1
+cvnd init test --chain-id cvn_2031-1
 
 # Get Genesis
 wget https://archive.evmos.org/mainnet/genesis.json

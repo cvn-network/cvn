@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY="dev0"
-CHAINID="cvn_8007-1"
+CHAINID="cvn_2031-1"
 MONIKER="mymoniker"
 DATA_DIR=$(mktemp -d -t cvn-datadir.XXXXX)
 

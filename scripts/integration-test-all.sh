@@ -17,7 +17,7 @@ RPC_PORT="854"
 IP_ADDR="0.0.0.0"
 
 KEY="dev0"
-CHAINID="cvn_8008-1"
+CHAINID="cvn_2032-1"
 MONIKER="mymoniker"
 
 ## default port prefixes for cvnd

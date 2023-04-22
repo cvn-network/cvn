@@ -37,14 +37,14 @@ func (suite *KeeperTestSuite) TestWithChainID() {
 		},
 		{
 			"success - CVN mainnet chain ID",
-			"cvn_8008-2",
-			8008,
+			"cvn_2032-2",
+			2032,
 			false,
 		},
 		{
 			"success - CVN testnet chain ID",
-			"cvn_8007-4",
-			8007,
+			"cvn_2031-4",
+			2031,
 			false,
 		},
 	}
