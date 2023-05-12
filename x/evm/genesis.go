@@ -10,7 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	"github.com/cvn-network/cvn/v1/x/evm/keeper"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
@@ -43,7 +43,7 @@ func InitGenesis(
 			panic(fmt.Errorf("account not found for address %s", account.Address))
 		}
 
-		ethAcct, ok := acc.(cvntypes.EthAccountI)
+		ethAcct, ok := acc.(evmostypes.EthAccountI)
 		if !ok {
 			panic(
 				fmt.Errorf("account %s must be an EthAccount interface, got %T",
@@ -75,7 +75,7 @@ func InitGenesis(
 func ExportGenesis(ctx sdk.Context, k *keeper.Keeper, ak types.AccountKeeper) *types.GenesisState {
 	var ethGenAccounts []types.GenesisAccount
 	ak.IterateAccounts(ctx, func(account authtypes.AccountI) bool {
-		ethAccount, ok := account.(cvntypes.EthAccountI)
+		ethAccount, ok := account.(evmostypes.EthAccountI)
 		if !ok {
 			// ignore non EthAccounts
 			return false

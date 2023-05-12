@@ -18,6 +18,7 @@ import (
 	cryptocodec "github.com/cvn-network/cvn/v1/crypto/codec"
 	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 	"github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 )
 
 type EIP712TxArgs struct {
@@ -212,7 +213,7 @@ func createTypedData(args typedDataArgs, useLegacy bool) (apitypes.TypedData, er
 // setBuilderLegacyWeb3Extension creates a legacy ExtensionOptionsWeb3Tx and
 // appends it to the builder options.
 func setBuilderLegacyWeb3Extension(builder authtx.ExtensionOptionsTxBuilder, args legacyWeb3ExtensionArgs) error {
-	option, err := codectypes.NewAnyWithValue(&types.ExtensionOptionsWeb3Tx{
+	option, err := codectypes.NewAnyWithValue(&evmostypes.ExtensionOptionsWeb3Tx{
 		FeePayer:         args.feePayer,
 		TypedDataChainID: args.chainID,
 		FeePayerSig:      args.signature,

@@ -2,6 +2,7 @@ package types
 
 import (
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/evmos/evmos/v12/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 )
@@ -13,7 +14,7 @@ type EVMTxIndexer interface {
 	IndexBlock(*tmtypes.Block, []*abci.ResponseDeliverTx) error
 
 	// GetByTxHash returns nil if tx not found.
-	GetByTxHash(common.Hash) (*TxResult, error)
+	GetByTxHash(common.Hash) (*types.TxResult, error)
 	// GetByBlockAndIndex returns nil if tx not found.
-	GetByBlockAndIndex(int64, int32) (*TxResult, error)
+	GetByBlockAndIndex(int64, int32) (*types.TxResult, error)
 }

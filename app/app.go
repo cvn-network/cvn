@@ -112,6 +112,7 @@ import (
 	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 	srvflags "github.com/cvn-network/cvn/v1/server/flags"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	"github.com/cvn-network/cvn/v1/x/evm"
 	evmkeeper "github.com/cvn-network/cvn/v1/x/evm/keeper"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
@@ -412,7 +413,7 @@ func NewCVN(
 
 	// use custom Ethermint account for contracts
 	app.AccountKeeper = authkeeper.NewAccountKeeper(
-		appCodec, keys[authtypes.StoreKey], app.GetSubspace(authtypes.ModuleName), cvntypes.ProtoAccount, maccPerms, sdk.GetConfig().GetBech32AccountAddrPrefix(),
+		appCodec, keys[authtypes.StoreKey], app.GetSubspace(authtypes.ModuleName), evmostypes.ProtoAccount, maccPerms, sdk.GetConfig().GetBech32AccountAddrPrefix(),
 	)
 	app.BankKeeper = bankkeeper.NewBaseKeeper(
 		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), app.BlockedAddrs(),

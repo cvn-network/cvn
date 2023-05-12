@@ -19,9 +19,9 @@ import (
 	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/utils"
 	"github.com/stretchr/testify/require"
+	evmostypes "github.com/evmos/evmos/v12/types"
 )
 
 // Testing Constants
@@ -67,7 +67,7 @@ func TestLedgerPreprocessing(t *testing.T) {
 		require.True(t, ok)
 		require.True(t, len(hasExtOptsTx.GetExtensionOptions()) == 1)
 
-		expectedExt := types.ExtensionOptionsWeb3Tx{
+		expectedExt := evmostypes.ExtensionOptionsWeb3Tx{
 			TypedDataChainID: 2031,
 			FeePayer:         feePayerAddress,
 			FeePayerSig:      tc.expectedSignatureBytes,

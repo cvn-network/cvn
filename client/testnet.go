@@ -42,6 +42,7 @@ import (
 	"github.com/cvn-network/cvn/v1/server/config"
 	srvflags "github.com/cvn-network/cvn/v1/server/flags"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 
 	"github.com/cvn-network/cvn/v1/testutil/network"
@@ -302,7 +303,7 @@ func initTestnetFiles(
 		}
 
 		genBalances = append(genBalances, banktypes.Balance{Address: addr.String(), Coins: coins.Sort()})
-		genAccounts = append(genAccounts, &cvntypes.EthAccount{
+		genAccounts = append(genAccounts, &evmostypes.EthAccount{
 			BaseAccount: authtypes.NewBaseAccount(addr, nil, 0, 0),
 			CodeHash:    common.BytesToHash(evmtypes.EmptyCodeHash).Hex(),
 		})

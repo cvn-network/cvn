@@ -8,7 +8,6 @@ import (
 	"github.com/cvn-network/cvn/v1/indexer"
 	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
 	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -18,6 +17,7 @@ import (
 	"github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 	"google.golang.org/grpc/metadata"
+	evmostypes "github.com/evmos/evmos/v12/types"
 )
 
 func (suite *BackendTestSuite) TestGetTransactionByHash() {
@@ -467,7 +467,7 @@ func (suite *BackendTestSuite) TestGetTransactionByTxIndex() {
 		registerMock func()
 		height       int64
 		index        uint
-		expTxResult  *cvntypes.TxResult
+		expTxResult  *evmostypes.TxResult
 		expPass      bool
 	}{
 		{
@@ -479,7 +479,7 @@ func (suite *BackendTestSuite) TestGetTransactionByTxIndex() {
 			},
 			0,
 			0,
-			&cvntypes.TxResult{},
+			&evmostypes.TxResult{},
 			false,
 		},
 	}
@@ -507,7 +507,7 @@ func (suite *BackendTestSuite) TestQueryTendermintTxIndexer() {
 		registerMock func()
 		txGetter     func(*rpctypes.ParsedTxs) *rpctypes.ParsedTx
 		query        string
-		expTxResult  *cvntypes.TxResult
+		expTxResult  *evmostypes.TxResult
 		expPass      bool
 	}{
 		{
@@ -520,7 +520,7 @@ func (suite *BackendTestSuite) TestQueryTendermintTxIndexer() {
 				return &rpctypes.ParsedTx{}
 			},
 			"",
-			&cvntypes.TxResult{},
+			&evmostypes.TxResult{},
 			false,
 		},
 	}
@@ -618,7 +618,7 @@ func (suite *BackendTestSuite) TestGetGasUsed() {
 	testCases := []struct {
 		name                     string
 		fixRevertGasRefundHeight int64
-		txResult                 *cvntypes.TxResult
+		txResult                 *evmostypes.TxResult
 		price                    *big.Int
 		gas                      uint64
 		exp                      uint64
@@ -626,7 +626,7 @@ func (suite *BackendTestSuite) TestGetGasUsed() {
 		{
 			"success txResult",
 			1,
-			&cvntypes.TxResult{
+			&evmostypes.TxResult{
 				Height:  1,
 				Failed:  false,
 				GasUsed: 53026,
@@ -638,7 +638,7 @@ func (suite *BackendTestSuite) TestGetGasUsed() {
 		{
 			"fail txResult before cap",
 			2,
-			&cvntypes.TxResult{
+			&evmostypes.TxResult{
 				Height:  1,
 				Failed:  true,
 				GasUsed: 53026,
@@ -650,7 +650,7 @@ func (suite *BackendTestSuite) TestGetGasUsed() {
 		{
 			"fail txResult after cap",
 			2,
-			&cvntypes.TxResult{
+			&evmostypes.TxResult{
 				Height:  3,
 				Failed:  true,
 				GasUsed: 53026,

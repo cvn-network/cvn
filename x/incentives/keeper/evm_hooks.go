@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 
 	"github.com/cvn-network/cvn/v1/x/incentives/types"
@@ -46,8 +46,8 @@ func (k Keeper) PostTxProcessing(ctx sdk.Context, msg core.Message, receipt *eth
 		return nil
 	}
 
-	ethAccount, ok := acc.(cvntypes.EthAccountI)
-	if ok && ethAccount.Type() == cvntypes.AccountTypeContract {
+	ethAccount, ok := acc.(evmostypes.EthAccountI)
+	if ok && ethAccount.Type() == evmostypes.AccountTypeContract {
 		return nil
 	}
 

@@ -12,6 +12,7 @@ import (
 	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
 	"github.com/cvn-network/cvn/v1/server/config"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -100,8 +101,8 @@ type EVMBackend interface {
 
 	// Tx Info
 	GetTransactionByHash(txHash common.Hash) (*rpctypes.RPCTransaction, error)
-	GetTxByEthHash(txHash common.Hash) (*cvntypes.TxResult, error)
-	GetTxByTxIndex(height int64, txIndex uint) (*cvntypes.TxResult, error)
+	GetTxByEthHash(txHash common.Hash) (*evmostypes.TxResult, error)
+	GetTxByTxIndex(height int64, txIndex uint) (*evmostypes.TxResult, error)
 	GetTransactionByBlockAndIndex(block *tmrpctypes.ResultBlock, idx hexutil.Uint) (*rpctypes.RPCTransaction, error)
 	GetTransactionReceipt(hash common.Hash) (map[string]interface{}, error)
 	GetTransactionByBlockHashAndIndex(hash common.Hash, idx hexutil.Uint) (*rpctypes.RPCTransaction, error)
