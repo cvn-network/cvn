@@ -7,7 +7,7 @@ import (
 
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/crypto/hd"
-	"github.com/evmos/evmos-ledger-go/ledger"
+	"github.com/cvn-network/cvn/v1/ledger"
 )
 
 // AppName defines the Ledger app used for signing. Evmos uses the Ethereum app
