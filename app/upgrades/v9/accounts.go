@@ -1,5 +1,3 @@
-
-
 // This accounts represent the affected accounts during the Claims record clawback incident on block 5074187
 // with the respective balance on block 5074186.
 

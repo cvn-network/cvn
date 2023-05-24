@@ -52,6 +52,7 @@ func (suite *LedgerTestSuite) SetupTest() {
 	suite.ledger = ledger.EvmosSECP256K1{Hub: hub, PrimaryWallet: mockWallet}
 }
 
+//nolint:unused
 func (suite *LedgerTestSuite) initWallet(path gethaccounts.DerivationPath, ledger *usbwallet.Hub) (accounts.Wallet, accounts.Account) {
 	suite.T().Helper()
 

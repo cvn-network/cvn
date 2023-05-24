@@ -1,5 +1,3 @@
-
-
 package v8
 
 import (

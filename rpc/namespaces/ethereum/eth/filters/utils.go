@@ -1,4 +1,3 @@
-
 package filters
 
 import (

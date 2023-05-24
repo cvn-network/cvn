@@ -1,5 +1,3 @@
-
-
 package upgrade
 
 import "github.com/ory/dockertest/v3"

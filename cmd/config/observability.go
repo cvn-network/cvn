@@ -1,5 +1,3 @@
-
-
 package config
 
 func EnableObservability() error {
