@@ -1,13 +1,8 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	v3 "github.com/cvn-network/cvn/v1/x/erc20/migrations/v3"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
 )
-
-var _ module.MigrationHandler = Migrator{}.Migrate2to3
 
 // Migrator is a struct for handling in-place store migrations.
 type Migrator struct {
@@ -21,8 +16,4 @@ func NewMigrator(keeper Keeper, legacySubspace types.Subspace) Migrator {
 		keeper:         keeper,
 		legacySubspace: legacySubspace,
 	}
-}
-
-func (m Migrator) Migrate2to3(ctx sdk.Context) error {
-	return v3.MigrateStore(ctx, m.keeper.storeKey, m.legacySubspace)
 }

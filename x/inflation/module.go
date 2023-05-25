@@ -154,12 +154,6 @@ func (am AppModule) RegisterServices(cfg module.Configurator) {
 	if err != nil {
 		panic(err)
 	}
-
-	// Migrate to version 3 of store
-	err = cfg.RegisterMigration(types.ModuleName, 2, m.Migrate2to3)
-	if err != nil {
-		panic(err)
-	}
 }
 
 // BeginBlock returns the begin blocker for the inflation module.

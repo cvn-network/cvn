@@ -1,9 +1,6 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	v4 "github.com/cvn-network/cvn/v1/x/evm/migrations/v4"
-	v5 "github.com/cvn-network/cvn/v1/x/evm/migrations/v5"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
@@ -19,14 +16,4 @@ func NewMigrator(keeper Keeper, legacySubspace types.Subspace) Migrator {
 		keeper:         keeper,
 		legacySubspace: legacySubspace,
 	}
-}
-
-// Migrate3to4 migrates the store from consensus version 3 to 4
-func (m Migrator) Migrate3to4(ctx sdk.Context) error {
-	return v4.MigrateStore(ctx, m.keeper.storeKey, m.legacySubspace, m.keeper.cdc)
-}
-
-// Migrate4to5 migrates the store from consensus version 4 to 5
-func (m Migrator) Migrate4to5(ctx sdk.Context) error {
-	return v5.MigrateStore(ctx, m.keeper.storeKey, m.keeper.cdc)
 }

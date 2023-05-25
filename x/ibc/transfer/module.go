@@ -1,12 +1,9 @@
 package transfer
 
 import (
-	"fmt"
-
 	"github.com/cosmos/cosmos-sdk/types/module"
 
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
-	ibctransferkeeper "github.com/cosmos/ibc-go/v6/modules/apps/transfer/keeper"
 	"github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	"github.com/cvn-network/cvn/v1/x/ibc/transfer/keeper"
 )
@@ -41,9 +38,4 @@ func (am AppModule) RegisterServices(cfg module.Configurator) {
 	// Override Transfer Msg Server
 	types.RegisterMsgServer(cfg.MsgServer(), am.keeper)
 	types.RegisterQueryServer(cfg.QueryServer(), am.keeper)
-
-	m := ibctransferkeeper.NewMigrator(*am.keeper.Keeper)
-	if err := cfg.RegisterMigration(types.ModuleName, 1, m.MigrateTraces); err != nil {
-		panic(fmt.Sprintf("failed to migrate transfer app from version 1 to 2: %v", err))
-	}
 }
