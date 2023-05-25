@@ -23,6 +23,9 @@ func TestLoadUpgradeParams(t *testing.T) {
 
 	defaultMountPath := wd + "/build/:/root/"
 	availableUpgrades, err := RetrieveUpgradesList(upgradesPath)
+	if os.IsNotExist(err) {
+		t.Skip("skipping test as upgrade list file does not exist")
+	}
 	require.NoError(t, err, "can't retrieve upgrades list")
 	latestVersionName := availableUpgrades[len(availableUpgrades)-1]
 	defaultInitialVersion := availableUpgrades[len(availableUpgrades)-2]

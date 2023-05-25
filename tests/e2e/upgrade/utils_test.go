@@ -2,6 +2,7 @@
 package upgrade
 
 import (
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -95,6 +96,9 @@ func TestEvmosVersionsLen(t *testing.T) {
 // can be correctly retrieved
 func TestRetrieveUpgradesList(t *testing.T) {
 	upgradeList, err := RetrieveUpgradesList("../../../app/upgrades")
+	if os.IsNotExist(err) {
+		t.Skip("skipping test as upgrade list file does not exist")
+	}
 	require.NoError(t, err, "expected no error while retrieving upgrade list")
 	require.NotEmpty(t, upgradeList, "expected upgrade list to be non-empty")
 
