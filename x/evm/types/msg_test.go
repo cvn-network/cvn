@@ -441,7 +441,7 @@ func (suite *MsgsTestSuite) TestMsgEthereumTx_ValidateBasic() {
 			accessList: &ethtypes.AccessList{},
 			chainID:    hundredInt,
 			expectPass: false,
-			errMsg:     "chain ID must be 2031 or 2032 on Evmos",
+			errMsg:     "chain ID must be 2031 or 2032 on CVN",
 		},
 	}
 
