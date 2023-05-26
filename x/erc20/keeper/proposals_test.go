@@ -3,20 +3,17 @@ package keeper_test
 import (
 	"fmt"
 
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/ethereum/go-ethereum/common"
-
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
 	"github.com/cvn-network/cvn/v1/x/erc20/keeper"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
 )
 

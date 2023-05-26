@@ -8,13 +8,13 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
 	"github.com/ethereum/go-ethereum/common"
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/tendermint/tendermint/libs/log"
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )

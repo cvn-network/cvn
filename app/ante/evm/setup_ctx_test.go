@@ -3,11 +3,11 @@ package evm_test
 import (
 	"math/big"
 
-	evmante "github.com/cvn-network/cvn/v1/app/ante/evm"
-	"github.com/cvn-network/cvn/v1/testutil"
-
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
+	evmante "github.com/cvn-network/cvn/v1/app/ante/evm"
+	"github.com/cvn-network/cvn/v1/testutil"
 	testutiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )

@@ -5,27 +5,26 @@ import (
 	"math/big"
 
 	"cosmossdk.io/math"
+	"github.com/cosmos/cosmos-sdk/baseapp"
+	"github.com/cosmos/cosmos-sdk/simapp"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	"github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/tendermint/tendermint/libs/log"
+	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/feemarket/types"
-	"github.com/ethereum/go-ethereum/common"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-
-	"github.com/cosmos/cosmos-sdk/simapp"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
+	"github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 var _ = Describe("Feemarket", func() {

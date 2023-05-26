@@ -5,11 +5,12 @@ import (
 	"strconv"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
+
+	"github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // EventFormat is the format version of the events.

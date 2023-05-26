@@ -5,15 +5,14 @@ import (
 	"testing"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/stretchr/testify/require"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	"github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/stretchr/testify/require"
 
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
 )
 
 func SetupContract(b *testing.B) (*KeeperTestSuite, common.Address) {

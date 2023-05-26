@@ -6,46 +6,38 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/evm/keeper"
-
 	sdkmath "cosmossdk.io/math"
-	"github.com/gogo/protobuf/proto"
-
-	abci "github.com/tendermint/tendermint/abci/types"
-	tmjson "github.com/tendermint/tendermint/libs/json"
-
+	"github.com/cosmos/cosmos-sdk/baseapp"
+	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	"github.com/cosmos/cosmos-sdk/simapp"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/crypto/keyring"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/tendermint/tendermint/crypto/tmhash"
+	tmjson "github.com/tendermint/tendermint/libs/json"
+	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
+	"github.com/tendermint/tendermint/version"
 
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v1/utils"
 	"github.com/cvn-network/cvn/v1/x/evm"
+	"github.com/cvn-network/cvn/v1/x/evm/keeper"
 	"github.com/cvn-network/cvn/v1/x/evm/statedb"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
-
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-
-	"github.com/tendermint/tendermint/version"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 type EvmTestSuite struct {

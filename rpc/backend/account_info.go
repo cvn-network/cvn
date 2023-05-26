@@ -6,16 +6,16 @@ import (
 	"math/big"
 
 	errorsmod "cosmossdk.io/errors"
-
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/pkg/errors"
+
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // GetCode returns the contract code at the given address and block number.

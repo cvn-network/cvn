@@ -3,12 +3,10 @@ package keeper
 import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
 	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
 )
 

@@ -3,12 +3,11 @@ package types_test
 import (
 	"testing"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
 
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
-
-	"github.com/ethereum/go-ethereum/common"
 )
 
 func TestTransactionLogsValidate(t *testing.T) {

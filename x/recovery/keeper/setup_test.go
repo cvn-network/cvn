@@ -4,23 +4,20 @@ import (
 	"testing"
 	"time"
 
+	"github.com/cosmos/cosmos-sdk/baseapp"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-
 	"github.com/stretchr/testify/suite"
 
+	"github.com/cvn-network/cvn/v1/app"
 	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/utils"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
-
-	"github.com/cvn-network/cvn/v1/app"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	"github.com/cvn-network/cvn/v1/x/recovery/types"
 )
 

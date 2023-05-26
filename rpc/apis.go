@@ -5,8 +5,8 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/server"
-
 	"github.com/ethereum/go-ethereum/rpc"
+	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 
 	"github.com/cvn-network/cvn/v1/rpc/backend"
 	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/debug"
@@ -18,8 +18,6 @@ import (
 	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/txpool"
 	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/web3"
 	"github.com/cvn-network/cvn/v1/types"
-
-	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 )
 
 // RPC namespaces and API version

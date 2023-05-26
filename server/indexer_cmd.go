@@ -3,14 +3,14 @@ package server
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cvn-network/cvn/v1/indexer"
+	"github.com/spf13/cobra"
 	tmnode "github.com/tendermint/tendermint/node"
 	sm "github.com/tendermint/tendermint/state"
 	tmstore "github.com/tendermint/tendermint/store"
+
+	"github.com/cvn-network/cvn/v1/indexer"
 )
 
 func NewIndexTxCmd() *cobra.Command {

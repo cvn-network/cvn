@@ -4,12 +4,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/suite"
-	tmtime "github.com/tendermint/tendermint/types/time"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	"github.com/stretchr/testify/suite"
+	tmtime "github.com/tendermint/tendermint/types/time"
 
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/x/vesting/types"

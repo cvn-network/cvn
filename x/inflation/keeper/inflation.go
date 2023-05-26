@@ -4,7 +4,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	cvntypes "github.com/cvn-network/cvn/v1/types"
-
 	"github.com/cvn-network/cvn/v1/utils"
 	incentivestypes "github.com/cvn-network/cvn/v1/x/incentives/types"
 	"github.com/cvn-network/cvn/v1/x/inflation/types"

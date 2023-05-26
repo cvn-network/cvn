@@ -4,22 +4,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/suite"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
+	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/crypto/tmhash"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
+	"github.com/cvn-network/cvn/v1/app"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/utils"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
-	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/x/erc20"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 type GenesisTestSuite struct {

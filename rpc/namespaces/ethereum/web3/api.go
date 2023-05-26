@@ -1,10 +1,10 @@
 package web3
 
 import (
-	"github.com/cvn-network/cvn/v1/version"
-
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+
+	"github.com/cvn-network/cvn/v1/version"
 )
 
 // PublicAPI is the web3_ prefixed set of APIs in the Web3 JSON-RPC spec.

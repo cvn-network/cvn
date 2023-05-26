@@ -7,11 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
-
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpc "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	mock "github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -20,6 +16,10 @@ import (
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"github.com/tendermint/tendermint/types"
+
+	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
+	rpc "github.com/cvn-network/cvn/v1/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // Client defines a mocked object that implements the Tendermint JSON-RPC Client

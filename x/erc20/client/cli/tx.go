@@ -3,8 +3,6 @@ package cli
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -12,11 +10,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/cosmos/cosmos-sdk/x/gov/client/cli"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
-
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/spf13/cobra"
 
 	cvntypes "github.com/cvn-network/cvn/v1/types"
-
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
 )
 

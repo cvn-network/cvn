@@ -1,9 +1,8 @@
 package txpool
 
 import (
-	"github.com/tendermint/tendermint/libs/log"
-
 	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/tendermint/tendermint/libs/log"
 
 	"github.com/cvn-network/cvn/v1/rpc/types"
 )

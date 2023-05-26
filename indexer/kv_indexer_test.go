@@ -6,13 +6,6 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	evmenc "github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/indexer"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/require"
@@ -20,6 +13,14 @@ import (
 	tmlog "github.com/tendermint/tendermint/libs/log"
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
+
+	"github.com/cvn-network/cvn/v1/app"
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
+	evmenc "github.com/cvn-network/cvn/v1/encoding"
+	"github.com/cvn-network/cvn/v1/indexer"
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	"github.com/cvn-network/cvn/v1/utils"
+	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func TestKVIndexer(t *testing.T) {

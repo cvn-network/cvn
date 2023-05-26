@@ -18,6 +18,11 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 	ibcgotestinghelpers "github.com/cosmos/ibc-go/v6/testing/simapp/helpers"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/stretchr/testify/require"
+
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/contracts"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
@@ -33,10 +38,6 @@ import (
 	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/stretchr/testify/require"
 )
 
 func CreatePacket(amount, denom, sender, receiver, srcPort, srcChannel, dstPort, dstChannel string, seq, timeout uint64) channeltypes.Packet {

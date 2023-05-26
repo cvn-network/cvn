@@ -4,17 +4,14 @@ import (
 	"math/big"
 	"time"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/ethereum/go-ethereum/common"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-
-	"github.com/ethereum/go-ethereum/common"
-
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
 	"github.com/cvn-network/cvn/v1/x/incentives/types"
 )
 

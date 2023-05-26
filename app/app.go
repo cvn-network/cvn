@@ -10,15 +10,6 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/gorilla/mux"
-	"github.com/rakyll/statik/fs"
-	"github.com/spf13/cast"
-
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
-	tmos "github.com/tendermint/tendermint/libs/os"
-	dbm "github.com/tendermint/tm-db"
-
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/grpc/node"
@@ -27,7 +18,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/server/api"
 	"github.com/cosmos/cosmos-sdk/server/config"
-
 	servertypes "github.com/cosmos/cosmos-sdk/server/types"
 	"github.com/cosmos/cosmos-sdk/simapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
@@ -87,9 +77,11 @@ import (
 	upgradeclient "github.com/cosmos/cosmos-sdk/x/upgrade/client"
 	upgradekeeper "github.com/cosmos/cosmos-sdk/x/upgrade/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-
-	ibctestingtypes "github.com/cosmos/ibc-go/v6/testing/types"
-
+	ica "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts"
+	icahost "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host"
+	icahostkeeper "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/keeper"
+	icahosttypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/types"
+	icatypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/types"
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
 	ibctransfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	ibc "github.com/cosmos/ibc-go/v6/modules/core"
@@ -100,29 +92,24 @@ import (
 	ibchost "github.com/cosmos/ibc-go/v6/modules/core/24-host"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
 	ibctesting "github.com/cosmos/ibc-go/v6/testing"
+	ibctestingtypes "github.com/cosmos/ibc-go/v6/testing/types"
+	_ "github.com/ethereum/go-ethereum/eth/tracers/js"
+	_ "github.com/ethereum/go-ethereum/eth/tracers/native"
+	"github.com/gorilla/mux"
+	"github.com/rakyll/statik/fs"
+	"github.com/spf13/cast"
+	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/tendermint/tendermint/libs/log"
+	tmos "github.com/tendermint/tendermint/libs/os"
+	dbm "github.com/tendermint/tm-db"
 
-	ica "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts"
-	icahost "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host"
-	icahostkeeper "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/keeper"
-	icahosttypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/types"
-	icatypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/types"
-
+	"github.com/cvn-network/cvn/v1/app/ante"
 	ethante "github.com/cvn-network/cvn/v1/app/ante/evm"
+	_ "github.com/cvn-network/cvn/v1/client/docs/statik"
 	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 	srvflags "github.com/cvn-network/cvn/v1/server/flags"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/evm"
-	evmkeeper "github.com/cvn-network/cvn/v1/x/evm/keeper"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/cvn-network/cvn/v1/x/feemarket"
-	feemarketkeeper "github.com/cvn-network/cvn/v1/x/feemarket/keeper"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
-	// unnamed import of statik for swagger UI support
-	_ "github.com/cvn-network/cvn/v1/client/docs/statik"
-
-	"github.com/cvn-network/cvn/v1/app/ante"
 	"github.com/cvn-network/cvn/v1/x/claims"
 	claimskeeper "github.com/cvn-network/cvn/v1/x/claims/keeper"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
@@ -133,6 +120,14 @@ import (
 	erc20client "github.com/cvn-network/cvn/v1/x/erc20/client"
 	erc20keeper "github.com/cvn-network/cvn/v1/x/erc20/keeper"
 	erc20types "github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v1/x/evm"
+	evmkeeper "github.com/cvn-network/cvn/v1/x/evm/keeper"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v1/x/feemarket"
+	feemarketkeeper "github.com/cvn-network/cvn/v1/x/feemarket/keeper"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v1/x/ibc/transfer"
+	transferkeeper "github.com/cvn-network/cvn/v1/x/ibc/transfer/keeper"
 	"github.com/cvn-network/cvn/v1/x/incentives"
 	incentivesclient "github.com/cvn-network/cvn/v1/x/incentives/client"
 	incentiveskeeper "github.com/cvn-network/cvn/v1/x/incentives/keeper"
@@ -149,14 +144,6 @@ import (
 	"github.com/cvn-network/cvn/v1/x/vesting"
 	vestingkeeper "github.com/cvn-network/cvn/v1/x/vesting/keeper"
 	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"
-
-	// NOTE: override ICS20 keeper to support IBC transfers of ERC20 tokens
-	"github.com/cvn-network/cvn/v1/x/ibc/transfer"
-	transferkeeper "github.com/cvn-network/cvn/v1/x/ibc/transfer/keeper"
-
-	// Force-load the tracer engines to trigger registration due to Go-Ethereum v1.10.15 changes
-	_ "github.com/ethereum/go-ethereum/eth/tracers/js"
-	_ "github.com/ethereum/go-ethereum/eth/tracers/native"
 )
 
 func init() {

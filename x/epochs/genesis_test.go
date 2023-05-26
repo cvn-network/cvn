@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	"github.com/stretchr/testify/require"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
 	simapp "github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/x/epochs"
 	"github.com/cvn-network/cvn/v1/x/epochs/types"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 func TestEpochsExportGenesis(t *testing.T) {

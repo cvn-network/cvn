@@ -18,8 +18,6 @@ package usbwallet
 
 import (
 	"errors"
-	// runtime is listed as a potential source for non-determinism, but we use it only for checking the OS
-	// #nosec
 	"runtime"
 	"sync"
 	"sync/atomic"

@@ -3,14 +3,11 @@ package keeper_test
 import (
 	"context"
 
-	"github.com/stretchr/testify/mock"
-
-	tmbytes "github.com/tendermint/tendermint/libs/bytes"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
+	"github.com/stretchr/testify/mock"
+	tmbytes "github.com/tendermint/tendermint/libs/bytes"
 
 	"github.com/cvn-network/cvn/v1/x/recovery/types"
 )

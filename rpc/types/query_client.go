@@ -3,12 +3,10 @@ package types
 import (
 	"fmt"
 
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/types/tx"
-
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
-
-	"github.com/cosmos/cosmos-sdk/client"
 
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"

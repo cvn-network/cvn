@@ -4,11 +4,10 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/stretchr/testify/suite"
 
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/x/claims/types"
-
-	"github.com/stretchr/testify/suite"
 )
 
 type GenesisTestSuite struct {

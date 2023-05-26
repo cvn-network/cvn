@@ -7,15 +7,16 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/server/config"
-	"github.com/cvn-network/cvn/v1/testutil"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
+
+	"github.com/cvn-network/cvn/v1/server/config"
+	"github.com/cvn-network/cvn/v1/testutil"
+	"github.com/cvn-network/cvn/v1/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) EvmDenom() string {

@@ -4,22 +4,22 @@ import (
 	"math/big"
 	"time"
 
-	. "github.com/onsi/gomega"
-
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	. "github.com/onsi/gomega"
+	"github.com/stretchr/testify/require"
+	abci "github.com/tendermint/tendermint/abci/types"
+
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/utils"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
-	"github.com/ethereum/go-ethereum/common"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/stretchr/testify/require"
-	abci "github.com/tendermint/tendermint/abci/types"
 )
 
 func (suite *KeeperTestSuite) SetupApp() {

@@ -9,6 +9,7 @@ import (
 	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
+
 	"github.com/cvn-network/cvn/v1/app"
 	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
 	"github.com/cvn-network/cvn/v1/utils"

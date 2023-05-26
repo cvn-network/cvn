@@ -26,12 +26,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cvn-network/cvn/v1/ledger/accounts"
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	usb "github.com/zondax/hid"
+
+	"github.com/cvn-network/cvn/v1/ledger/accounts"
 )
 
 // Maximum time between wallet health checks to detect USB unplugs.

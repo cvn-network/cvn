@@ -6,9 +6,9 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
 )
 
 // EthMinGasPriceDecorator will check if the transaction's fee is at least as large

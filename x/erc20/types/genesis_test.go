@@ -3,8 +3,9 @@ package types_test
 import (
 	"testing"
 
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
 	"github.com/stretchr/testify/suite"
+
+	"github.com/cvn-network/cvn/v1/x/erc20/types"
 )
 
 type GenesisTestSuite struct {

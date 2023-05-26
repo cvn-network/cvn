@@ -4,16 +4,14 @@ import (
 	"fmt"
 	"time"
 
-	vestingexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	vestingexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/vesting/types"
 )
 

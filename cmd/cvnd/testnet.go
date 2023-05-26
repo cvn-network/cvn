@@ -10,14 +10,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ethereum/go-ethereum/common"
-
-	"github.com/spf13/cobra"
-	tmconfig "github.com/tendermint/tendermint/config"
-	tmrand "github.com/tendermint/tendermint/libs/rand"
-	"github.com/tendermint/tendermint/types"
-	tmtime "github.com/tendermint/tendermint/types/time"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -36,17 +28,21 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-
-	"github.com/cvn-network/cvn/v1/crypto/hd"
-	"github.com/cvn-network/cvn/v1/server/config"
-	srvflags "github.com/cvn-network/cvn/v1/server/flags"
-
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/spf13/cobra"
+	tmconfig "github.com/tendermint/tendermint/config"
+	tmrand "github.com/tendermint/tendermint/libs/rand"
+	"github.com/tendermint/tendermint/types"
+	tmtime "github.com/tendermint/tendermint/types/time"
 
 	cmdcfg "github.com/cvn-network/cvn/v1/cmd/config"
+	"github.com/cvn-network/cvn/v1/crypto/hd"
 	evmoskr "github.com/cvn-network/cvn/v1/crypto/keyring"
+	"github.com/cvn-network/cvn/v1/server/config"
+	srvflags "github.com/cvn-network/cvn/v1/server/flags"
 	"github.com/cvn-network/cvn/v1/testutil/network"
+	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 var (

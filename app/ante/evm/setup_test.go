@@ -5,15 +5,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/suite"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/simapp"
 	"github.com/cosmos/cosmos-sdk/testutil/testdata"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/stretchr/testify/suite"
+	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+
 	"github.com/cvn-network/cvn/v1/app"
 	ante "github.com/cvn-network/cvn/v1/app/ante"
 	"github.com/cvn-network/cvn/v1/encoding"
@@ -21,7 +22,6 @@ import (
 	"github.com/cvn-network/cvn/v1/utils"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-	"github.com/ethereum/go-ethereum/core/types"
 )
 
 type AnteTestSuite struct {

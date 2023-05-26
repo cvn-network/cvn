@@ -13,6 +13,12 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/stretchr/testify/require"
+
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/contracts"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
@@ -25,11 +31,6 @@ import (
 	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
 	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/cvn-network/cvn/v1/x/incentives/types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/stretchr/testify/require"
 )
 
 var (

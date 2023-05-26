@@ -5,8 +5,6 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/cvn-network/cvn/v1/utils"
-
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
@@ -16,10 +14,13 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/stretchr/testify/require"
+	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/tendermint/tendermint/libs/log"
+	dbm "github.com/tendermint/tm-db"
 
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
@@ -27,14 +28,9 @@ import (
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v1/utils"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/cvn-network/cvn/v1/x/feemarket/types"
-
-	"github.com/stretchr/testify/require"
-
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
 )
 
 func (suite *KeeperTestSuite) SetupApp(checkTx bool) {

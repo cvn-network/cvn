@@ -3,19 +3,15 @@ package types
 import (
 	"time"
 
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-
-	"github.com/ethereum/go-ethereum/common"
-
-	"github.com/tendermint/tendermint/libs/log"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
+	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/tendermint/tendermint/libs/log"
 
 	"github.com/cvn-network/cvn/v1/x/evm/statedb"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
 	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
 )
 

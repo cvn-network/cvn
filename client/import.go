@@ -3,14 +3,13 @@ package client
 import (
 	"bufio"
 
-	"github.com/spf13/cobra"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/input"
 	"github.com/cosmos/cosmos-sdk/crypto"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/spf13/cobra"
 
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/crypto/hd"
 )
 

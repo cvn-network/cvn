@@ -9,17 +9,14 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
-
 	"github.com/ethereum/go-ethereum/common"
-
 	"github.com/gogo/protobuf/proto"
+	"github.com/stretchr/testify/require"
 
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/encoding"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
-	"github.com/stretchr/testify/require"
 )
 
 func TestEvmDataEncoding(t *testing.T) {

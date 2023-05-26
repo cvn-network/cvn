@@ -8,14 +8,9 @@ import (
 	"testing"
 
 	"cosmossdk.io/math"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	grpctypes "github.com/cosmos/cosmos-sdk/types/grpc"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpc "github.com/cvn-network/cvn/v1/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	mock "github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -23,6 +18,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
+
+	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
+	rpc "github.com/cvn-network/cvn/v1/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // QueryClient defines a mocked object that implements the ethermint GRPC

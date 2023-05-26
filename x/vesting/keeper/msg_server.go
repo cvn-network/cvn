@@ -5,11 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-
-	"github.com/armon/go-metrics"
-
 	errorsmod "cosmossdk.io/errors"
+	"github.com/armon/go-metrics"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
@@ -17,6 +14,7 @@ import (
 	vestingexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
+	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/vesting/types"
 )
 

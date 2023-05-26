@@ -8,12 +8,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/stretchr/testify/suite"
 
 	"github.com/cvn-network/cvn/v1/server/config"
 	"github.com/cvn-network/cvn/v1/testutil/network"
-	"github.com/ethereum/go-ethereum/ethclient"
-
 	evmosnetwork "github.com/cvn-network/cvn/v1/testutil/network"
 )
 

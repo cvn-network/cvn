@@ -5,15 +5,13 @@ import (
 	"math/big"
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/ethereum/go-ethereum/common"
+	abci "github.com/tendermint/tendermint/abci/types"
 
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/evm/keeper"
 	"github.com/cvn-network/cvn/v1/x/evm/statedb"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
-	"github.com/ethereum/go-ethereum/common"
-
-	abci "github.com/tendermint/tendermint/abci/types"
 )
 
 func (suite *KeeperTestSuite) TestWithChainID() {

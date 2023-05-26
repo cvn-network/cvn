@@ -6,10 +6,11 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
+
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/x/claims/types"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
 )
 
 func (suite *KeeperTestSuite) TestAfterProposalVote() {

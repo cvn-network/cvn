@@ -6,20 +6,18 @@ import (
 
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/ethereum/go-ethereum/common"
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
-
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/utils"
-
 	"github.com/cvn-network/cvn/v1/app"
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/testutil"
+	"github.com/cvn-network/cvn/v1/utils"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
 )
 

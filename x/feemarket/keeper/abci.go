@@ -3,12 +3,12 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cvn-network/cvn/v1/x/feemarket/types"
-	abci "github.com/tendermint/tendermint/abci/types"
-
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	abci "github.com/tendermint/tendermint/abci/types"
+
+	"github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 // BeginBlock updates base fee

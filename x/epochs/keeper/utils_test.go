@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
+
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/testutil"
 	"github.com/cvn-network/cvn/v1/x/epochs/types"

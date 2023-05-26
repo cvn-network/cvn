@@ -3,14 +3,14 @@ package utils
 import (
 	"strings"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-
 	errorsmod "cosmossdk.io/errors"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	"github.com/cosmos/cosmos-sdk/crypto/types/multisig"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
+
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 )
 
 const (

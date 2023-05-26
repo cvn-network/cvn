@@ -3,21 +3,19 @@ package keeper
 import (
 	"math/big"
 
-	tmtypes "github.com/tendermint/tendermint/types"
-
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
-
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/params"
+	tmtypes "github.com/tendermint/tendermint/types"
+
+	cvntypes "github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v1/x/evm/statedb"
+	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // NewEVM generates a go-ethereum VM from the provided Message fields and the chain parameters

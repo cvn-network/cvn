@@ -6,15 +6,13 @@ import (
 	"fmt"
 	"strconv"
 
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-
-	tmbytes "github.com/tendermint/tendermint/libs/bytes"
-	tmtypes "github.com/tendermint/tendermint/types"
-
 	errorsmod "cosmossdk.io/errors"
 	"github.com/armon/go-metrics"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	tmbytes "github.com/tendermint/tendermint/libs/bytes"
+	tmtypes "github.com/tendermint/tendermint/types"
 
 	"github.com/cvn-network/cvn/v1/x/evm/types"
 )

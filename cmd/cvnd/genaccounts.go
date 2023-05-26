@@ -6,9 +6,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/spf13/cobra"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
@@ -19,12 +16,12 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
-
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/spf13/cobra"
 
 	evmoskr "github.com/cvn-network/cvn/v1/crypto/keyring"
-
+	"github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	vestingcli "github.com/cvn-network/cvn/v1/x/vesting/client/cli"
 	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"
 )

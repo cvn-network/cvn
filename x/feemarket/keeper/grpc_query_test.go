@@ -3,8 +3,9 @@ package keeper_test
 import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/x/feemarket/types"
 	ethparams "github.com/ethereum/go-ethereum/params"
+
+	"github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryParams() {

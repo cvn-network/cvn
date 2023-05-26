@@ -5,15 +5,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
-	"github.com/ethereum/go-ethereum/common"
-
-	hdwallet "github.com/miguelmota/go-ethereum-hdwallet"
-
 	amino "github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
+	"github.com/ethereum/go-ethereum/common"
+	hdwallet "github.com/miguelmota/go-ethereum-hdwallet"
+	"github.com/stretchr/testify/require"
 
 	cryptocodec "github.com/cvn-network/cvn/v1/crypto/codec"
 	enccodec "github.com/cvn-network/cvn/v1/encoding/codec"

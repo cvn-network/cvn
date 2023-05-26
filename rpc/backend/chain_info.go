@@ -6,15 +6,16 @@ import (
 	"strconv"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rpc"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
+
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	"github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 // ChainID is the EIP-155 replay-protection chain id for the current ethereum chain config.

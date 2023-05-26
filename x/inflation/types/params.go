@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
 	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 

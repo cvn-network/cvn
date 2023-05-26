@@ -3,15 +3,14 @@ package ibc
 import (
 	"testing"
 
-	"github.com/cvn-network/cvn/v1/x/claims/types"
-	"github.com/stretchr/testify/require"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibctesting "github.com/cosmos/ibc-go/v6/testing"
+	"github.com/stretchr/testify/require"
+
 	teststypes "github.com/cvn-network/cvn/v1/types/tests"
+	"github.com/cvn-network/cvn/v1/x/claims/types"
 )
 
 func init() {

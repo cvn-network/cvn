@@ -2,6 +2,7 @@ package backend
 
 import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+
 	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
 	rpc "github.com/cvn-network/cvn/v1/rpc/types"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"

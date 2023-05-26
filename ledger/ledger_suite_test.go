@@ -5,10 +5,6 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/stretchr/testify/suite"
-
-	gethaccounts "github.com/ethereum/go-ethereum/accounts"
-
 	"github.com/cosmos/cosmos-sdk/codec"
 	codecTypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
@@ -18,6 +14,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	auxTx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	gethaccounts "github.com/ethereum/go-ethereum/accounts"
+	"github.com/stretchr/testify/suite"
 
 	"github.com/cvn-network/cvn/v1/ledger"
 	"github.com/cvn-network/cvn/v1/ledger/accounts"

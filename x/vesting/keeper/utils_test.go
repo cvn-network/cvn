@@ -5,8 +5,6 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/onsi/gomega"
-
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
@@ -14,10 +12,11 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	. "github.com/onsi/gomega"
+	"github.com/stretchr/testify/require"
 
 	"github.com/cvn-network/cvn/v1/app"
 	cosmosante "github.com/cvn-network/cvn/v1/app/ante/cosmos"
@@ -32,8 +31,6 @@ import (
 	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/cvn-network/cvn/v1/x/vesting/types"
-
-	"github.com/stretchr/testify/require"
 )
 
 func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {

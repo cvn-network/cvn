@@ -3,14 +3,13 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/cvn-network/cvn/v1/x/inflation/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
 	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
 	incentivestypes "github.com/cvn-network/cvn/v1/x/incentives/types"
+	"github.com/cvn-network/cvn/v1/x/inflation/types"
 )
 
 var (

@@ -6,13 +6,11 @@ import (
 	"path"
 	"time"
 
-	"github.com/spf13/viper"
-
-	"github.com/tendermint/tendermint/libs/strings"
-
 	errorsmod "cosmossdk.io/errors"
 	"github.com/cosmos/cosmos-sdk/server/config"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/spf13/viper"
+	"github.com/tendermint/tendermint/libs/strings"
 )
 
 const (

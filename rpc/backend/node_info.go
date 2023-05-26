@@ -15,15 +15,16 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	distributiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto"
+	tmtypes "github.com/tendermint/tendermint/types"
+
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
 	"github.com/cvn-network/cvn/v1/server/config"
 	"github.com/cvn-network/cvn/v1/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	tmtypes "github.com/tendermint/tendermint/types"
 )
 
 // Accounts returns the list of accounts available to this node.

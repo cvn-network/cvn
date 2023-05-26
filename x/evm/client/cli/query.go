@@ -1,12 +1,11 @@
 package cli
 
 import (
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	"github.com/spf13/cobra"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/spf13/cobra"
 
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 

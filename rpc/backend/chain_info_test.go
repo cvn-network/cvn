@@ -4,15 +4,12 @@ import (
 	"fmt"
 	"math/big"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethrpc "github.com/ethereum/go-ethereum/rpc"
-
-	"google.golang.org/grpc/metadata"
-
-	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	"github.com/tendermint/tendermint/abci/types"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
+	"google.golang.org/grpc/metadata"
 
 	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
 	rpc "github.com/cvn-network/cvn/v1/rpc/types"

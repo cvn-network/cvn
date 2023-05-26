@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"math/big"
 
-	sdkmath "cosmossdk.io/math"
-
 	errorsmod "cosmossdk.io/errors"
+	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/ethereum/go-ethereum/common"
+
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/evm/statedb"
 	"github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/ethereum/go-ethereum/common"
 )
 
 var _ statedb.Keeper = &Keeper{}

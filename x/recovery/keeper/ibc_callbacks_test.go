@@ -3,22 +3,20 @@ package keeper_test
 import (
 	"fmt"
 
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/stretchr/testify/mock"
-
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 	ibcmock "github.com/cosmos/ibc-go/v6/testing/mock"
+	"github.com/stretchr/testify/mock"
 
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v1/testutil"
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
 	incentivestypes "github.com/cvn-network/cvn/v1/x/incentives/types"
 	"github.com/cvn-network/cvn/v1/x/recovery/keeper"

@@ -8,6 +8,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
+	sdktestutil "github.com/cosmos/cosmos-sdk/testutil"
+	sdktestutilcli "github.com/cosmos/cosmos-sdk/testutil/cli"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	bankcli "github.com/cosmos/cosmos-sdk/x/bank/client/cli"
+	. "github.com/onsi/ginkgo/v2"
+	"github.com/spf13/cobra"
 
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/crypto/hd"
@@ -15,15 +21,6 @@ import (
 	"github.com/cvn-network/cvn/v1/tests/integration/ledger/mocks"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-
-	"github.com/spf13/cobra"
-
-	sdktestutil "github.com/cosmos/cosmos-sdk/testutil"
-	sdktestutilcli "github.com/cosmos/cosmos-sdk/testutil/cli"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	bankcli "github.com/cosmos/cosmos-sdk/x/bank/client/cli"
-
-	. "github.com/onsi/ginkgo/v2"
 )
 
 var (

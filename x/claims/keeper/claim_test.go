@@ -10,15 +10,15 @@ import (
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-
 	"github.com/cvn-network/cvn/v1/x/claims/types"
+	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {

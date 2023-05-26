@@ -5,13 +5,14 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/stretchr/testify/mock"
+
+	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v1/x/evm/statedb"
+	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 var _ types.EVMKeeper = &MockEVMKeeper{}

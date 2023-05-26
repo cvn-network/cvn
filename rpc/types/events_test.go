@@ -4,10 +4,11 @@ import (
 	"math/big"
 	"testing"
 
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
 	abci "github.com/tendermint/tendermint/abci/types"
+
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func TestParseTxResult(t *testing.T) {

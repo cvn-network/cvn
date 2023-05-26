@@ -5,27 +5,23 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/erc20/keeper"
-
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-
-	"github.com/ethereum/go-ethereum/common"
-
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/testutil"
-
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 	ibcmock "github.com/cosmos/ibc-go/v6/testing/mock"
+	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/cvn-network/cvn/v1/contracts"
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v1/testutil"
+	"github.com/cvn-network/cvn/v1/utils"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
+	"github.com/cvn-network/cvn/v1/x/erc20/keeper"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
 	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
 	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"

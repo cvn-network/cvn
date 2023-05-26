@@ -3,13 +3,12 @@ package erc20
 import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
+	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 
-	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cvn-network/cvn/v1/ibc"
 	"github.com/cvn-network/cvn/v1/x/erc20/keeper"
 )

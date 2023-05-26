@@ -10,9 +10,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 	"github.com/ethereum/go-ethereum/crypto"
 	tmcrypto "github.com/tendermint/tendermint/crypto"
+
+	"github.com/cvn-network/cvn/v1/ethereum/eip712"
 )
 
 const (

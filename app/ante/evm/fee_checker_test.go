@@ -4,18 +4,18 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/stretchr/testify/require"
+	"github.com/tendermint/tendermint/libs/log"
+	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+
 	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/types"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/tendermint/tendermint/libs/log"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 )
 
 var _ DynamicFeeEVMKeeper = MockEVMKeeper{}

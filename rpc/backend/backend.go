@@ -9,10 +9,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	"github.com/cosmos/cosmos-sdk/server"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	"github.com/cvn-network/cvn/v1/server/config"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
@@ -21,6 +17,11 @@ import (
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	"github.com/tendermint/tendermint/libs/log"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
+
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	"github.com/cvn-network/cvn/v1/server/config"
+	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // BackendI implements the Cosmos and EVM backend.

@@ -11,6 +11,9 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
+	"github.com/ethereum/go-ethereum/common"
+	. "github.com/onsi/ginkgo/v2"
+
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/contracts"
 	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
@@ -19,8 +22,6 @@ import (
 	"github.com/cvn-network/cvn/v1/utils"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
-	"github.com/ethereum/go-ethereum/common"
-	. "github.com/onsi/ginkgo/v2"
 )
 
 var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {

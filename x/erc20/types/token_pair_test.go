@@ -4,11 +4,12 @@ import (
 	"strings"
 	"testing"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/crypto/tmhash"
+
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	"github.com/cvn-network/cvn/v1/x/erc20/types"
 )
 
 type TokenPairTestSuite struct {

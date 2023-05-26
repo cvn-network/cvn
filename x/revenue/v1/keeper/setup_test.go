@@ -3,22 +3,20 @@ package keeper_test
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
-
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
+	"github.com/stretchr/testify/suite"
 
 	"github.com/cvn-network/cvn/v1/app"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
-
-	"github.com/stretchr/testify/suite"
 )
 
 type KeeperTestSuite struct {

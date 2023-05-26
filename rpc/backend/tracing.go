@@ -6,11 +6,12 @@ import (
 	"math"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/pkg/errors"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
+
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // TraceTransaction returns the structured logs created during the execution of EVM

@@ -5,20 +5,18 @@ import (
 	"net/http"
 	"time"
 
-	// TODO update import to local pkg when rpc pkg is migrated
-	"github.com/cvn-network/cvn/v1/server/config"
-	"github.com/gorilla/mux"
-	"github.com/improbable-eng/grpc-web/go/grpcweb"
-	"github.com/spf13/cobra"
-	"golang.org/x/net/netutil"
-
 	sdkserver "github.com/cosmos/cosmos-sdk/server"
 	"github.com/cosmos/cosmos-sdk/server/types"
 	"github.com/cosmos/cosmos-sdk/version"
-
+	"github.com/gorilla/mux"
+	"github.com/improbable-eng/grpc-web/go/grpcweb"
+	"github.com/spf13/cobra"
 	tmcmd "github.com/tendermint/tendermint/cmd/cometbft/commands"
 	tmlog "github.com/tendermint/tendermint/libs/log"
 	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
+	"golang.org/x/net/netutil"
+
+	"github.com/cvn-network/cvn/v1/server/config"
 )
 
 // AddCommands adds server commands

@@ -4,8 +4,9 @@ import (
 	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/ethereum/go-ethereum/common"
+
+	cvntypes "github.com/cvn-network/cvn/v1/types"
 )
 
 // NewIncentive returns an instance of Incentive

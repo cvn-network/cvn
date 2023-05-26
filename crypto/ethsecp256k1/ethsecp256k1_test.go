@@ -4,14 +4,11 @@ import (
 	"encoding/base64"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
 	"github.com/cosmos/cosmos-sdk/codec"
-
+	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/crypto/secp256k1"
-
-	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
+	"github.com/stretchr/testify/require"
 )
 
 func TestPrivKey(t *testing.T) {

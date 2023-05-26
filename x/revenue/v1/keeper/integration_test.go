@@ -5,19 +5,18 @@ import (
 	"math/big"
 	"strings"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	"github.com/cvn-network/cvn/v1/testutil"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 )
 
 var contractCode = "600661000e60003960066000f300612222600055"

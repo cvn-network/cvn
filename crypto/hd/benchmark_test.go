@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
+
 	"github.com/cvn-network/cvn/v1/types"
 )
 

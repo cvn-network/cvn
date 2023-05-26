@@ -2,9 +2,9 @@ package transfer
 
 import (
 	"github.com/cosmos/cosmos-sdk/types/module"
-
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
 	"github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
+
 	"github.com/cvn-network/cvn/v1/x/ibc/transfer/keeper"
 )
 

@@ -9,15 +9,14 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/ante"
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	ibcante "github.com/cosmos/ibc-go/v6/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
-	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
 
 	cosmosante "github.com/cvn-network/cvn/v1/app/ante/cosmos"
 	evmante "github.com/cvn-network/cvn/v1/app/ante/evm"
+	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"
 )
 

@@ -6,9 +6,9 @@ import (
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/stretchr/testify/require"
 
 	"github.com/cvn-network/cvn/v1/x/claims/types"
-	"github.com/stretchr/testify/require"
 )
 
 func TestParamsValidate(t *testing.T) {

@@ -12,21 +12,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
-
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-
-	stderrors "github.com/pkg/errors"
-
 	"github.com/cosmos/cosmos-sdk/server"
-
-	"github.com/cvn-network/cvn/v1/rpc/backend"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/consensus/ethash"
 	"github.com/ethereum/go-ethereum/rlp"
+	stderrors "github.com/pkg/errors"
 	"github.com/tendermint/tendermint/libs/log"
+
+	"github.com/cvn-network/cvn/v1/rpc/backend"
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // HandlerT keeps track of the cpu profiler and trace execution

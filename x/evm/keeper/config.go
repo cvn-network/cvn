@@ -5,11 +5,12 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/vm"
+
+	"github.com/cvn-network/cvn/v1/x/evm/statedb"
+	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // EVMConfig creates the EVMConfig based on current state

@@ -3,16 +3,14 @@ package keeper_test
 import (
 	"testing"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
-
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 
 	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/x/epochs/types"
+	evm "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 type KeeperTestSuite struct {

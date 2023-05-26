@@ -2,9 +2,10 @@ package types
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/crypto/tmhash"
+
+	cvntypes "github.com/cvn-network/cvn/v1/types"
 )
 
 // NewTokenPair returns an instance of TokenPair

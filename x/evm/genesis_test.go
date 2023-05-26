@@ -3,9 +3,9 @@ package evm_test
 import (
 	"math/big"
 
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
 	cvntypes "github.com/cvn-network/cvn/v1/types"
 	"github.com/cvn-network/cvn/v1/x/evm"

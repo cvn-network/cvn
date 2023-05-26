@@ -4,10 +4,10 @@ import (
 	_ "embed" // embed compiled smart contract
 	"encoding/json"
 
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 var (

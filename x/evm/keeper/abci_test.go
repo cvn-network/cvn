@@ -1,8 +1,9 @@
 package keeper_test
 
 import (
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/tendermint/tendermint/abci/types"
+
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

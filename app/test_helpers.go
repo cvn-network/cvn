@@ -4,9 +4,14 @@ import (
 	"encoding/json"
 	"time"
 
+	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
+	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	"github.com/cosmos/cosmos-sdk/simapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ibctesting "github.com/cosmos/ibc-go/v6/testing"
 	"github.com/cosmos/ibc-go/v6/testing/mock"
 	abci "github.com/tendermint/tendermint/abci/types"
@@ -15,17 +20,10 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
-	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-
-	"github.com/cvn-network/cvn/v1/encoding"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
 	"github.com/cvn-network/cvn/v1/cmd/config"
+	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/utils"
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 func init() {

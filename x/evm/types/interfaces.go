@@ -3,15 +3,14 @@ package types
 import (
 	"math/big"
 
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
+
+	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 // AccountKeeper defines the expected account keeper interface

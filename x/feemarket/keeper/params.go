@@ -3,9 +3,9 @@ package keeper
 import (
 	"math/big"
 
-	"github.com/cvn-network/cvn/v1/x/feemarket/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
+	"github.com/cvn-network/cvn/v1/x/feemarket/types"
 )
 
 // GetParams returns the total set of fee market parameters.

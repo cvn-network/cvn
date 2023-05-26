@@ -3,9 +3,10 @@ package keeper
 import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
+
+	"github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 var _ types.EvmHooks = MultiEvmHooks{}

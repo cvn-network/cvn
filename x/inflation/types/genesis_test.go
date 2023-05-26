@@ -3,8 +3,9 @@ package types
 import (
 	"testing"
 
-	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
 	"github.com/stretchr/testify/suite"
+
+	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
 )
 
 type GenesisTestSuite struct {

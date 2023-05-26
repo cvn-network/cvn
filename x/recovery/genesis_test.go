@@ -12,11 +12,10 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
+	"github.com/cvn-network/cvn/v1/app"
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/utils"
 	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-
-	"github.com/cvn-network/cvn/v1/app"
 	"github.com/cvn-network/cvn/v1/x/recovery"
 	"github.com/cvn-network/cvn/v1/x/recovery/types"
 )

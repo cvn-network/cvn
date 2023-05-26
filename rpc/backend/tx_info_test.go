@@ -5,11 +5,6 @@ import (
 	"math/big"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/indexer"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	abci "github.com/tendermint/tendermint/abci/types"
@@ -18,6 +13,12 @@ import (
 	"github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 	"google.golang.org/grpc/metadata"
+
+	"github.com/cvn-network/cvn/v1/indexer"
+	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	cvntypes "github.com/cvn-network/cvn/v1/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestGetTransactionByHash() {

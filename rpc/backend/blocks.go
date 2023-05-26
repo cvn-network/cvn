@@ -9,8 +9,6 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	grpctypes "github.com/cosmos/cosmos-sdk/types/grpc"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
@@ -19,6 +17,9 @@ import (
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
+
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // BlockNumber returns the current block number in abci app state. Because abci

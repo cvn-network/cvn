@@ -14,11 +14,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
+	"github.com/ethereum/go-ethereum/core/types"
+	ethparams "github.com/ethereum/go-ethereum/params"
 
 	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/ethereum/go-ethereum/core/types"
-	ethparams "github.com/ethereum/go-ethereum/params"
 )
 
 func (suite *AnteTestSuite) TestAnteHandler() {

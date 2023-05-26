@@ -6,15 +6,16 @@ import (
 	"math/big"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/rlp"
 	"google.golang.org/grpc/metadata"
+
+	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
+	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestResend() {

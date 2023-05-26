@@ -3,12 +3,11 @@ package testutil
 import (
 	"time"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/crypto/tmhash"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
-
-	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 // NewHeader creates a new Tendermint header for testing purposes.

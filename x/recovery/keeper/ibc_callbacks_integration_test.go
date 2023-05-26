@@ -6,15 +6,15 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
+
 	"github.com/cvn-network/cvn/v1/app"
 	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
 	"github.com/cvn-network/cvn/v1/testutil"
 	teststypes "github.com/cvn-network/cvn/v1/types/tests"
 	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
 	"github.com/cvn-network/cvn/v1/x/recovery/types"
-
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {

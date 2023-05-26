@@ -8,8 +8,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/cvn-network/cvn/v1/server/config"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -17,7 +15,9 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/cvn-network/cvn/v1/contracts"
+	"github.com/cvn-network/cvn/v1/server/config"
 	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
 )
 
 // DeployERC20Contract creates and deploys an ERC20 contract on the EVM with the

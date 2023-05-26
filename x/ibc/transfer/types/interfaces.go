@@ -3,12 +3,10 @@ package types
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/common"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
+	"github.com/ethereum/go-ethereum/common"
 
 	erc20types "github.com/cvn-network/cvn/v1/x/erc20/types"
 )

@@ -6,14 +6,15 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	"github.com/cvn-network/cvn/v1/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/spf13/viper"
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
 	"google.golang.org/grpc/metadata"
+
+	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
+	"github.com/cvn-network/cvn/v1/types"
 )
 
 func (suite *BackendTestSuite) TestRPCMinGasPrice() {

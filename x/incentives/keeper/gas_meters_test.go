@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"fmt"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/ethereum/go-ethereum/common"
 
+	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
 	"github.com/cvn-network/cvn/v1/x/incentives/types"
 )
 

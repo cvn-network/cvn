@@ -5,7 +5,6 @@ import (
 	"sync/atomic"
 
 	"github.com/pkg/errors"
-
 	coretypes "github.com/tendermint/tendermint/rpc/core/types"
 )
 

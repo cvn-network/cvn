@@ -3,11 +3,9 @@ package types
 import (
 	"math/big"
 
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-
-	"github.com/ethereum/go-ethereum/common"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/cvn-network/cvn/v1/x/evm/statedb"
 	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
