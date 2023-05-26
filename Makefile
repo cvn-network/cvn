@@ -174,7 +174,7 @@ all: build
 
 build-all: tools build lint test vulncheck
 
-.PHONY: distclean clean build-all
+.PHONY: distclean clean build-all build
 
 ###############################################################################
 ###                          Tools & Dependencies                           ###
@@ -256,7 +256,7 @@ tools-clean:
 .PHONY: runsim statik tools contract-tools tools-stamp tools-clean
 
 go.sum: go.mod
-	echo "Ensure dependencies have not been modified ..." >&2
+	@echo "Ensure dependencies have not been modified ..." >&2
 	go mod verify
 	go mod tidy
 
@@ -320,9 +320,9 @@ test-e2e:
 
 run-tests:
 ifneq (,$(shell which tparse 2>/dev/null))
-	go test -mod=readonly -json $(ARGS) $(EXTRA_ARGS) $(TEST_PACKAGES) | tparse
+	@go test -mod=readonly -json $(ARGS) $(EXTRA_ARGS) $(TEST_PACKAGES) | tparse
 else
-	go test -mod=readonly $(ARGS)  $(EXTRA_ARGS) $(TEST_PACKAGES)
+	@go test -mod=readonly $(ARGS)  $(EXTRA_ARGS) $(TEST_PACKAGES)
 endif
 
 test-import:
