@@ -44,6 +44,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - Update inflation distribution to 85% staking rewards, 5% usage incentives, 10% community pool
 - Update signed blocks window to 5000
 - Update evm tx base fee to 0.1*1e9 CVN
+- Add `SOUL` token contract
 
 ## [v1.0.2] - 2023-06-09
 
