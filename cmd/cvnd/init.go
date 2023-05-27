@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
 
 	"github.com/pkg/errors"
@@ -17,7 +16,6 @@ import (
 	cfg "github.com/tendermint/tendermint/config"
 	"github.com/tendermint/tendermint/libs/cli"
 	tmos "github.com/tendermint/tendermint/libs/os"
-	tmrand "github.com/tendermint/tendermint/libs/rand"
 	"github.com/tendermint/tendermint/types"
 
 	"github.com/cosmos/go-bip39"
@@ -84,12 +82,9 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config.P2P.MaxNumOutboundPeers = 30
 
 			// Set default seeds
-			seeds := []string{
-				"40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.evmos.jerrychong.com:26656",                 // jerrychong
-				"e3e11fca4ecf4035a751f3fea90e3a821e274487@bd-evmos-mainnet-seed-node-01.bdnodes.net:26656", // blockdaemon
-				"fc86e7e75c5d2e4699535e1b1bec98ae55b16826@bd-evmos-mainnet-seed-node-02.bdnodes.net:26656", // blockdaemon
-			}
-			config.P2P.Seeds = strings.Join(seeds, ",")
+			//seeds := []string{
+			//}
+			//config.P2P.Seeds = strings.Join(seeds, ",")
 
 			config.Mempool.Size = 10000
 			config.StateSync.TrustPeriod = 112 * time.Hour
@@ -97,9 +92,6 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config.SetRoot(clientCtx.HomeDir)
 
 			chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
-			if chainID == "" {
-				chainID = fmt.Sprintf("cvn_2031-%v", tmrand.Str(6))
-			}
 
 			// Get bip39 mnemonic
 			var mnemonic string
