@@ -235,12 +235,12 @@ else
 	@echo "protoc-gen-go-grpc already installed; skipping..."
 endif
 
-ifeq (, $(shell which solcjs))
-	@echo "Installing solcjs..."
-	@npm install -g solc@0.5.11
-else
-	@echo "solcjs already installed; skipping..."
-endif
+#ifeq (, $(shell which solcjs))
+#	@echo "Installing solcjs..."
+#	@npm install -g solc@0.5.11
+#else
+#	@echo "solcjs already installed; skipping..."
+#endif
 
 tools: tools-stamp
 tools-stamp: contract-tools docs-tools statik runsim
@@ -348,26 +348,14 @@ benchmark:
 
 lint:
 	golangci-lint run --out-format=tab
-	(cd contracts && solhint contracts/**/*.sol)
-
-lint-contracts:
-	@cd contracts && \
-	npm i && \
-	npm run lint
 
 lint-fix:
 	golangci-lint run --fix --out-format=tab --issues-exit-code=0
 
-lint-fix-contracts:
-	@cd contracts && \
-	npm i && \
-	npm run lint-fix
-	solhint --fix contracts/**/*.sol
-
 .PHONY: lint lint-fix
 
 format:
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' | xargs gofumpt -w -l
+	golangci-lint run --fix --out-format=tab --issues-exit-code=0
 
 .PHONY: format
 
@@ -560,57 +548,18 @@ release:
 .PHONY: release-dry-run release
 
 ###############################################################################
-###                        Compile Solidity Contracts                       ###
+###                                Contracts                                ###
 ###############################################################################
 
-CONTRACTS_DIR := contracts
-COMPILED_DIR := contracts/compiled_contracts
-TMP := tmp
-TMP_CONTRACTS := $(TMP).contracts
-TMP_COMPILED := $(TMP)/compiled.json
-TMP_JSON := $(TMP)/tmp.json
+CONTRACTS_DIR := $(CURDIR)/contracts
 
-# Compile and format solidity contracts for the erc20 module. Also install
-# openzeppeling as the contracts are build on top of openzeppelin templates.
-contracts-compile: contracts-clean openzeppelin create-contracts-json
+lint-contracts:
+	cd $(CONTRACTS_DIR) && npm run lint
 
-# Install openzeppelin solidity contracts
-openzeppelin:
-	@echo "Importing openzeppelin contracts..."
-	@cd $(CONTRACTS_DIR)
-	@npm install
-	@cd ../../../../
-	@mv node_modules $(TMP)
-	@mv package-lock.json $(TMP)
-	@mv $(TMP)/@openzeppelin $(CONTRACTS_DIR)
+lint-fix-contracts:
+	cd $(CONTRACTS_DIR) && npm run lint-fix
 
-# Clean tmp files
-contracts-clean:
-	@rm -rf tmp
-	@rm -rf node_modules
-	@rm -rf $(COMPILED_DIR)
-	@rm -rf $(CONTRACTS_DIR)/@openzeppelin
+contracts-compile:
+	cd $(CONTRACTS_DIR) && npm run compile
 
-# Compile, filter out and format contracts into the following format.
-# {
-# 	"abi": "[{\"inpu 			# JSON string
-# 	"bin": "60806040
-# 	"contractName": 			# filename without .sol
-# }
-create-contracts-json:
-	@for c in $(shell ls $(CONTRACTS_DIR) | grep '\.sol' | sed 's/.sol//g'); do \
-		command -v jq > /dev/null 2>&1 || { echo >&2 "jq not installed."; exit 1; } ;\
-		command -v solc > /dev/null 2>&1 || { echo >&2 "solc not installed."; exit 1; } ;\
-		mkdir -p $(COMPILED_DIR) ;\
-		mkdir -p $(TMP) ;\
-		echo "\nCompiling solidity contract $${c}..." ;\
-		solc --combined-json abi,bin $(CONTRACTS_DIR)/$${c}.sol > $(TMP_COMPILED) ;\
-		echo "Formatting JSON..." ;\
-		get_contract=$$(jq '.contracts["$(CONTRACTS_DIR)/'$$c'.sol:'$$c'"]' $(TMP_COMPILED)) ;\
-		add_contract_name=$$(echo $$get_contract | jq '. + { "contractName": "'$$c'" }') ;\
-		echo $$add_contract_name | jq > $(TMP_JSON) ;\
-		abi_string=$$(echo $$add_contract_name | jq -cr '.abi') ;\
-		echo $$add_contract_name | jq --arg newval "$$abi_string" '.abi = $$newval' > $(TMP_JSON) ;\
-		mv $(TMP_JSON) $(COMPILED_DIR)/$${c}.json ;\
-	done
-	@rm -rf tmp
+.PHONY: contracts-compile
