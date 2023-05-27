@@ -6,7 +6,6 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
@@ -307,9 +306,9 @@ func (a appCreator) appExport(
 // return tmcfg.DefaultConfig if no custom configuration is required for the application.
 func initTendermintConfig() *tmcfg.Config {
 	cfg := tmcfg.DefaultConfig()
-	cfg.Consensus.TimeoutCommit = time.Second
+	//cfg.Consensus.TimeoutCommit = time.Second
 	// use v0 since v1 severely impacts the node's performance
-	cfg.Mempool.Version = tmcfg.MempoolV0
+	//cfg.Mempool.Version = tmcfg.MempoolV0
 
 	// to put a higher strain on node memory, use these values:
 	// cfg.P2P.MaxNumInboundPeers = 100
