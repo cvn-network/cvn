@@ -11,11 +11,11 @@ import (
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpc "github.com/cvn-network/cvn/v1/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	rpc "github.com/cvn-network/cvn/v2/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 func (suite *BackendTestSuite) TestBaseFee() {

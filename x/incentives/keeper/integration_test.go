@@ -10,9 +10,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/cvn-network/cvn/v1/x/incentives/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v2/x/incentives/types"
 )
 
 var _ = Describe("Performing EVM transactions", Ordered, func() {

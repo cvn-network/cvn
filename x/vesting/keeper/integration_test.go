@@ -12,11 +12,11 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/vesting/types"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/testutil"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 // TestClawbackAccount is a struct to store all relevant information that is corresponding

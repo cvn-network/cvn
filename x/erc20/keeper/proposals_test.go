@@ -10,11 +10,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/mock"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/erc20/keeper"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/erc20/keeper"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 const (

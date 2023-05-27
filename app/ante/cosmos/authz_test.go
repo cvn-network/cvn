@@ -14,10 +14,10 @@ import (
 	"github.com/stretchr/testify/require"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	cosmosante "github.com/cvn-network/cvn/v1/app/ante/cosmos"
-	testutil "github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	cosmosante "github.com/cvn-network/cvn/v2/app/ante/cosmos"
+	testutil "github.com/cvn-network/cvn/v2/testutil"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func TestAuthzLimiterDecorator(t *testing.T) {

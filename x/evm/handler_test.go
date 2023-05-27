@@ -28,16 +28,16 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/evm"
-	"github.com/cvn-network/cvn/v1/x/evm/keeper"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v2/x/evm"
+	"github.com/cvn-network/cvn/v2/x/evm/keeper"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	"github.com/cvn-network/cvn/v2/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 type EvmTestSuite struct {

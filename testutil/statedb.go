@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v1/app/ante/evm"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
+	"github.com/cvn-network/cvn/v2/app/ante/evm"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
 )
 
 // NewStateDB returns a new StateDB for testing purposes.

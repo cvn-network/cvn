@@ -3,9 +3,9 @@ package keeper_test
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/claims/types"
+	"github.com/cvn-network/cvn/v2/testutil"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestClaimsInvariant() {

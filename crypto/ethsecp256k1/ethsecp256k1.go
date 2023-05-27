@@ -13,7 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	tmcrypto "github.com/tendermint/tendermint/crypto"
 
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
 )
 
 const (

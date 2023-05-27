@@ -10,7 +10,7 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	tmbytes "github.com/tendermint/tendermint/libs/bytes"
 
-	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
+	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
 )
 
 // BankKeeper defines the banking keeper that must be fulfilled when

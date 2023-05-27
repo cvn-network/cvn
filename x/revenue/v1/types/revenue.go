@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 // NewRevenue returns an instance of Revenue. If the provided withdrawer

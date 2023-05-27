@@ -3,7 +3,7 @@ package keeper_test
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/recovery/types"
+	"github.com/cvn-network/cvn/v2/x/recovery/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryParams() {

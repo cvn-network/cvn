@@ -12,10 +12,10 @@ import (
 	"github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/indexer"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/indexer"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestTraceTransaction() {

@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 )
 
 // GetParams returns the total set of revenue parameters.

@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 var (

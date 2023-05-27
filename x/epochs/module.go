@@ -17,9 +17,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v1/x/epochs/client/cli"
-	"github.com/cvn-network/cvn/v1/x/epochs/keeper"
-	"github.com/cvn-network/cvn/v1/x/epochs/types"
+	"github.com/cvn-network/cvn/v2/x/epochs/client/cli"
+	"github.com/cvn-network/cvn/v2/x/epochs/keeper"
+	"github.com/cvn-network/cvn/v2/x/epochs/types"
 )
 
 var (

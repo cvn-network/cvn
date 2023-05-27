@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/cvn-network/cvn/v1/x/recovery/types"
+	"github.com/cvn-network/cvn/v2/x/recovery/types"
 )
 
 // NewHandler returns a handler for recovery type messages.

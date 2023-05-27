@@ -19,7 +19,7 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 var (

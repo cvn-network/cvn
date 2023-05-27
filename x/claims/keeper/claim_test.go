@@ -13,12 +13,12 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/claims/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/testutil"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {

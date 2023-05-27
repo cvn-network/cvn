@@ -27,15 +27,15 @@ import (
 	"github.com/tendermint/tendermint/crypto/tmhash"
 	tmjson "github.com/tendermint/tendermint/libs/json"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/testutil"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/utils"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v2/testutil"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/utils"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 type KeeperTestSuite struct {

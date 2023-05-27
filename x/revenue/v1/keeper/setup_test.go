@@ -12,11 +12,11 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v1/app"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v2/app"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evm "github.com/cvn-network/cvn/v2/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 )
 
 type KeeperTestSuite struct {

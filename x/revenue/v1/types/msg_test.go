@@ -8,8 +8,8 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/suite"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 )
 
 type MsgsTestSuite struct {

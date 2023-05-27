@@ -18,8 +18,8 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 // ExceedBlockGasLimitError defines the error message when tx execution exceeds the block gas limit.

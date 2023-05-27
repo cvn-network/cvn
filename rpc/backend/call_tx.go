@@ -18,9 +18,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	"github.com/cvn-network/cvn/v2/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // Resend accepts an existing transaction and a new gas price and limit. It will remove

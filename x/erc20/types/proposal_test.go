@@ -8,8 +8,8 @@ import (
 	length "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/stretchr/testify/suite"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
 )
 
 type ProposalTestSuite struct {

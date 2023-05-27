@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 var _ types.QueryServer = Keeper{}

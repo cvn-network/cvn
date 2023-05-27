@@ -12,9 +12,9 @@ import (
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 func (suite *BackendTestSuite) TestRPCMinGasPrice() {

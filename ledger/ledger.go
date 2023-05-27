@@ -11,9 +11,9 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
-	"github.com/cvn-network/cvn/v1/ledger/accounts"
-	"github.com/cvn-network/cvn/v1/ledger/usbwallet"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
+	"github.com/cvn-network/cvn/v2/ledger/accounts"
+	"github.com/cvn-network/cvn/v2/ledger/usbwallet"
 )
 
 // Secp256k1DerivationFn defines the derivation function used on the Cosmos SDK Keyring.

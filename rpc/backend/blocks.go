@@ -18,8 +18,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // BlockNumber returns the current block number in abci app state. Because abci

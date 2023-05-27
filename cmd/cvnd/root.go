@@ -32,16 +32,16 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v1/app"
-	evmosclient "github.com/cvn-network/cvn/v1/client"
-	"github.com/cvn-network/cvn/v1/client/debug"
-	cmdcfg "github.com/cvn-network/cvn/v1/cmd/config"
-	evmoskr "github.com/cvn-network/cvn/v1/crypto/keyring"
-	"github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
-	evmosserver "github.com/cvn-network/cvn/v1/server"
-	servercfg "github.com/cvn-network/cvn/v1/server/config"
-	srvflags "github.com/cvn-network/cvn/v1/server/flags"
+	"github.com/cvn-network/cvn/v2/app"
+	evmosclient "github.com/cvn-network/cvn/v2/client"
+	"github.com/cvn-network/cvn/v2/client/debug"
+	cmdcfg "github.com/cvn-network/cvn/v2/cmd/config"
+	evmoskr "github.com/cvn-network/cvn/v2/crypto/keyring"
+	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
+	evmosserver "github.com/cvn-network/cvn/v2/server"
+	servercfg "github.com/cvn-network/cvn/v2/server/config"
+	srvflags "github.com/cvn-network/cvn/v2/server/flags"
 )
 
 const (

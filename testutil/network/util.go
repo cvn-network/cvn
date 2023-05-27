@@ -27,9 +27,9 @@ import (
 	"github.com/tendermint/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/cvn-network/cvn/v1/server"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/server"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 func startInProcess(cfg Config, val *Validator) error {

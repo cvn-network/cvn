@@ -19,8 +19,8 @@ import (
 	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"github.com/cvn-network/cvn/v1/rpc/ethereum/pubsub"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/rpc/ethereum/pubsub"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var (

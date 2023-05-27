@@ -10,9 +10,9 @@ import (
 	host "github.com/cosmos/ibc-go/v6/modules/core/24-host"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cvn-network/cvn/v1/testutil"
-	erc20types "github.com/cvn-network/cvn/v1/x/erc20/types"
-	"github.com/cvn-network/cvn/v1/x/ibc/transfer/keeper"
+	"github.com/cvn-network/cvn/v2/testutil"
+	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
+	"github.com/cvn-network/cvn/v2/x/ibc/transfer/keeper"
 )
 
 func (suite *KeeperTestSuite) TestTransfer() {

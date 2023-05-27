@@ -14,11 +14,11 @@ import (
 	. "github.com/onsi/gomega"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v1/testutil"
-	"github.com/cvn-network/cvn/v1/utils"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/testutil"
+	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
 )
 
 var _ = Describe("Performing EVM transactions", Ordered, func() {

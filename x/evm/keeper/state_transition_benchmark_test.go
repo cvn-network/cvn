@@ -13,7 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/stretchr/testify/require"
 
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var templateAccessListTx = &ethtypes.AccessListTx{

@@ -6,7 +6,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
+	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
 )
 
 // ParamsKey params store key

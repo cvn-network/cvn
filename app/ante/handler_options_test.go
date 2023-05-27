@@ -1,11 +1,11 @@
 package ante_test
 
 import (
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/app/ante"
-	ethante "github.com/cvn-network/cvn/v1/app/ante/evm"
-	"github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/app/ante"
+	ethante "github.com/cvn-network/cvn/v2/app/ante/evm"
+	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 func (suite *AnteTestSuite) TestValidateHandlerOptions() {

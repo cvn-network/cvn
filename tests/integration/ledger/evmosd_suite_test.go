@@ -28,14 +28,14 @@ import (
 	rpcclientmock "github.com/tendermint/tendermint/rpc/client/mock"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v1/app"
-	clientkeys "github.com/cvn-network/cvn/v1/client/keys"
-	"github.com/cvn-network/cvn/v1/crypto/hd"
-	evmoskeyring "github.com/cvn-network/cvn/v1/crypto/keyring"
-	"github.com/cvn-network/cvn/v1/tests/integration/ledger/mocks"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/app"
+	clientkeys "github.com/cvn-network/cvn/v2/client/keys"
+	"github.com/cvn-network/cvn/v2/crypto/hd"
+	evmoskeyring "github.com/cvn-network/cvn/v2/crypto/keyring"
+	"github.com/cvn-network/cvn/v2/tests/integration/ledger/mocks"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/utils"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 var s *LedgerTestSuite

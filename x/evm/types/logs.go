@@ -7,7 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 // NewTransactionLogs creates a new NewTransactionLogs instance.

@@ -9,9 +9,9 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 
-	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
+	anteutils "github.com/cvn-network/cvn/v2/app/ante/utils"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // NewDynamicFeeChecker returns a `TxFeeChecker` that applies a dynamic fee to

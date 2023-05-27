@@ -6,8 +6,8 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var (

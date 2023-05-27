@@ -10,10 +10,10 @@ import (
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	"github.com/cvn-network/cvn/v2/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // The Ethereum API allows applications to connect to an Evmos node that is

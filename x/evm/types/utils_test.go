@@ -13,10 +13,10 @@ import (
 	"github.com/gogo/protobuf/proto"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/encoding"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/encoding"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func TestEvmDataEncoding(t *testing.T) {

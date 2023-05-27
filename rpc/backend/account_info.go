@@ -14,8 +14,8 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/pkg/errors"
 
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // GetCode returns the contract code at the given address and block number.

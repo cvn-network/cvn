@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
 )
 
 func BenchmarkCreateAccountNew(b *testing.B) {

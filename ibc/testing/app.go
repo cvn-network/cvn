@@ -17,9 +17,9 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	evmosapp "github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/utils"
+	evmosapp "github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/utils"
 )
 
 var DefaultTestingAppInit = evmosapp.SetupTestingApp

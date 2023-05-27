@@ -11,7 +11,7 @@ import (
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	"github.com/spf13/cobra"
 
-	"github.com/cvn-network/cvn/v1/x/vesting/types"
+	"github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 // Transaction command flags

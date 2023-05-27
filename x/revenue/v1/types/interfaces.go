@@ -7,8 +7,8 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

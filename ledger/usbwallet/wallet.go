@@ -32,7 +32,7 @@ import (
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	usb "github.com/zondax/hid"
 
-	"github.com/cvn-network/cvn/v1/ledger/accounts"
+	"github.com/cvn-network/cvn/v2/ledger/accounts"
 )
 
 // Maximum time between wallet health checks to detect USB unplugs.

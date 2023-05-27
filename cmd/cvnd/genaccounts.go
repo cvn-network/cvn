@@ -19,11 +19,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/spf13/cobra"
 
-	evmoskr "github.com/cvn-network/cvn/v1/crypto/keyring"
-	"github.com/cvn-network/cvn/v1/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	vestingcli "github.com/cvn-network/cvn/v1/x/vesting/client/cli"
-	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"
+	evmoskr "github.com/cvn-network/cvn/v2/crypto/keyring"
+	"github.com/cvn-network/cvn/v2/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	vestingcli "github.com/cvn-network/cvn/v2/x/vesting/client/cli"
+	vestingtypes "github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 const (

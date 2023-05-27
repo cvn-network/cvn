@@ -14,8 +14,8 @@ import (
 	vestingexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/vesting/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 var _ types.MsgServer = &Keeper{}

@@ -14,9 +14,9 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v1/app"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
-	"github.com/cvn-network/cvn/v1/x/vesting/types"
+	"github.com/cvn-network/cvn/v2/app"
+	evm "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 var (

@@ -6,11 +6,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
-	"github.com/cvn-network/cvn/v1/ledger"
-	"github.com/cvn-network/cvn/v1/ledger/accounts"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
+	"github.com/cvn-network/cvn/v2/ledger"
+	"github.com/cvn-network/cvn/v2/ledger/accounts"
 )
 
 // Test Mnemonic:

@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/vesting/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 var (

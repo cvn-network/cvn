@@ -12,9 +12,9 @@ import (
 	hdwallet "github.com/miguelmota/go-ethereum-hdwallet"
 	"github.com/stretchr/testify/require"
 
-	cryptocodec "github.com/cvn-network/cvn/v1/crypto/codec"
-	enccodec "github.com/cvn-network/cvn/v1/encoding/codec"
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	cryptocodec "github.com/cvn-network/cvn/v2/crypto/codec"
+	enccodec "github.com/cvn-network/cvn/v2/encoding/codec"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 var TestCodec amino.Codec

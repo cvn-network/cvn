@@ -5,7 +5,7 @@ package mocks
 import (
 	apitypes "github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	accounts "github.com/cvn-network/cvn/v1/ledger/accounts"
+	accounts "github.com/cvn-network/cvn/v2/ledger/accounts"
 
 	big "math/big"
 

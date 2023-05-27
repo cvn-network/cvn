@@ -10,7 +10,7 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 
-	"github.com/cvn-network/cvn/v1/x/claims/types"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
 )
 
 // UpdateParams implements the gRPC MsgServer interface. When an UpdateParams

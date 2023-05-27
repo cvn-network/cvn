@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"reflect"
 
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

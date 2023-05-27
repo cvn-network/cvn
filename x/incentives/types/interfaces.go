@@ -10,9 +10,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

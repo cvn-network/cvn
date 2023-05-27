@@ -7,9 +7,9 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	ethrpc "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	ethrpc "github.com/cvn-network/cvn/v2/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestGetLogs() {

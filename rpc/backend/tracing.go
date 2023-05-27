@@ -10,8 +10,8 @@ import (
 	"github.com/pkg/errors"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // TraceTransaction returns the structured logs created during the execution of EVM

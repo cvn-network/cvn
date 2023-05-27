@@ -11,10 +11,10 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/suite"
 
-	cryptocodec "github.com/cvn-network/cvn/v1/crypto/codec"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	encodingcodec "github.com/cvn-network/cvn/v1/encoding/codec"
-	"github.com/cvn-network/cvn/v1/types"
+	cryptocodec "github.com/cvn-network/cvn/v2/crypto/codec"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	encodingcodec "github.com/cvn-network/cvn/v2/encoding/codec"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 func init() {

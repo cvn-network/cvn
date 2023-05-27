@@ -8,10 +8,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	evmante "github.com/cvn-network/cvn/v1/app/ante/evm"
-	"github.com/cvn-network/cvn/v1/testutil"
-	testutiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	evmante "github.com/cvn-network/cvn/v2/app/ante/evm"
+	"github.com/cvn-network/cvn/v2/testutil"
+	testutiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var execTypes = []struct {

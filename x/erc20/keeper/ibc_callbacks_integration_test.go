@@ -14,14 +14,14 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	. "github.com/onsi/ginkgo/v2"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/contracts"
-	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
-	"github.com/cvn-network/cvn/v1/testutil"
-	teststypes "github.com/cvn-network/cvn/v1/types/tests"
-	"github.com/cvn-network/cvn/v1/utils"
-	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/contracts"
+	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
+	"github.com/cvn-network/cvn/v2/testutil"
+	teststypes "github.com/cvn-network/cvn/v2/types/tests"
+	"github.com/cvn-network/cvn/v2/utils"
+	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
 )
 
 var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {

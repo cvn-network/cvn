@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func TestParseTxResult(t *testing.T) {

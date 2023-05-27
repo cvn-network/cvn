@@ -9,7 +9,7 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	host "github.com/cosmos/ibc-go/v6/modules/core/24-host"
 
-	"github.com/cvn-network/cvn/v1/utils"
+	"github.com/cvn-network/cvn/v2/utils"
 )
 
 var (

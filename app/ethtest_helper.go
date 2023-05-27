@@ -20,7 +20,7 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v1/encoding"
+	"github.com/cvn-network/cvn/v2/encoding"
 )
 
 // EthDefaultConsensusParams defines the default Tendermint consensus params used in

@@ -13,11 +13,11 @@ import (
 	ibcante "github.com/cosmos/ibc-go/v6/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
 
-	cosmosante "github.com/cvn-network/cvn/v1/app/ante/cosmos"
-	evmante "github.com/cvn-network/cvn/v1/app/ante/evm"
-	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
-	vestingtypes "github.com/cvn-network/cvn/v1/x/vesting/types"
+	cosmosante "github.com/cvn-network/cvn/v2/app/ante/cosmos"
+	evmante "github.com/cvn-network/cvn/v2/app/ante/evm"
+	anteutils "github.com/cvn-network/cvn/v2/app/ante/utils"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	vestingtypes "github.com/cvn-network/cvn/v2/x/vesting/types"
 )
 
 // HandlerOptions defines the list of module keepers required to run the Evmos

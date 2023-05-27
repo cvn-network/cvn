@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v1/x/incentives/types"
+	"github.com/cvn-network/cvn/v2/x/incentives/types"
 )
 
 // Keeper of this module maintains collections of incentives.

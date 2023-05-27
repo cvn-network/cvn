@@ -19,7 +19,7 @@ import (
 	"github.com/cosmos/go-bip39"
 	"github.com/spf13/cobra"
 
-	cryptohd "github.com/cvn-network/cvn/v1/crypto/hd"
+	cryptohd "github.com/cvn-network/cvn/v2/crypto/hd"
 )
 
 const (

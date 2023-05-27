@@ -12,12 +12,12 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v1/app"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-	revenue "github.com/cvn-network/cvn/v1/x/revenue/v1"
-	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v2/app"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/utils"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	revenue "github.com/cvn-network/cvn/v2/x/revenue/v1"
+	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 )
 
 type GenesisTestSuite struct {

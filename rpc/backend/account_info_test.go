@@ -11,10 +11,10 @@ import (
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestGetCode() {

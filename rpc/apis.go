@@ -8,16 +8,16 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/debug"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/eth"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/eth/filters"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/miner"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/net"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/personal"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/txpool"
-	"github.com/cvn-network/cvn/v1/rpc/namespaces/ethereum/web3"
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/debug"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/eth"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/eth/filters"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/miner"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/net"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/personal"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/txpool"
+	"github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/web3"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 // RPC namespaces and API version

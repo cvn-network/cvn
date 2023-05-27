@@ -3,10 +3,10 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/utils"
-	incentivestypes "github.com/cvn-network/cvn/v1/x/incentives/types"
-	"github.com/cvn-network/cvn/v1/x/inflation/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/utils"
+	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
+	"github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 // 200M token at year 4 allocated to the team

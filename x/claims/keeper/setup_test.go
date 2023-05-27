@@ -12,9 +12,9 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/x/claims/types"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
+	evm "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var s *KeeperTestSuite

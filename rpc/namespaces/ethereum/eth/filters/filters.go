@@ -14,8 +14,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend"
-	"github.com/cvn-network/cvn/v1/rpc/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend"
+	"github.com/cvn-network/cvn/v2/rpc/types"
 )
 
 // BloomIV represents the bit indexes and value inside the bloom filter that belong

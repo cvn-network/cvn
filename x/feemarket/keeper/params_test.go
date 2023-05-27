@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"reflect"
 
-	"github.com/cvn-network/cvn/v1/x/feemarket/types"
+	"github.com/cvn-network/cvn/v2/x/feemarket/types"
 )
 
 func (suite *KeeperTestSuite) TestSetGetParams() {

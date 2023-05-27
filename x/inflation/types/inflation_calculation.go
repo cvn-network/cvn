@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cvntypes "github.com/cvn-network/cvn/v1/types"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 // CalculateEpochProvisions returns mint provision per epoch

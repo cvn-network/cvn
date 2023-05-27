@@ -5,7 +5,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v1/x/incentives/types"
+	"github.com/cvn-network/cvn/v2/x/incentives/types"
 )
 
 func (suite *KeeperTestSuite) TestGetAllIncentives() {

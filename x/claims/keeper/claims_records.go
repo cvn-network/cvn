@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/claims/types"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
 )
 
 // GetClaimsRecord returns the claims record for a specific address

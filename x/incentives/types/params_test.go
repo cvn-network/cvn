@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
+	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
 )
 
 type ParamsTestSuite struct {

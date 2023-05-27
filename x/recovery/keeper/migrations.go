@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/recovery/types"
+	"github.com/cvn-network/cvn/v2/x/recovery/types"
 )
 
 // Migrator is a struct for handling in-place store migrations.

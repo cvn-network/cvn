@@ -21,9 +21,9 @@ import (
 	stderrors "github.com/pkg/errors"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v1/rpc/backend"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/rpc/backend"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // HandlerT keeps track of the cpu profiler and trace execution

@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+import "github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 
 func (suite *KeeperTestSuite) TestParams() {
 	params := suite.app.RevenueKeeper.GetParams(suite.ctx)

@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
 )
 
 var isTrue = []byte("0x01")

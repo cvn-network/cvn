@@ -5,10 +5,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	cosmosante "github.com/cvn-network/cvn/v1/app/ante/cosmos"
-	"github.com/cvn-network/cvn/v1/testutil"
-	testutiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
+	cosmosante "github.com/cvn-network/cvn/v2/app/ante/cosmos"
+	"github.com/cvn-network/cvn/v2/testutil"
+	testutiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/utils"
 )
 
 var execTypes = []struct {

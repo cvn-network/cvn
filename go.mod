@@ -1,4 +1,4 @@
-module github.com/cvn-network/cvn/v1
+module github.com/cvn-network/cvn/v2
 
 go 1.20
 

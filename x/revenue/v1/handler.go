@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/cvn-network/cvn/v1/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
 )
 
 // NewHandler defines the fees module handler instance

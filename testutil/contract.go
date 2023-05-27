@@ -13,9 +13,9 @@ import (
 	"github.com/gogo/protobuf/proto"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/testutil/tx"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/testutil/tx"
+	evm "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // DeployContract deploys a contract with the provided private key,

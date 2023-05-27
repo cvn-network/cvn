@@ -10,12 +10,12 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 
-	"github.com/cvn-network/cvn/v1/app"
-	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
-	"github.com/cvn-network/cvn/v1/utils"
-	claimstypes "github.com/cvn-network/cvn/v1/x/claims/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
-	"github.com/cvn-network/cvn/v1/x/recovery/types"
+	"github.com/cvn-network/cvn/v2/app"
+	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
+	"github.com/cvn-network/cvn/v2/utils"
+	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/x/recovery/types"
 )
 
 func CreatePacket(amount, denom, sender, receiver, srcPort, srcChannel, dstPort, dstChannel string, seq, timeout uint64) channeltypes.Packet {

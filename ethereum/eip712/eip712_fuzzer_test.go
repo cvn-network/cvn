@@ -8,7 +8,7 @@ import (
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
 )
 
 type EIP712FuzzTestParams struct {

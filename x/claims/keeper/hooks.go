@@ -11,8 +11,8 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v1/x/claims/types"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/x/claims/types"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 var (

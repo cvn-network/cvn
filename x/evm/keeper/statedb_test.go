@@ -16,10 +16,10 @@ import (
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	"github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	"github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestCreateAccount() {

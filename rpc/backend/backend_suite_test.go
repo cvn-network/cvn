@@ -17,15 +17,15 @@ import (
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v1/app"
-	"github.com/cvn-network/cvn/v1/crypto/hd"
-	"github.com/cvn-network/cvn/v1/encoding"
-	"github.com/cvn-network/cvn/v1/indexer"
-	"github.com/cvn-network/cvn/v1/rpc/backend/mocks"
-	rpctypes "github.com/cvn-network/cvn/v1/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v1/testutil/tx"
-	"github.com/cvn-network/cvn/v1/utils"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v2/crypto/hd"
+	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v2/indexer"
+	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
+	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v2/utils"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 type BackendTestSuite struct {

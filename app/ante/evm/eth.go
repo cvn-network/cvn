@@ -11,11 +11,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
-	"github.com/cvn-network/cvn/v1/types"
-	"github.com/cvn-network/cvn/v1/x/evm/keeper"
-	"github.com/cvn-network/cvn/v1/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v1/x/evm/types"
+	anteutils "github.com/cvn-network/cvn/v2/app/ante/utils"
+	"github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v2/x/evm/keeper"
+	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 // EthAccountVerificationDecorator validates an account balance checks

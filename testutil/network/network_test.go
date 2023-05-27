@@ -11,9 +11,9 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v1/server/config"
-	"github.com/cvn-network/cvn/v1/testutil/network"
-	evmosnetwork "github.com/cvn-network/cvn/v1/testutil/network"
+	"github.com/cvn-network/cvn/v2/server/config"
+	"github.com/cvn-network/cvn/v2/testutil/network"
+	evmosnetwork "github.com/cvn-network/cvn/v2/testutil/network"
 )
 
 type IntegrationTestSuite struct {

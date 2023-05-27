@@ -4,7 +4,7 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 
-	"github.com/cvn-network/cvn/v1/x/incentives/types"
+	"github.com/cvn-network/cvn/v2/x/incentives/types"
 )
 
 func (suite *KeeperTestSuite) TestUpdateParams() {

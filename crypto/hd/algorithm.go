@@ -10,7 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/tyler-smith/go-bip39"
 
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
 )
 
 const (

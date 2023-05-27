@@ -11,11 +11,11 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v1/app"
-	v2 "github.com/cvn-network/cvn/v1/app/upgrades/v2"
-	"github.com/cvn-network/cvn/v1/crypto/ethsecp256k1"
-	feemarkettypes "github.com/cvn-network/cvn/v1/x/feemarket/types"
-	inflationtypes "github.com/cvn-network/cvn/v1/x/inflation/types"
+	"github.com/cvn-network/cvn/v2/app"
+	v2 "github.com/cvn-network/cvn/v2/app/upgrades/v2"
+	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
+	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
 type UpgradeTestSuite struct {

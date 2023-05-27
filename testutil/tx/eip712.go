@@ -14,10 +14,10 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	"github.com/cvn-network/cvn/v1/app"
-	cryptocodec "github.com/cvn-network/cvn/v1/crypto/codec"
-	"github.com/cvn-network/cvn/v1/ethereum/eip712"
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/app"
+	cryptocodec "github.com/cvn-network/cvn/v2/crypto/codec"
+	"github.com/cvn-network/cvn/v2/ethereum/eip712"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 type EIP712TxArgs struct {

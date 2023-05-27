@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/cvn-network/cvn/v1/x/epochs/types";
+option go_package = "github.com/cvn-network/cvn/v2/x/epochs/types";
 
 // EpochInfo defines the message interface containing the relevant informations about
 // an epoch.

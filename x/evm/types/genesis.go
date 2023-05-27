@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/cvn-network/cvn/v1/types"
+	"github.com/cvn-network/cvn/v2/types"
 )
 
 // Validate performs a basic validation of a GenesisAccount fields.

@@ -10,7 +10,7 @@ import (
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	anteutils "github.com/cvn-network/cvn/v1/app/ante/utils"
+	anteutils "github.com/cvn-network/cvn/v2/app/ante/utils"
 )
 
 // DeductFeeDecorator deducts fees from the first signer of the tx.

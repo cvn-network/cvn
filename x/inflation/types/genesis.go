@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	epochstypes "github.com/cvn-network/cvn/v1/x/epochs/types"
+	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
 )
 
 // NewGenesisState creates a new GenesisState object

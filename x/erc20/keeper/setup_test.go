@@ -15,10 +15,10 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v1/app"
-	ibctesting "github.com/cvn-network/cvn/v1/ibc/testing"
-	"github.com/cvn-network/cvn/v1/x/erc20/types"
-	evm "github.com/cvn-network/cvn/v1/x/evm/types"
+	"github.com/cvn-network/cvn/v2/app"
+	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
+	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	evm "github.com/cvn-network/cvn/v2/x/evm/types"
 )
 
 type KeeperTestSuite struct {
