@@ -125,12 +125,6 @@ func (AppModule) LegacyQuerierHandler(_ *codec.LegacyAmino) sdk.Querier {
 func (am AppModule) RegisterServices(cfg module.Configurator) {
 	types.RegisterQueryServer(cfg.QueryServer(), am.keeper)
 	types.RegisterMsgServer(cfg.MsgServer(), &am.keeper)
-
-	m := keeper.NewMigrator(am.keeper, am.legacySubspace)
-	err := cfg.RegisterMigration(types.ModuleName, 1, m.Migrate1to2)
-	if err != nil {
-		panic(err)
-	}
 }
 
 func (AppModule) BeginBlock(_ sdk.Context, _ abci.RequestBeginBlock) {

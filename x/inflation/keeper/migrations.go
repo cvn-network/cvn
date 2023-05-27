@@ -1,8 +1,6 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	"github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
@@ -18,9 +16,4 @@ func NewMigrator(keeper Keeper, legacySubspace types.Subspace) Migrator {
 		keeper:         keeper,
 		legacySubspace: legacySubspace,
 	}
-}
-
-// Migrate1to2 migrates the store from consensus version 1 to 2
-func (m Migrator) Migrate1to2(ctx sdk.Context) error {
-	return nil
 }
