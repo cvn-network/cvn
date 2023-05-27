@@ -7,7 +7,7 @@ import (
 	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
 )
 
-// RegisterInterfaces register the Evmos key concrete types.
+// RegisterInterfaces register the CVN key concrete types.
 func RegisterInterfaces(registry codectypes.InterfaceRegistry) {
 	registry.RegisterImplementations((*cryptotypes.PubKey)(nil), &ethsecp256k1.PubKey{})
 	registry.RegisterImplementations((*cryptotypes.PrivKey)(nil), &ethsecp256k1.PrivKey{})

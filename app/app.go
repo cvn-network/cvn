@@ -155,7 +155,7 @@ func init() {
 
 	DefaultNodeHome = filepath.Join(userHomeDir, ".cvnd")
 
-	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
+	// manually update the power reduction by replacing micro (u) -> atto (a) cvnt
 	sdk.DefaultPowerReduction = cvntypes.PowerReduction
 	// modify fee market parameter defaults through global
 	feemarkettypes.DefaultMinGasPrice = MainnetMinGasPrices

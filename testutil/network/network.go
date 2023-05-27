@@ -110,7 +110,7 @@ func DefaultConfig() Config {
 		ChainID:           fmt.Sprintf("evmos_%d-1", tmrand.Int63n(9999999999999)+1),
 		NumValidators:     4,
 		BondDenom:         "acvnt",
-		MinGasPrices:      fmt.Sprintf("0.000006%s", cvntypes.AttoEvmos),
+		MinGasPrices:      fmt.Sprintf("0.000006%s", cvntypes.AttoCvnt),
 		AccountTokens:     sdk.TokensFromConsensusPower(1000000000000000000, cvntypes.PowerReduction),
 		StakingTokens:     sdk.TokensFromConsensusPower(500000000000000000, cvntypes.PowerReduction),
 		BondedTokens:      sdk.TokensFromConsensusPower(100000000000000000, cvntypes.PowerReduction),
@@ -469,7 +469,7 @@ func New(l Logger, baseDir string, cfg Config) (*Network, error) {
 			return nil, err
 		}
 
-		customAppTemplate, _ := config.AppConfig(cvntypes.AttoEvmos)
+		customAppTemplate, _ := config.AppConfig(cvntypes.AttoCvnt)
 		srvconfig.SetConfigTemplate(customAppTemplate)
 		srvconfig.WriteConfigFile(filepath.Join(nodeDir, "config/app.toml"), appCfg)
 

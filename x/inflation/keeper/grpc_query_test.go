@@ -171,7 +171,7 @@ func (suite *KeeperTestSuite) TestQueryCirculatingSupply() {
 	expCirculatingSupply := sdk.NewDecCoin(mintDenom, sdk.TokensFromConsensusPower(200_000_000, cvntypes.PowerReduction))
 
 	// the total bonded tokens for the 2 accounts initialized on the setup
-	bondedAmt := sdk.NewInt64DecCoin(cvntypes.AttoEvmos, 1000100000000000000)
+	bondedAmt := sdk.NewInt64DecCoin(cvntypes.AttoCvnt, 1000100000000000000)
 
 	res, err := suite.queryClient.CirculatingSupply(ctx, &types.QueryCirculatingSupplyRequest{})
 	suite.Require().NoError(err)

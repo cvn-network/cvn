@@ -30,7 +30,7 @@ type EthAccountI interface {
 	authtypes.AccountI
 	// EthAddress returns the ethereum Address representation of the AccAddress
 	EthAddress() common.Address
-	// CodeHash is the keccak256 hash of the contract code (if any)
+	// GetCodeHash is the keccak256 hash of the contract code (if any)
 	GetCodeHash() common.Hash
 	// SetCodeHash sets the code hash to the account fields
 	SetCodeHash(code common.Hash) error
@@ -39,7 +39,7 @@ type EthAccountI interface {
 }
 
 // ----------------------------------------------------------------------------
-// Main Evmos account
+// Main CVN account
 // ----------------------------------------------------------------------------
 
 // ProtoAccount defines the prototype function for BaseAccount used for an

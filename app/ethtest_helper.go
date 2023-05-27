@@ -24,7 +24,7 @@ import (
 )
 
 // EthDefaultConsensusParams defines the default Tendermint consensus params used in
-// EvmosApp testing.
+// CvnApp testing.
 var EthDefaultConsensusParams = &abci.ConsensusParams{
 	Block: &abci.BlockParams{
 		MaxBytes: 200000,
@@ -42,12 +42,12 @@ var EthDefaultConsensusParams = &abci.ConsensusParams{
 	},
 }
 
-// EthSetup initializes a new EvmosApp. A Nop logger is set in EvmosApp.
+// EthSetup initializes a new CvnApp. A Nop logger is set in CvnApp.
 func EthSetup(isCheckTx bool, patchGenesis func(*CVN, simapp.GenesisState) simapp.GenesisState) *CVN {
 	return EthSetupWithDB(isCheckTx, patchGenesis, dbm.NewMemDB())
 }
 
-// EthSetupWithDB initializes a new EvmosApp. A Nop logger is set in EvmosApp.
+// EthSetupWithDB initializes a new CvnApp. A Nop logger is set in CvnApp.
 func EthSetupWithDB(isCheckTx bool, patchGenesis func(*CVN, simapp.GenesisState) simapp.GenesisState, db dbm.DB) *CVN {
 	app := NewCVN(log.NewNopLogger(),
 		db,

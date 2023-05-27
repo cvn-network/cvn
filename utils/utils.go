@@ -15,20 +15,21 @@ import (
 
 const (
 	// TODO:[PROD] change these chain ids to unique values
-	// MainnetChainID defines the Evmos EIP155 chain ID for mainnet
+
+	// MainnetChainID defines the CVN EIP155 chain ID for mainnet
 	MainnetChainID = "cvn_2032"
-	// TestnetChainID defines the Evmos EIP155 chain ID for testnet
+	// TestnetChainID defines the CVN EIP155 chain ID for testnet
 	TestnetChainID = "cvn_2031"
-	// BaseDenom defines the Evmos mainnet denomination
+	// BaseDenom defines the CVN mainnet denomination
 	BaseDenom = "acvnt"
 )
 
-// IsMainnet returns true if the chain-id has the Evmos mainnet EIP155 chain prefix.
+// IsMainnet returns true if the chain-id has the CVN mainnet EIP155 chain prefix.
 func IsMainnet(chainID string) bool {
 	return strings.HasPrefix(chainID, MainnetChainID)
 }
 
-// IsTestnet returns true if the chain-id has the Evmos testnet EIP155 chain prefix.
+// IsTestnet returns true if the chain-id has the CVN testnet EIP155 chain prefix.
 func IsTestnet(chainID string) bool {
 	return strings.HasPrefix(chainID, TestnetChainID)
 }

@@ -8,17 +8,17 @@ import (
 )
 
 const (
-	// AttoEvmos defines the default coin denomination used in Evmos in:
+	// AttoCvnt defines the default coin denomination used in CVN in:
 	//
 	// - Staking parameters: denomination used as stake in the dPoS chain
 	// - Mint parameters: denomination minted due to fee distribution rewards
 	// - Governance parameters: denomination used for spam prevention in proposal deposits
 	// - Crisis parameters: constant fee denomination used for spam prevention to check broken invariant
-	// - EVM parameters: denomination used for running EVM state transitions in Evmos.
-	AttoEvmos string = "acvnt"
+	// - EVM parameters: denomination used for running EVM state transitions in CVN.
+	AttoCvnt string = "acvnt"
 
-	// BaseDenomUnit defines the base denomination unit for Evmos.
-	// 1 evmos = 1x10^{BaseDenomUnit} acvnt
+	// BaseDenomUnit defines the base denomination unit for CVN.
+	// 1 cvnt = 1x10^{BaseDenomUnit} acvnt
 	BaseDenomUnit = 18
 
 	// DefaultGasPrice is default gas price for evm transactions
@@ -28,20 +28,20 @@ const (
 // PowerReduction defines the default power reduction value for staking
 var PowerReduction = sdkmath.NewIntFromBigInt(new(big.Int).Exp(big.NewInt(10), big.NewInt(BaseDenomUnit), nil))
 
-// NewEvmosCoin is a utility function that returns an "acvnt" coin with the given sdkmath.Int amount.
+// NewCvntCoin is a utility function that returns an "acvnt" coin with the given sdkmath.Int amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosCoin(amount sdkmath.Int) sdk.Coin {
-	return sdk.NewCoin(AttoEvmos, amount)
+func NewCvntCoin(amount sdkmath.Int) sdk.Coin {
+	return sdk.NewCoin(AttoCvnt, amount)
 }
 
-// NewEvmosDecCoin is a utility function that returns an "acvnt" decimal coin with the given sdkmath.Int amount.
+// NewCvntDecCoin is a utility function that returns an "acvnt" decimal coin with the given sdkmath.Int amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosDecCoin(amount sdkmath.Int) sdk.DecCoin {
-	return sdk.NewDecCoin(AttoEvmos, amount)
+func NewCvntDecCoin(amount sdkmath.Int) sdk.DecCoin {
+	return sdk.NewDecCoin(AttoCvnt, amount)
 }
 
-// NewEvmosCoinInt64 is a utility function that returns an "acvnt" coin with the given int64 amount.
+// NewCvntCoinInt64 is a utility function that returns an "acvnt" coin with the given int64 amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosCoinInt64(amount int64) sdk.Coin {
-	return sdk.NewInt64Coin(AttoEvmos, amount)
+func NewCvntCoinInt64(amount int64) sdk.Coin {
+	return sdk.NewInt64Coin(AttoCvnt, amount)
 }
