@@ -105,6 +105,7 @@ import (
 
 	"github.com/cvn-network/cvn/v1/app/ante"
 	ethante "github.com/cvn-network/cvn/v1/app/ante/evm"
+	v2 "github.com/cvn-network/cvn/v1/app/upgrades/v2"
 	_ "github.com/cvn-network/cvn/v1/client/docs/statik"
 	"github.com/cvn-network/cvn/v1/encoding"
 	"github.com/cvn-network/cvn/v1/ethereum/eip712"
@@ -1110,6 +1111,19 @@ func initParamsKeeper(
 
 func (app *CVN) setupUpgradeHandlers() {
 
+	// v2 upgrade handler
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v2.UpgradeName,
+		v2.CreateUpgradeHandler(
+			app.mm,
+			app.configurator,
+			app.BankKeeper,
+			app.InflationKeeper,
+			app.SlashingKeeper,
+			app.FeeMarketKeeper,
+		),
+	)
+
 	// When a planned update height is reached, the old binary will panic
 	// writing on disk the height and name of the update that triggered it
 	// This will read that value, and execute the preparations for the upgrade.
@@ -1123,6 +1137,10 @@ func (app *CVN) setupUpgradeHandlers() {
 	}
 
 	var storeUpgrades *storetypes.StoreUpgrades
+	switch upgradeInfo.Name {
+	case v2.UpgradeName:
+		// no store upgrades
+	}
 
 	if storeUpgrades != nil {
 		// configure store loader that checks if version == upgradeHeight and applies store upgrades

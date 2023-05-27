@@ -35,6 +35,16 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Add `acvnt` metadata
+- Add `asoult` metadata
+- Update inflation distribution to 85% staking rewards, 5% usage incentives, 10% community pool
+- Update signed blocks window to 5000
+- Update evm tx base fee to 0.1*1e9 CVN
+
 ## [v1.0.2] - 2023-06-09
 
 ### Improvements
@@ -44,7 +54,6 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ### Bug Fixes
 
 - (vesting) Apply ClawbackVestingAccount Barberry patch
-
 
 ## [v1.0.1] - 2023-05-28
 
