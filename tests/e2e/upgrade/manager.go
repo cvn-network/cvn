@@ -16,7 +16,7 @@ import (
 )
 
 // Manager defines a docker pool instance, used to build, run, interact with and stop docker containers
-// running Evmos nodes.
+// running CVN nodes.
 type Manager struct {
 	pool    *dockertest.Pool
 	network *dockertest.Network

@@ -79,7 +79,7 @@ func LoadUpgradeParams(upgradesFolder string) (Params, error) {
 		versions = append(versions, VersionConfig{
 			UpgradeName: versionTag,
 			ImageTag:    versionTag,
-			ImageName:   tharsisRepo,
+			ImageName:   cvnRepo,
 		})
 	}
 
@@ -111,7 +111,7 @@ func LoadUpgradeParams(upgradesFolder string) (Params, error) {
 	versions = append(versions, VersionConfig{
 		upgradeName,
 		versionTag,
-		tharsisRepo,
+		cvnRepo,
 	})
 
 	// If chain ID is not specified, the default value from the constants file will be used in upgrade-init.sh

@@ -8,8 +8,8 @@ const (
 	// LocalVersionTag defines the docker image ImageTag when building locally
 	LocalVersionTag = "latest"
 
-	// tharsisRepo is the docker hub repository that contains the Evmos images pulled during tests
-	tharsisRepo = "tharsishq/evmos"
+	// cvnRepo is the GitHub docker repository that contains the CVN images pulled during tests
+	cvnRepo = "ghcr.io/cvn-network/cvn"
 
 	// upgradesPath is the relative path from this folder to the app/upgrades folder
 	upgradesPath = "../../../app/upgrades"

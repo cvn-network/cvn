@@ -7,22 +7,21 @@ import (
 	"os/exec"
 	"regexp"
 	"sort"
-	"strings"
 
 	"github.com/hashicorp/go-version"
 )
 
-// EvmosVersions is a custom comparator for sorting semver version strings.
-type EvmosVersions []string
+// AppVersion is a custom comparator for sorting semver version strings.
+type AppVersion []string
 
-// Len is the number of stored versions..
-func (v EvmosVersions) Len() int { return len(v) }
+// Len is the number of stored versions.
+func (v AppVersion) Len() int { return len(v) }
 
 // Swap swaps the elements with indexes i and j. It is needed to sort the slice.
-func (v EvmosVersions) Swap(i, j int) { v[i], v[j] = v[j], v[i] }
+func (v AppVersion) Swap(i, j int) { v[i], v[j] = v[j], v[i] }
 
 // Less compares semver versions strings properly
-func (v EvmosVersions) Less(i, j int) bool {
+func (v AppVersion) Less(i, j int) bool {
 	v1, err := version.NewVersion(v[i])
 	if err != nil {
 		log.Fatalf("couldn't interpret version as SemVer string: %s: %s", v[i], err.Error())
@@ -34,25 +33,14 @@ func (v EvmosVersions) Less(i, j int) bool {
 	return v1.LessThan(v2)
 }
 
-// CheckLegacyProposal checks if the running node requires a legacy proposal
-func CheckLegacyProposal(version string) bool {
-	version = strings.TrimSpace(version)
-	if !strings.HasPrefix(version, "v") {
-		version = "v" + version
-	}
-
-	// check if the version is lower than v10.x.x
-	cmp := EvmosVersions([]string{version, "v10.0.0"})
-	isLegacyProposal := !cmp.Less(0, 1)
-
-	return isLegacyProposal
-}
-
 // RetrieveUpgradesList parses the app/upgrades folder and returns a slice of semver upgrade versions
 // in ascending order, e.g ["v1.0.0", "v1.0.1", "v1.1.0", ... , "v10.0.0"]
 func RetrieveUpgradesList(upgradesPath string) ([]string, error) {
 	dirs, err := os.ReadDir(upgradesPath)
 	if err != nil {
+		if os.IsNotExist(err) {
+			return []string{"v1.0.0", "v2.0.0"}, nil
+		}
 		return nil, err
 	}
 
@@ -73,8 +61,11 @@ func RetrieveUpgradesList(upgradesPath string) ([]string, error) {
 		// v[1 : len(v)-1] subslice used to remove quotes from version string
 		versions[i] = v[1 : len(v)-1]
 	}
+	if len(versions) == 1 && versions[0] == "v2.0.0" {
+		versions = append(versions, "v1.0.0")
+	}
 
-	sort.Sort(EvmosVersions(versions))
+	sort.Sort(AppVersion(versions))
 
 	return versions, nil
 }

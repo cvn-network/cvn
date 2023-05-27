@@ -16,7 +16,7 @@ import (
 
 const (
 	// defaultManagerNetwork defines the network used by the upgrade manager
-	defaultManagerNetwork = "evmos-local"
+	defaultManagerNetwork = "cvn-local"
 
 	// blocksAfterUpgrade defines how many blocks must be produced after an upgrade is
 	// considered successful
@@ -64,7 +64,7 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	}
 }
 
-// runInitialNode builds a docker image capable of running an Evmos node with the given version.
+// runInitialNode builds a docker image capable of running an CVN node with the given version.
 // After a successful build, it runs the container and checks if the node can produce blocks.
 func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 	err := s.upgradeManager.BuildImage(
@@ -74,13 +74,13 @@ func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 		".",
 		map[string]string{"INITIAL_VERSION": version.ImageTag},
 	)
-	s.Require().NoError(err, "can't build container with Evmos version: %s", version.ImageTag)
+	s.Require().NoError(err, "can't build container with CVN version: %s", version.ImageTag)
 
 	node := upgrade.NewNode(version.ImageName, version.ImageTag)
 	node.SetEnvVars([]string{fmt.Sprintf("CHAIN_ID=%s", s.upgradeParams.ChainID)})
 
 	err = s.upgradeManager.RunNode(node)
-	s.Require().NoError(err, "can't run node with Evmos version: %s", version)
+	s.Require().NoError(err, "can't run node with CVN version: %s", version)
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
@@ -92,13 +92,13 @@ func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 	s.T().Logf("successfully started node with version: [%s]", version.ImageTag)
 }
 
-// runNodeWithCurrentChanges builds a docker image using the current branch of the Evmos repository.
+// runNodeWithCurrentChanges builds a docker image using the current branch of the CVN repository.
 // Before running the node, runs a script to modify some configurations for the tests
 // (e.g.: gov proposal voting period, setup accounts, balances, etc..)
 // After a successful build, runs the container.
 func (s *IntegrationTestSuite) runNodeWithCurrentChanges() {
 	const (
-		name    = "e2e-test/evmos"
+		name    = "e2e-test/cvn"
 		version = "latest"
 	)
 	// get the current branch name
@@ -119,7 +119,7 @@ func (s *IntegrationTestSuite) runNodeWithCurrentChanges() {
 	node.SetEnvVars([]string{fmt.Sprintf("CHAIN_ID=%s", s.upgradeParams.ChainID)})
 
 	err = s.upgradeManager.RunNode(node)
-	s.Require().NoError(err, "can't run node Evmos using branch %s", branch)
+	s.Require().NoError(err, "can't run node CVN using branch %s", branch)
 }
 
 // proposeUpgrade submits an upgrade proposal to the chain that schedules an upgrade to
@@ -133,30 +133,27 @@ func (s *IntegrationTestSuite) proposeUpgrade(name, target string) {
 	s.Require().NoError(err, "can't get block height from running node")
 	s.upgradeManager.UpgradeHeight = uint(nodeHeight + upgradeHeightDelta)
 
-	// if Evmos is lower than v10.x.x no need to use the legacy proposal
-	currentVersion, err := s.upgradeManager.GetNodeVersion(ctx)
-	s.Require().NoError(err, "can't get current Evmos version")
-	isLegacyProposal := upgrade.CheckLegacyProposal(currentVersion)
+	_, err = s.upgradeManager.GetNodeVersion(ctx)
+	s.Require().NoError(err, "can't get current CVN version")
 
 	// create the proposal
 	exec, err := s.upgradeManager.CreateSubmitProposalExec(
 		name,
 		s.upgradeParams.ChainID,
 		s.upgradeManager.UpgradeHeight,
-		isLegacyProposal,
 		"--fees=500acvnt",
 		"--gas=500000",
 	)
 	s.Require().NoErrorf(
 		err,
-		"can't create the proposal to upgrade Evmos to %s at height %d with name %s",
+		"can't create the proposal to upgrade CVN to %s at height %d with name %s",
 		target, s.upgradeManager.UpgradeHeight, name,
 	)
 
 	outBuf, errBuf, err := s.upgradeManager.RunExec(ctx, exec)
 	s.Require().NoErrorf(
 		err,
-		"failed to submit proposal to upgrade Evmos to %s at height %d\nstdout: %s,\nstderr: %s",
+		"failed to submit proposal to upgrade CVN to %s at height %d\nstdout: %s,\nstderr: %s",
 		target, s.upgradeManager.UpgradeHeight, outBuf.String(), errBuf.String(),
 	)
 

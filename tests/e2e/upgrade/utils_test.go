@@ -8,49 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// TestCheckLegacyProposal tests the checkLegacyProposal function with different version strings
-func TestCheckLegacyProposal(t *testing.T) {
-	var legacyProposal bool
-
-	testCases := []struct {
-		Name string
-		Ver  string
-		Exp  bool
-	}{
-		{
-			Name: "legacy proposal - v10.0.1",
-			Ver:  "v10.0.1",
-			Exp:  true,
-		},
-		{
-			Name: "normal proposal - v9.1.0",
-			Ver:  "v9.1.0",
-			Exp:  false,
-		},
-		{
-			Name: "normal proposal - version with whitespace - v9.1.0",
-			Ver:  "\tv9.1.0 ",
-			Exp:  false,
-		},
-		{
-			Name: "normal proposal - version without v - 9.1.0",
-			Ver:  "9.1.0",
-			Exp:  false,
-		},
-	}
-
-	for _, tc := range testCases {
-		t.Run(tc.Name, func(t *testing.T) {
-			legacyProposal = CheckLegacyProposal(tc.Ver)
-			require.Equal(t, legacyProposal, tc.Exp, "expected: %v, got: %v", tc.Exp, legacyProposal)
-		})
-	}
-}
-
-// TestEvmosVersionsLess tests the EvmosVersions type's Less method with
+// TestAppVersionsLess tests the AppVersion type's Less method with
 // different version strings
-func TestEvmosVersionsLess(t *testing.T) {
-	var version EvmosVersions
+func TestAppVersionsLess(t *testing.T) {
+	var version AppVersion
 
 	testCases := []struct {
 		Name string
@@ -77,25 +38,25 @@ func TestEvmosVersionsLess(t *testing.T) {
 	}
 }
 
-// TestEvmosVersionsSwap tests the EvmosVersions type's Swap method
-func TestEvmosVersionsSwap(t *testing.T) {
-	var version EvmosVersions
+// TestAppVersionsSwap tests the AppVersion type's Swap method
+func TestAppVersionsSwap(t *testing.T) {
+	var version AppVersion
 	value := "v9.1.0"
 	version = []string{value, "v10.0.0"}
 	version.Swap(0, 1)
 	require.Equal(t, value, version[1], "expected: %v, got: %v", value, version[1])
 }
 
-// TestEvmosVersionsLen tests the EvmosVersions type's Len method
-func TestEvmosVersionsLen(t *testing.T) {
-	var version EvmosVersions = []string{"v9.1.0", "v10.0.0"}
+// TestAppVersionsLen tests the AppVersion type's Len method
+func TestAppVersionsLen(t *testing.T) {
+	var version AppVersion = []string{"v9.1.0", "v10.0.0"}
 	require.Equal(t, 2, version.Len(), "expected: %v, got: %v", 2, version.Len())
 }
 
 // TestRetrieveUpgradesList tests if the list of available upgrades in the codebase
 // can be correctly retrieved
 func TestRetrieveUpgradesList(t *testing.T) {
-	upgradeList, err := RetrieveUpgradesList("../../../app/upgrades")
+	upgradeList, err := RetrieveUpgradesList(upgradesPath)
 	if os.IsNotExist(err) {
 		t.Skip("skipping test as upgrade list file does not exist")
 	}

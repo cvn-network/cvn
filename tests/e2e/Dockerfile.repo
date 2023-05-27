@@ -4,14 +4,12 @@ ARG BRANCH_NAME
 
 WORKDIR /go/src/github.com/cvn-network/
 
-RUN git clone "https://github.com/cvn-network/cvn.git"
-# COPY ../../. .
+#RUN git clone "https://github.com/cvn-network/cvn.git"
+COPY ../../. .
 
 WORKDIR /go/src/github.com/cvn-network/cvn
 
 RUN apt-get update -y
-
-RUN git checkout v12
 
 RUN make build
 

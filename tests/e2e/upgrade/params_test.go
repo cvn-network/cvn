@@ -41,17 +41,17 @@ func TestLoadUpgradeParams(t *testing.T) {
 			vars: envVars{
 				initialVersion: "v0.1.0",
 				targetVersion:  "v0.2.0",
-				chainID:        "evmos_9123-1",
+				chainID:        "cvn_2031-1",
 				skipCleanup:    "true",
-				mountPath:      "/tmp/evmos",
+				mountPath:      "/tmp/cvn",
 			},
 			want: Params{
-				MountPath: "/tmp/evmos",
+				MountPath: "/tmp/cvn",
 				Versions: []VersionConfig{
-					{"v0.1.0", "v0.1.0", tharsisRepo},
-					{"v0.2.0", "v0.2.0", tharsisRepo},
+					{"v0.1.0", "v0.1.0", cvnRepo},
+					{"v0.2.0", "v0.2.0", cvnRepo},
 				},
-				ChainID:     "evmos_9123-1",
+				ChainID:     "cvn_2031-1",
 				WorkDirRoot: wd,
 			},
 			expPass: true,
@@ -64,9 +64,9 @@ func TestLoadUpgradeParams(t *testing.T) {
 			want: Params{
 				MountPath: defaultMountPath,
 				Versions: []VersionConfig{
-					{"v0.1.0", "v0.1.0", tharsisRepo},
-					{"v0.2.0", "v0.2.0", tharsisRepo},
-					{latestVersionName, LocalVersionTag, tharsisRepo},
+					{"v0.1.0", "v0.1.0", cvnRepo},
+					{"v0.2.0", "v0.2.0", cvnRepo},
+					{latestVersionName, LocalVersionTag, cvnRepo},
 				},
 				ChainID:     defaultChainID,
 				WorkDirRoot: wd,
@@ -82,8 +82,8 @@ func TestLoadUpgradeParams(t *testing.T) {
 			want: Params{
 				MountPath: defaultMountPath,
 				Versions: []VersionConfig{
-					{"v0.1.0", "v0.1.0", tharsisRepo},
-					{"v0.2.0", "v0.2.0", tharsisRepo},
+					{"v0.1.0", "v0.1.0", cvnRepo},
+					{"v0.2.0", "v0.2.0", cvnRepo},
 				},
 				ChainID:     defaultChainID,
 				WorkDirRoot: wd,
@@ -99,8 +99,8 @@ func TestLoadUpgradeParams(t *testing.T) {
 			want: Params{
 				MountPath: defaultMountPath,
 				Versions: []VersionConfig{
-					{"v0.1.0-rc1", "v0.1.0-rc1", tharsisRepo},
-					{"v0.2.0-rc2", "v0.2.0-rc2", tharsisRepo},
+					{"v0.1.0-rc1", "v0.1.0-rc1", cvnRepo},
+					{"v0.2.0-rc2", "v0.2.0-rc2", cvnRepo},
 				},
 				ChainID:     defaultChainID,
 				WorkDirRoot: wd,
@@ -113,8 +113,8 @@ func TestLoadUpgradeParams(t *testing.T) {
 			want: Params{
 				MountPath: defaultMountPath,
 				Versions: []VersionConfig{
-					{defaultInitialVersion, defaultInitialVersion, tharsisRepo},
-					{latestVersionName, LocalVersionTag, tharsisRepo},
+					{defaultInitialVersion, defaultInitialVersion, cvnRepo},
+					{latestVersionName, LocalVersionTag, cvnRepo},
 				},
 				ChainID:     defaultChainID,
 				WorkDirRoot: wd,

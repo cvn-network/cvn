@@ -44,7 +44,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--fees=5000000000acvnt",
 					"--gas-prices=50000acvnt",
 				)
@@ -59,7 +58,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--gas=50000",
 				)
 			},
@@ -73,7 +71,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--fees=10acvnt",
 					"--gas=50000",
 				)
@@ -88,7 +85,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--fees=500000000000acvnt",
 					"--gas=1000",
 				)
@@ -103,7 +99,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--fees=10000000000000000acvnt",
 					"--gas=1500000",
 				)
@@ -117,7 +112,6 @@ func (s *IntegrationTestSuite) TestCLITxs() {
 					"v11.0.0",
 					s.upgradeParams.ChainID,
 					5000,
-					true,
 					"--gas-prices=1000000000acvnt",
 					"--gas=1500000",
 				)

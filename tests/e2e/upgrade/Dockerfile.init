@@ -1,6 +1,6 @@
-# argument to provide specific version of evmos node
+# argument to provide specific version of CVN node
 ARG INITIAL_VERSION
-FROM tharsishq/evmos:$INITIAL_VERSION
+FROM ghcr.io/cvn-network/cvn:$INITIAL_VERSION
 
 # jq needs to perform changes of node parameters
 RUN apt-get update \ 
@@ -9,7 +9,7 @@ RUN apt-get update \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /go/src/github.com/evmos/evmos
+WORKDIR /go/src/github.com/cvn-network/cvn
 
 COPY ./init-node.sh .
 
