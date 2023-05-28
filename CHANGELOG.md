@@ -48,6 +48,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Bug Fixes
 
+- Fix remove tx flags from root cmd
 - Fix `cvnd query epochs epoch-infos` use `clientCtx.PrintProto()` print result
 
 ## [v1.0.2] - 2023-06-09

@@ -41,7 +41,6 @@ import (
 	"github.com/cvn-network/cvn/v2/ethereum/eip712"
 	evmosserver "github.com/cvn-network/cvn/v2/server"
 	servercfg "github.com/cvn-network/cvn/v2/server/config"
-	srvflags "github.com/cvn-network/cvn/v2/server/flags"
 )
 
 const (
@@ -130,10 +129,6 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		txCommand(),
 		evmosclient.KeyCommands(app.DefaultNodeHome),
 	)
-	rootCmd, err := srvflags.AddTxFlags(rootCmd)
-	if err != nil {
-		panic(err)
-	}
 
 	// add rosetta
 	rootCmd.AddCommand(sdkserver.RosettaCommand(encodingConfig.InterfaceRegistry, encodingConfig.Codec))
