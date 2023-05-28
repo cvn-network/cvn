@@ -11,7 +11,7 @@ WORKDIR /go/src/github.com/cvn-network/cvn
 # Add source files
 COPY . .
 
-# build Ethermint
+# build cvnd
 RUN make build-linux
 
 # Final image
@@ -23,7 +23,7 @@ RUN apt-get update
 
 # Copy over binaries from the build-env
 COPY --from=build-env /go/src/github.com/cvn-network/cvn/build/cvnd /
-COPY --from=build-env /go/src/github.com/cvn-network/cvn/scripts/start-docker.sh /
+COPY --from=build-env /go/src/github.com/cvn-network/cvn/networks/local/start-docker.sh /
 
 EXPOSE 26656 26657 1317 9090 8545 8546
 
