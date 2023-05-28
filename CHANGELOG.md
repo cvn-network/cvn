@@ -46,6 +46,10 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - Update evm tx base fee to 0.1*1e9 CVN
 - Add `SOUL` token contract
 
+### Bug Fixes
+
+- Fix `cvnd query epochs epoch-infos` use `clientCtx.PrintProto()` print result
+
 ## [v1.0.2] - 2023-06-09
 
 ### Improvements
