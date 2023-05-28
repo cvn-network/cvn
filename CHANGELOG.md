@@ -34,3 +34,16 @@ Ref: https://keepachangelog.com/en/1.0.0/
 -->
 
 # Changelog
+
+## [v1.0.1] - 2023-05-28
+
+### Improvements
+
+- (deps) Bump IBC-go version to [`v6.1.1`](https://github.com/cosmos/ibc-go/releases/tag/v6.1.1)
+
+### Bug Fixes
+
+- (deps) Bump cosmos-sdk version to `v0.46.10-ledger.3`. 
+  Fix memory leak in `cosmos/iavl` package.
+- (rpc) [#1431](https://github.com/evmos/evmos/pull/1431) Fix websocket connection id parsing
+- Fix math.MaxUint32 overflows int when build cvnd-arm64
