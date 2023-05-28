@@ -9,7 +9,8 @@ option go_package = "github.com/cvn-network/cvn/v2/x/vesting/types";
 
 // Query defines the gRPC querier service.
 service Query {
-  // Balances retrieves the unvested, vested and locked tokens for a vesting account
+  // Balances retrieves the unvested, vested and locked tokens for a vesting
+  // account
   rpc Balances(QueryBalancesRequest) returns (QueryBalancesResponse) {
     option (google.api.http).get = "/evmos/vesting/v1/balances/{address}";
   }
@@ -25,12 +26,18 @@ message QueryBalancesRequest {
 // method.
 message QueryBalancesResponse {
   // locked defines the current amount of locked tokens
-  repeated cosmos.base.v1beta1.Coin locked = 1
-      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];
+  repeated cosmos.base.v1beta1.Coin locked = 1 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+  ];
   // unvested defines the current amount of unvested tokens
-  repeated cosmos.base.v1beta1.Coin unvested = 2
-      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];
+  repeated cosmos.base.v1beta1.Coin unvested = 2 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+  ];
   // vested defines the current amount of vested tokens
-  repeated cosmos.base.v1beta1.Coin vested = 3
-      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];
+  repeated cosmos.base.v1beta1.Coin vested = 3 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+  ];
 }

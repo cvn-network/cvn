@@ -18,7 +18,8 @@ service Query {
 
   // Revenue retrieves a registered revenue for a given contract address
   rpc Revenue(QueryRevenueRequest) returns (QueryRevenueResponse) {
-    option (google.api.http).get = "/evmos/revenue/v1/revenues/{contract_address}";
+    option (google.api.http).get =
+        "/evmos/revenue/v1/revenues/{contract_address}";
   }
 
   // Params retrieves the revenue module params
@@ -28,14 +29,18 @@ service Query {
 
   // DeployerRevenues retrieves all revenues that a given deployer has
   // registered
-  rpc DeployerRevenues(QueryDeployerRevenuesRequest) returns (QueryDeployerRevenuesResponse) {
-    option (google.api.http).get = "/evmos/revenue/v1/revenues/{deployer_address}";
+  rpc DeployerRevenues(QueryDeployerRevenuesRequest)
+      returns (QueryDeployerRevenuesResponse) {
+    option (google.api.http).get =
+        "/evmos/revenue/v1/revenues/{deployer_address}";
   }
 
   // WithdrawerRevenues retrieves all revenues with a given withdrawer
   // address
-  rpc WithdrawerRevenues(QueryWithdrawerRevenuesRequest) returns (QueryWithdrawerRevenuesResponse) {
-    option (google.api.http).get = "/evmos/revenue/v1/revenues/{withdrawer_address}";
+  rpc WithdrawerRevenues(QueryWithdrawerRevenuesRequest)
+      returns (QueryWithdrawerRevenuesResponse) {
+    option (google.api.http).get =
+        "/evmos/revenue/v1/revenues/{withdrawer_address}";
   }
 }
 
@@ -48,7 +53,7 @@ message QueryRevenuesRequest {
 // QueryRevenuesResponse is the response type for the Query/Revenues RPC method.
 message QueryRevenuesResponse {
   // revenues is a slice of all stored Reveneue
-  repeated Revenue revenues = 1 [(gogoproto.nullable) = false];
+  repeated Revenue revenues = 1 [ (gogoproto.nullable) = false ];
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
@@ -62,7 +67,7 @@ message QueryRevenueRequest {
 // QueryRevenueResponse is the response type for the Query/Revenue RPC method.
 message QueryRevenueResponse {
   // revenue is a stored Reveneue for the queried contract
-  Revenue revenue = 1 [(gogoproto.nullable) = false];
+  Revenue revenue = 1 [ (gogoproto.nullable) = false ];
 }
 
 // QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -71,7 +76,7 @@ message QueryParamsRequest {}
 // QueryParamsResponse is the response type for the Query/Params RPC method.
 message QueryParamsResponse {
   // params is the returned revenue parameter
-  Params params = 1 [(gogoproto.nullable) = false];
+  Params params = 1 [ (gogoproto.nullable) = false ];
 }
 
 // QueryDeployerRevenuesRequest is the request type for the
@@ -86,7 +91,8 @@ message QueryDeployerRevenuesRequest {
 // QueryDeployerRevenuesResponse is the response type for the
 // Query/DeployerRevenues RPC method.
 message QueryDeployerRevenuesResponse {
-  // contract_addresses is the slice of registered contract addresses for a deployer
+  // contract_addresses is the slice of registered contract addresses for a
+  // deployer
   repeated string contract_addresses = 1;
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -104,7 +110,8 @@ message QueryWithdrawerRevenuesRequest {
 // QueryWithdrawerRevenuesResponse is the response type for the
 // Query/WithdrawerRevenues RPC method.
 message QueryWithdrawerRevenuesResponse {
-  // contract_addresses is the slice of registered contract addresses for a withdrawer
+  // contract_addresses is the slice of registered contract addresses for a
+  // withdrawer
   repeated string contract_addresses = 1;
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;

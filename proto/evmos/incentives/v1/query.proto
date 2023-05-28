@@ -29,18 +29,22 @@ service Query {
 
   // GasMeter retrieves a active gas meter
   rpc GasMeter(QueryGasMeterRequest) returns (QueryGasMeterResponse) {
-    option (google.api.http).get = "/evmos/incentives/v1/gas_meters/{contract}/{participant}";
+    option (google.api.http).get =
+        "/evmos/incentives/v1/gas_meters/{contract}/{participant}";
   }
 
   // AllocationMeters retrieves active allocation meters for a given
   // denomination
-  rpc AllocationMeters(QueryAllocationMetersRequest) returns (QueryAllocationMetersResponse) {
+  rpc AllocationMeters(QueryAllocationMetersRequest)
+      returns (QueryAllocationMetersResponse) {
     option (google.api.http).get = "/evmos/incentives/v1/allocation_meters";
   }
 
   // AllocationMeter retrieves a active gas meter
-  rpc AllocationMeter(QueryAllocationMeterRequest) returns (QueryAllocationMeterResponse) {
-    option (google.api.http).get = "/evmos/incentives/v1/allocation_meters/{denom}";
+  rpc AllocationMeter(QueryAllocationMeterRequest)
+      returns (QueryAllocationMeterResponse) {
+    option (google.api.http).get =
+        "/evmos/incentives/v1/allocation_meters/{denom}";
   }
 
   // Params retrieves the incentives module params
@@ -60,7 +64,7 @@ message QueryIncentivesRequest {
 // method.
 message QueryIncentivesResponse {
   // incentives is a slice of all incentives
-  repeated Incentive incentives = 1 [(gogoproto.nullable) = false];
+  repeated Incentive incentives = 1 [ (gogoproto.nullable) = false ];
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
@@ -75,7 +79,7 @@ message QueryIncentiveRequest {
 // method.
 message QueryIncentiveResponse {
   // incentive is the returned incentive for the queried contract
-  Incentive incentive = 1 [(gogoproto.nullable) = false];
+  Incentive incentive = 1 [ (gogoproto.nullable) = false ];
 }
 
 // QueryGasMetersRequest is the request type for the Query/Incentives RPC
@@ -91,7 +95,7 @@ message QueryGasMetersRequest {
 // method.
 message QueryGasMetersResponse {
   // gas_meters is a slice of the gas meters for an incentivized smart contract
-  repeated GasMeter gas_meters = 1 [(gogoproto.nullable) = false];
+  repeated GasMeter gas_meters = 1 [ (gogoproto.nullable) = false ];
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
@@ -107,7 +111,8 @@ message QueryGasMeterRequest {
 // QueryGasMeterResponse is the response type for the Query/Incentive RPC
 // method.
 message QueryGasMeterResponse {
-  // gas_meter is a gas meter for one participant on an incentivized smart contract
+  // gas_meter is a gas meter for one participant on an incentivized smart
+  // contract
   uint64 gas_meter = 1;
 }
 
@@ -122,8 +127,10 @@ message QueryAllocationMetersRequest {
 // Query/AllocationMeters RPC method.
 message QueryAllocationMetersResponse {
   // allocation_meters is a slice of all allocations
-  repeated cosmos.base.v1beta1.DecCoin allocation_meters = 1
-      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];
+  repeated cosmos.base.v1beta1.DecCoin allocation_meters = 1 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+  ];
   // pagination defines the pagination in the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
@@ -139,8 +146,10 @@ message QueryAllocationMeterRequest {
 // Query/AllocationMeter RPC method.
 message QueryAllocationMeterResponse {
   // allocation_meter defines the allocation of the queried denom
-  cosmos.base.v1beta1.DecCoin allocation_meter = 1
-      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];
+  cosmos.base.v1beta1.DecCoin allocation_meter = 1 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+  ];
 }
 
 // QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -150,5 +159,5 @@ message QueryParamsRequest {}
 // method.
 message QueryParamsResponse {
   // params are the incentives module parameters
-  Params params = 1 [(gogoproto.nullable) = false];
+  Params params = 1 [ (gogoproto.nullable) = false ];
 }
