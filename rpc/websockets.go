@@ -75,10 +75,10 @@ type websocketsServer struct {
 
 func NewWebsocketsServer(clientCtx client.Context, logger log.Logger, tmWSClient *rpcclient.WSClient, cfg *config.Config) WebsocketsServer {
 	logger = logger.With("api", "websocket-server")
-	_, port, _ := net.SplitHostPort(cfg.JSONRPC.Address) // #nosec G703
+	host, port, _ := net.SplitHostPort(cfg.JSONRPC.Address) // #nosec G703
 
 	return &websocketsServer{
-		rpcAddr:  "localhost:" + port, // FIXME: this shouldn't be hardcoded to localhost
+		rpcAddr:  fmt.Sprintf("%s:%s", host, port),
 		wsAddr:   cfg.JSONRPC.WsAddress,
 		certFile: cfg.TLS.CertificatePath,
 		keyFile:  cfg.TLS.KeyPath,

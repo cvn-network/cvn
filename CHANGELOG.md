@@ -48,6 +48,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Bug Fixes
 
+- Fix hardcoded to localhost when new websocket
 - Fix remove tx flags from root cmd
 - Fix `cvnd query epochs epoch-infos` use `clientCtx.PrintProto()` print result
 
