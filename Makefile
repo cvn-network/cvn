@@ -6,14 +6,10 @@ TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::'
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-CVN_BINARY = cvnd
-CVN_DIR = cvn
 BUILDDIR ?= $(CURDIR)/build
 HTTPS_GIT := https://github.com/cvn-network/cvn.git
 DOCKER := $(shell which docker)
-NAMESPACE := cvn-network
-PROJECT := cvn
-DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
+DOCKER_IMAGE := ghcr.io/cvn-network/cvn
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)
 DOCKER_TAG := $(COMMIT_HASH)
 # e2e env
@@ -62,7 +58,7 @@ build_tags := $(strip $(build_tags))
 # process linker flags
 
 ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=cvn \
-          -X github.com/cosmos/cosmos-sdk/version.AppName=$(CVN_BINARY) \
+          -X github.com/cosmos/cosmos-sdk/version.AppName=cvnd \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
           -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TMVERSION)
@@ -146,7 +142,6 @@ build-docker:
 	# TODO replace with kaniko
 	$(DOCKER) build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
-	# docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:${COMMIT_HASH}
 	# update old container
 	$(DOCKER) rm cvn || true
 	# create a new container from the latest image
@@ -243,7 +238,7 @@ endif
 #endif
 
 tools: tools-stamp
-tools-stamp: contract-tools docs-tools statik runsim
+tools-stamp: contract-tools statik runsim
 	# Create dummy file to satisfy dependency and avoid
 	# rebuilding when this Makefile target is hit twice
 	# in a row.
@@ -324,11 +319,6 @@ ifneq (,$(shell which tparse 2>/dev/null))
 else
 	@go test -mod=readonly $(ARGS)  $(EXTRA_ARGS) $(TEST_PACKAGES)
 endif
-
-test-import:
-	@go test ./tests/importer -v --vet=off --run=TestImportBlocks --datadir tmp \
-	--blockchain blockchain
-	rm -rf tests/importer/tmp
 
 test-rpc:
 	./scripts/integration-test-all.sh -t "rpc" -q 1 -z 1 -s 2 -m "rpc" -r "true"
