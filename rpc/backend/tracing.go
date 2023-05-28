@@ -35,7 +35,7 @@ func (b *Backend) TraceTransaction(hash common.Hash, config *evmtypes.TraceConfi
 	}
 
 	// check tx index is not out of bound
-	if len(blk.Block.Txs) > math.MaxUint32 {
+	if len(blk.Block.Txs) > math.MaxInt {
 		return nil, fmt.Errorf("tx count %d is overfloing", len(blk.Block.Txs))
 	}
 	txsLen := uint32(len(blk.Block.Txs)) // #nosec G701 -- checked for int overflow already
