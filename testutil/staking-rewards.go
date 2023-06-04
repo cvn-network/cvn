@@ -7,7 +7,6 @@ import (
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	distributionkeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
 	distributiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/staking/teststaking"
@@ -16,6 +15,7 @@ import (
 	"github.com/cvn-network/cvn/v2/app"
 	testutiltx "github.com/cvn-network/cvn/v2/testutil/tx"
 	"github.com/cvn-network/cvn/v2/utils"
+	cvndistrkeeper "github.com/cvn-network/cvn/v2/x/distribution/keeper"
 )
 
 // PrepareAccountsForDelegationRewards prepares the test suite for testing to withdraw delegation rewards.
@@ -112,7 +112,7 @@ func PrepareAccountsForDelegationRewards(t *testing.T, ctx sdk.Context, app *app
 
 // GetTotalDelegationRewards returns the total delegation rewards that are currently
 // outstanding for the given address.
-func GetTotalDelegationRewards(ctx sdk.Context, distributionKeeper distributionkeeper.Keeper, addr sdk.AccAddress) (sdk.DecCoins, error) {
+func GetTotalDelegationRewards(ctx sdk.Context, distributionKeeper cvndistrkeeper.Keeper, addr sdk.AccAddress) (sdk.DecCoins, error) {
 	resp, err := distributionKeeper.DelegationTotalRewards(
 		ctx,
 		&distributiontypes.QueryDelegationTotalRewardsRequest{

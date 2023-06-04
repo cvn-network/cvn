@@ -114,6 +114,8 @@ import (
 	"github.com/cvn-network/cvn/v2/x/claims"
 	claimskeeper "github.com/cvn-network/cvn/v2/x/claims/keeper"
 	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
+	cvndistr "github.com/cvn-network/cvn/v2/x/distribution"
+	cvndistrkeeper "github.com/cvn-network/cvn/v2/x/distribution/keeper"
 	"github.com/cvn-network/cvn/v2/x/epochs"
 	epochskeeper "github.com/cvn-network/cvn/v2/x/epochs/keeper"
 	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
@@ -259,7 +261,7 @@ type CVN struct {
 	CapabilityKeeper *capabilitykeeper.Keeper
 	StakingKeeper    stakingkeeper.Keeper
 	SlashingKeeper   slashingkeeper.Keeper
-	DistrKeeper      distrkeeper.Keeper
+	DistrKeeper      cvndistrkeeper.Keeper
 	GovKeeper        govkeeper.Keeper
 	CrisisKeeper     crisiskeeper.Keeper
 	UpgradeKeeper    upgradekeeper.Keeper
@@ -395,9 +397,14 @@ func NewCVN(
 	stakingKeeper := stakingkeeper.NewKeeper(
 		appCodec, keys[stakingtypes.StoreKey], app.AccountKeeper, app.BankKeeper, app.GetSubspace(stakingtypes.ModuleName),
 	)
-	app.DistrKeeper = distrkeeper.NewKeeper(
-		appCodec, keys[distrtypes.StoreKey], app.GetSubspace(distrtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
-		&stakingKeeper, authtypes.FeeCollectorName,
+
+	app.DistrKeeper = cvndistrkeeper.NewKeeper(
+		distrkeeper.NewKeeper(
+			appCodec, keys[distrtypes.StoreKey], app.GetSubspace(distrtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
+			&stakingKeeper, authtypes.FeeCollectorName,
+		),
+		app.BankKeeper,
+		&stakingKeeper,
 	)
 	app.SlashingKeeper = slashingkeeper.NewKeeper(
 		appCodec, keys[slashingtypes.StoreKey], &stakingKeeper, app.GetSubspace(slashingtypes.ModuleName),
@@ -435,7 +442,7 @@ func NewCVN(
 	govRouter := govv1beta1.NewRouter()
 	govRouter.AddRoute(govtypes.RouterKey, govv1beta1.ProposalHandler).
 		AddRoute(paramproposal.RouterKey, params.NewParamChangeProposalHandler(app.ParamsKeeper)).
-		AddRoute(distrtypes.RouterKey, distr.NewCommunityPoolSpendProposalHandler(app.DistrKeeper)).
+		AddRoute(distrtypes.RouterKey, distr.NewCommunityPoolSpendProposalHandler(app.DistrKeeper.Keeper)).
 		AddRoute(upgradetypes.RouterKey, upgrade.NewSoftwareUpgradeProposalHandler(app.UpgradeKeeper)).
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.IBCKeeper.ClientKeeper)).
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
@@ -621,7 +628,7 @@ func NewCVN(
 		crisis.NewAppModule(&app.CrisisKeeper, skipGenesisInvariants),
 		gov.NewAppModule(appCodec, app.GovKeeper, app.AccountKeeper, app.BankKeeper),
 		slashing.NewAppModule(appCodec, app.SlashingKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
-		distr.NewAppModule(appCodec, app.DistrKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+		cvndistr.NewAppModule(distr.NewAppModule(appCodec, app.DistrKeeper.Keeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper), app.DistrKeeper),
 		staking.NewAppModule(appCodec, app.StakingKeeper, app.AccountKeeper, app.BankKeeper),
 		upgrade.NewAppModule(app.UpgradeKeeper),
 		evidence.NewAppModule(app.EvidenceKeeper),
