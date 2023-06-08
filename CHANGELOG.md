@@ -35,6 +35,17 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 # Changelog
 
+## [v1.0.2] - 2023-06-09
+
+### Improvements
+
+- (deps) Bump SDK to v0.46.13
+
+### Bug Fixes
+
+- (vesting) Apply ClawbackVestingAccount Barberry patch
+
+
 ## [v1.0.1] - 2023-05-28
 
 ### Improvements
