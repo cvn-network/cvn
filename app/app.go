@@ -129,6 +129,7 @@ import (
 	"github.com/cvn-network/cvn/v2/x/feemarket"
 	feemarketkeeper "github.com/cvn-network/cvn/v2/x/feemarket/keeper"
 	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	cvngovkeeper "github.com/cvn-network/cvn/v2/x/gov/keeper"
 	"github.com/cvn-network/cvn/v2/x/ibc/transfer"
 	transferkeeper "github.com/cvn-network/cvn/v2/x/ibc/transfer/keeper"
 	"github.com/cvn-network/cvn/v2/x/incentives"
@@ -397,7 +398,7 @@ func NewCVN(
 		appCodec, keys[stakingtypes.StoreKey], app.AccountKeeper, app.BankKeeper, app.GetSubspace(stakingtypes.ModuleName),
 	)
 
-	app.DistrKeeper = cvndistrkeeper.NewKeeper(
+	_distrKeeper := cvndistrkeeper.NewKeeper(
 		distrkeeper.NewKeeper(
 			appCodec, keys[distrtypes.StoreKey], app.GetSubspace(distrtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
 			&stakingKeeper, authtypes.FeeCollectorName,
@@ -405,6 +406,8 @@ func NewCVN(
 		app.BankKeeper,
 		&stakingKeeper,
 	)
+	app.DistrKeeper = *_distrKeeper.SetHooks(cvngovkeeper.NewSoulHooks(app.AccountKeeper, app.BankKeeper, &app.Erc20Keeper, &stakingKeeper))
+
 	app.SlashingKeeper = slashingkeeper.NewKeeper(
 		appCodec, keys[slashingtypes.StoreKey], &stakingKeeper, app.GetSubspace(slashingtypes.ModuleName),
 	)
