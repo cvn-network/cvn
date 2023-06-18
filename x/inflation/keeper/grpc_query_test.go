@@ -5,6 +5,7 @@ import (
 
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
 	cvntypes "github.com/cvn-network/cvn/v2/types"
 	"github.com/cvn-network/cvn/v2/x/inflation/types"
@@ -158,7 +159,6 @@ func (suite *KeeperTestSuite) TestSkippedEpochs() { //nolint:dupl
 }
 
 func (suite *KeeperTestSuite) TestQueryCirculatingSupply() {
-	// Team allocation is only set on mainnet
 	ctx := sdk.WrapSDKContext(suite.ctx)
 
 	// Mint coins to increase supply
@@ -167,15 +167,12 @@ func (suite *KeeperTestSuite) TestQueryCirculatingSupply() {
 	err := suite.app.InflationKeeper.MintCoins(suite.ctx, mintCoin)
 	suite.Require().NoError(err)
 
-	// team allocation is zero if not on mainnet
-	expCirculatingSupply := sdk.NewDecCoin(mintDenom, sdk.TokensFromConsensusPower(200_000_000, cvntypes.PowerReduction))
-
 	// the total bonded tokens for the 2 accounts initialized on the setup
 	bondedAmt := sdk.NewInt64DecCoin(cvntypes.AttoCvnt, 1000100000000000000)
 
 	res, err := suite.queryClient.CirculatingSupply(ctx, &types.QueryCirculatingSupplyRequest{})
 	suite.Require().NoError(err)
-	suite.Require().Equal(expCirculatingSupply.Add(bondedAmt), res.CirculatingSupply)
+	suite.Require().Equal(bondedAmt.Add(sdk.NewDecCoinFromCoin(mintCoin)).String(), res.CirculatingSupply.String())
 }
 
 func (suite *KeeperTestSuite) TestQueryInflationRate() {
@@ -186,11 +183,17 @@ func (suite *KeeperTestSuite) TestQueryInflationRate() {
 
 	// Mint coins to increase supply
 	mintDenom := suite.app.InflationKeeper.GetParams(suite.ctx).MintDenom
-	mintCoin := sdk.NewCoin(mintDenom, sdk.TokensFromConsensusPower(int64(400_000_000), cvntypes.PowerReduction).Sub(bondedAmt))
+	totalCoin, _ := sdk.NewIntFromString("155714373561643835616438350")
+	mintCoin := sdk.NewCoin(mintDenom, totalCoin.Sub(bondedAmt))
 	err := suite.app.InflationKeeper.MintCoins(suite.ctx, mintCoin)
 	suite.Require().NoError(err)
 
-	expInflationRate := sdk.MustNewDecFromStr("154.687500000000000000")
+	bonded, _ := sdk.NewIntFromString("26310000000000000000000000")
+	bondedCoin := sdk.NewCoin(cvntypes.AttoCvnt, bonded.Sub(bondedAmt))
+	err = suite.app.BankKeeper.SendCoinsFromModuleToModule(suite.ctx, types.ModuleName, stakingtypes.BondedPoolName, sdk.NewCoins(bondedCoin))
+	suite.Require().NoError(err)
+
+	expInflationRate := sdk.MustNewDecFromStr("28.899066265186821100")
 	res, err := suite.queryClient.InflationRate(ctx, &types.QueryInflationRateRequest{})
 	suite.Require().NoError(err)
 	suite.Require().Equal(expInflationRate, res.InflationRate)

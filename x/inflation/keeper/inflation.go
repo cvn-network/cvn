@@ -3,14 +3,9 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/utils"
 	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
 	"github.com/cvn-network/cvn/v2/x/inflation/types"
 )
-
-// 200M token at year 4 allocated to the team
-var teamAlloc = sdk.NewInt(200_000_000).Mul(cvntypes.PowerReduction)
 
 // MintAndAllocateInflation performs inflation minting and allocation
 func (k Keeper) MintAndAllocateInflation(
@@ -113,35 +108,17 @@ func (k Keeper) GetProportions(
 }
 
 // BondedRatio the fraction of the staking tokens which are currently bonded
-// It doesn't consider team allocation for inflation
 func (k Keeper) BondedRatio(ctx sdk.Context) sdk.Dec {
 	stakeSupply := k.stakingKeeper.StakingTokenSupply(ctx)
-
-	isMainnet := utils.IsMainnet(ctx.ChainID())
-
-	if !stakeSupply.IsPositive() || (isMainnet && stakeSupply.LTE(teamAlloc)) {
+	if !stakeSupply.IsPositive() {
 		return sdk.ZeroDec()
 	}
-
-	// don't count team allocation in bonded ratio's stake supple
-	if isMainnet {
-		stakeSupply = stakeSupply.Sub(teamAlloc)
-	}
-
 	return sdk.NewDecFromInt(k.stakingKeeper.TotalBondedTokens(ctx)).QuoInt(stakeSupply)
 }
 
-// GetCirculatingSupply returns the bank supply of the mintDenom excluding the
-// team allocation in the first year
+// GetCirculatingSupply returns the bank supply of the mintDenom
 func (k Keeper) GetCirculatingSupply(ctx sdk.Context, mintDenom string) sdk.Dec {
 	circulatingSupply := sdk.NewDecFromInt(k.bankKeeper.GetSupply(ctx, mintDenom).Amount)
-	teamAllocation := sdk.NewDecFromInt(teamAlloc)
-
-	// Consider team allocation only on mainnet chain id
-	if utils.IsMainnet(ctx.ChainID()) {
-		circulatingSupply = circulatingSupply.Sub(teamAllocation)
-	}
-
 	return circulatingSupply
 }
 

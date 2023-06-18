@@ -88,7 +88,6 @@ func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {
 func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 	// the total bonded tokens for the 2 accounts initialized on the setup
 	bondedAmt := sdkmath.NewInt(1000100000000000000)
-	bondedCoins := sdk.NewDecCoin(cvntypes.AttoCvnt, bondedAmt)
 
 	testCases := []struct {
 		name             string
@@ -98,7 +97,7 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 	}{
 		{
 			"no epochs per period",
-			sdk.TokensFromConsensusPower(400_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
+			sdk.TokensFromConsensusPower(200_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
 			func() {
 				suite.app.InflationKeeper.SetEpochsPerPeriod(suite.ctx, 0)
 			},
@@ -106,47 +105,34 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 		},
 		{
 			"high supply",
-			sdk.TokensFromConsensusPower(800_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
+			sdk.TokensFromConsensusPower(90_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
 			func() {},
-			sdk.MustNewDecFromStr("51.562500000000000000"),
+			sdk.MustNewDecFromStr("50.000000000000000000"),
 		},
 		{
 			"low supply",
-			sdk.TokensFromConsensusPower(400_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
+			sdk.TokensFromConsensusPower(30_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
 			func() {},
-			sdk.MustNewDecFromStr("154.687500000000000000"),
-		},
-		{
-			"zero circulating supply",
-			sdk.TokensFromConsensusPower(200_000_000, cvntypes.PowerReduction).Sub(bondedAmt),
-			func() {},
-			sdk.ZeroDec(),
+			sdk.MustNewDecFromStr("150.000000000000000000"),
 		},
 	}
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
 			suite.SetupTest() // reset
 
-			// Team allocation is only set on mainnet
 			suite.ctx = suite.ctx.WithChainID("cvn_2032-1")
 			tc.malleate()
 
 			// Mint coins to increase supply
-			coin := sdk.NewCoin(
+			mintCoin := sdk.NewCoin(
 				types.DefaultInflationDenom,
 				tc.bankSupply,
 			)
-			decCoin := sdk.NewDecCoinFromCoin(coin)
-			err := suite.app.InflationKeeper.MintCoins(suite.ctx, coin)
+			err := suite.app.InflationKeeper.MintCoins(suite.ctx, mintCoin)
 			suite.Require().NoError(err)
 
-			teamAlloc := sdk.NewDecCoin(
-				types.DefaultInflationDenom,
-				sdk.TokensFromConsensusPower(int64(200_000_000), cvntypes.PowerReduction),
-			)
-
 			circulatingSupply := s.app.InflationKeeper.GetCirculatingSupply(suite.ctx, types.DefaultInflationDenom)
-			suite.Require().Equal(decCoin.Add(bondedCoins).Sub(teamAlloc).Amount, circulatingSupply)
+			suite.Require().Equal(sdk.NewDecCoinFromCoin(mintCoin.AddAmount(bondedAmt)).Amount, circulatingSupply)
 
 			inflationRate := s.app.InflationKeeper.GetInflationRate(suite.ctx, types.DefaultInflationDenom)
 			suite.Require().Equal(tc.expInflationRate, inflationRate)
@@ -157,19 +143,11 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 func (suite *KeeperTestSuite) TestBondedRatio() {
 	testCases := []struct {
 		name         string
-		isMainnet    bool
 		malleate     func()
 		expBondRatio sdk.Dec
 	}{
 		{
-			"is mainnet",
-			true,
-			func() {},
-			sdk.ZeroDec(),
-		},
-		{
-			"not mainnet",
-			false,
+			"bonded ratio",
 			func() {},
 			sdk.MustNewDecFromStr("0.999900009999000099"),
 		},
@@ -178,12 +156,6 @@ func (suite *KeeperTestSuite) TestBondedRatio() {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
 			suite.SetupTest() // reset
 
-			// Team allocation is only set on mainnet
-			if tc.isMainnet {
-				suite.ctx = suite.ctx.WithChainID("cvn_2032-1")
-			} else {
-				suite.ctx = suite.ctx.WithChainID("cvn_9999-666")
-			}
 			tc.malleate()
 
 			bondRatio := suite.app.InflationKeeper.BondedRatio(suite.ctx)

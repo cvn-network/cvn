@@ -16,9 +16,9 @@ var (
 	DefaultInflationDenom         = evm.DefaultEVMDenom
 	DefaultInflation              = true
 	DefaultExponentialCalculation = ExponentialCalculation{
-		A:             sdk.NewDec(int64(300_000_000)),
+		A:             sdk.NewDec(int64(40_000_000)),
 		R:             sdk.NewDecWithPrec(50, 2), // 50%
-		C:             sdk.NewDec(int64(9_375_000)),
+		C:             sdk.NewDec(int64(5_000_000)),
 		BondingTarget: sdk.NewDecWithPrec(66, 2), // 66%
 		MaxVariance:   sdk.ZeroDec(),             // 0%
 	}
