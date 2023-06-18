@@ -116,7 +116,8 @@ func (suite *KeeperTestSuite) TestEvmHooksRegisteredERC20() {
 
 			tc.malleate(contractAddr)
 
-			balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateDenom(contractAddr.String()))
+			//balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateDenom(contractAddr.String()))
+			balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateBaseDenom("token"))
 			suite.Commit()
 			if tc.result {
 				// Check if the execution was successful

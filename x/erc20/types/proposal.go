@@ -46,6 +46,14 @@ func CreateDenom(address string) string {
 	return fmt.Sprintf("%s/%s", ModuleName, address)
 }
 
+func CreateBaseDenom(symbol string) string {
+	return fmt.Sprintf("a%st", strings.ToLower(symbol))
+}
+
+func CreateDisplayDenom(symbol string) string {
+	return fmt.Sprintf("%st", strings.ToLower(symbol))
+}
+
 // NewRegisterCoinProposal returns new instance of RegisterCoinProposal
 func NewRegisterCoinProposal(title, description string, coinMetadata ...banktypes.Metadata) v1beta1.Content {
 	return &RegisterCoinProposal{

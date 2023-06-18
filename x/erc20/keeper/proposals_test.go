@@ -309,7 +309,8 @@ func (suite KeeperTestSuite) TestRegisterERC20() { //nolint:govet // we can copy
 			contractAddr, err = suite.DeployContract(erc20Name, erc20Symbol, cosmosDecimals)
 			suite.Require().NoError(err)
 
-			coinName := types.CreateDenom(contractAddr.String())
+			//coinName := types.CreateDenom(contractAddr.String())
+			coinName := types.CreateBaseDenom(erc20Symbol)
 			pair = types.NewTokenPair(contractAddr, coinName, types.OWNER_EXTERNAL)
 
 			tc.malleate()
@@ -321,14 +322,17 @@ func (suite KeeperTestSuite) TestRegisterERC20() { //nolint:govet // we can copy
 				// Metadata variables
 				suite.Require().True(found)
 				suite.Require().Equal(coinName, metadata.Base)
-				suite.Require().Equal(coinName, metadata.Name)
-				suite.Require().Equal(types.SanitizeERC20Name(erc20Name), metadata.Display)
+				//suite.Require().Equal(coinName, metadata.Name)
+				suite.Require().Equal(erc20Name, metadata.Name)
+				//suite.Require().Equal(types.SanitizeERC20Name(erc20Name), metadata.Display)
+				suite.Require().Equal(types.CreateDisplayDenom(erc20Symbol), metadata.Display)
 				suite.Require().Equal(erc20Symbol, metadata.Symbol)
 				// Denom units
 				suite.Require().Equal(len(metadata.DenomUnits), 2)
 				suite.Require().Equal(coinName, metadata.DenomUnits[0].Denom)
 				suite.Require().Equal(zeroExponent, metadata.DenomUnits[0].Exponent)
-				suite.Require().Equal(types.SanitizeERC20Name(erc20Name), metadata.DenomUnits[1].Denom)
+				//suite.Require().Equal(types.SanitizeERC20Name(erc20Name), metadata.DenomUnits[1].Denom)
+				suite.Require().Equal(types.CreateDisplayDenom(erc20Symbol), metadata.DenomUnits[1].Denom)
 				// Custom exponent at contract creation matches coin with token
 				suite.Require().Equal(metadata.DenomUnits[1].Exponent, uint32(cosmosDecimals))
 			} else {

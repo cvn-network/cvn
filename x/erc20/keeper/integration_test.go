@@ -176,7 +176,7 @@ var _ = Describe("ERC20:", Ordered, func() {
 				// Mint coins to pay gas fee, gov deposit and registering coins in Bankkeeper
 				contract, err = s.DeployContract(erc20Name, erc20Symbol, erc20Decimals)
 				s.Require().NoError(err)
-				contract2, err = s.DeployContract(erc20Name, erc20Symbol, erc20Decimals)
+				contract2, err = s.DeployContract(erc20Name, erc20Symbol+"2", erc20Decimals)
 				s.Require().NoError(err)
 
 				coins := sdk.NewCoins(

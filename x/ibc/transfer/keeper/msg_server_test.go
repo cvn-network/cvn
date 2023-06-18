@@ -206,7 +206,7 @@ func (suite *KeeperTestSuite) TestTransfer() {
 				pair, err := suite.app.Erc20Keeper.RegisterERC20(suite.ctx, contractAddr)
 				suite.Require().NoError(err)
 				suite.Commit()
-				suite.Require().Equal("erc20/"+pair.Erc20Address, pair.Denom)
+				suite.Require().Equal("atokent", pair.Denom)
 
 				senderAcc := sdk.AccAddress(suite.address.Bytes())
 				transferMsg := types.NewMsgTransfer("transfer", "channel-0", sdk.NewCoin(pair.Denom, sdk.NewInt(10)), senderAcc.String(), "", timeoutHeight, 0, "")

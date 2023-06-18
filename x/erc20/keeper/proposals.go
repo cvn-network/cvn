@@ -71,15 +71,14 @@ func (k Keeper) RegisterERC20(
 		)
 	}
 
-	pair := types.NewTokenPair(contract, metadata.Name, types.OWNER_EXTERNAL)
+	pair := types.NewTokenPair(contract, metadata.Base, types.OWNER_EXTERNAL)
 	k.SetTokenPair(ctx, pair)
 	k.SetDenomMap(ctx, pair.Denom, pair.GetID())
 	k.SetERC20Map(ctx, common.HexToAddress(pair.Erc20Address), pair.GetID())
 	return &pair, nil
 }
 
-// CreateCoinMetadata generates the metadata to represent the ERC20 token on
-// evmos.
+// CreateCoinMetadata generates the metadata to represent the ERC20 token on CVN.
 func (k Keeper) CreateCoinMetadata(
 	ctx sdk.Context,
 	contract common.Address,
@@ -91,22 +90,22 @@ func (k Keeper) CreateCoinMetadata(
 		return nil, err
 	}
 
+	// base denomination
+	base := types.CreateBaseDenom(erc20Data.Symbol)
+
 	// Check if metadata already exists
-	_, found := k.bankKeeper.GetDenomMetaData(ctx, types.CreateDenom(strContract))
+	_, found := k.bankKeeper.GetDenomMetaData(ctx, base)
 	if found {
 		return nil, errorsmod.Wrap(
 			types.ErrInternalTokenPair, "denom metadata already registered",
 		)
 	}
 
-	if k.IsDenomRegistered(ctx, types.CreateDenom(strContract)) {
+	if k.IsDenomRegistered(ctx, base) {
 		return nil, errorsmod.Wrapf(
 			types.ErrInternalTokenPair, "coin denomination already registered: %s", erc20Data.Name,
 		)
 	}
-
-	// base denomination
-	base := types.CreateDenom(strContract)
 
 	// create a bank denom metadata based on the ERC20 token ABI details
 	// metadata name is should always be the contract since it's the key
@@ -119,27 +118,33 @@ func (k Keeper) CreateCoinMetadata(
 			{
 				Denom:    base,
 				Exponent: 0,
+				Aliases: []string{
+					types.CreateDenom(strContract),
+				},
 			},
 		},
-		Name:    types.CreateDenom(strContract),
+		Name:    erc20Data.Name,
 		Symbol:  erc20Data.Symbol,
 		Display: base,
 	}
 
 	// only append metadata if decimals > 0, otherwise validation fails
 	if erc20Data.Decimals > 0 {
-		nameSanitized := types.SanitizeERC20Name(erc20Data.Name)
+		displayDenom := types.CreateDisplayDenom(erc20Data.Symbol)
 		metadata.DenomUnits = append(
 			metadata.DenomUnits,
 			&banktypes.DenomUnit{
-				Denom:    nameSanitized,
+				Denom:    displayDenom,
 				Exponent: uint32(erc20Data.Decimals),
+				Aliases: []string{
+					types.SanitizeERC20Name(strContract),
+				},
 			},
 		)
-		metadata.Display = nameSanitized
+		metadata.Display = displayDenom
 	}
 
-	if err := metadata.Validate(); err != nil {
+	if err = metadata.Validate(); err != nil {
 		return nil, errorsmod.Wrapf(
 			err, "ERC20 token data is invalid for contract %s", strContract,
 		)

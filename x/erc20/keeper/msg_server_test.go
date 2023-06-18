@@ -678,7 +678,12 @@ func (suite *KeeperTestSuite) TestConvertERC20NativeERC20() {
 			suite.Require().NotNil(contractAddr)
 			suite.Commit()
 
-			coinName = types.CreateDenom(contractAddr.String())
+			id := suite.app.Erc20Keeper.GetTokenPairID(suite.ctx, contractAddr.String())
+			pair, found := suite.app.Erc20Keeper.GetTokenPair(suite.ctx, id)
+			suite.Require().True(found)
+			coinName = pair.Denom
+			//coinName = types.CreateDenom(contractAddr.String())
+
 			sender := sdk.AccAddress(suite.address.Bytes())
 			msg := types.NewMsgConvertERC20(
 				sdk.NewInt(tc.transfer),
@@ -891,9 +896,10 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			suite.Require().NotNil(contractAddr)
 
 			id := suite.app.Erc20Keeper.GetTokenPairID(suite.ctx, contractAddr.String())
-			pair, _ := suite.app.Erc20Keeper.GetTokenPair(suite.ctx, id)
+			pair, found := suite.app.Erc20Keeper.GetTokenPair(suite.ctx, id)
+			suite.Require().True(found)
 			coins := sdk.NewCoins(sdk.NewCoin(pair.Denom, sdk.NewInt(tc.mint)))
-			coinName := types.CreateDenom(contractAddr.String())
+			//coinName := types.CreateDenom(contractAddr.String())
 			sender := sdk.AccAddress(suite.address.Bytes())
 
 			// Precondition: Mint Coins to convert on sender account
@@ -901,7 +907,7 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			suite.Require().NoError(err)
 			err = suite.app.BankKeeper.SendCoinsFromModuleToAccount(suite.ctx, types.ModuleName, sender, coins)
 			suite.Require().NoError(err)
-			cosmosBalance := suite.app.BankKeeper.GetBalance(suite.ctx, sender, coinName)
+			cosmosBalance := suite.app.BankKeeper.GetBalance(suite.ctx, sender, pair.Denom)
 			suite.Require().Equal(sdk.NewInt(tc.mint), cosmosBalance.Amount)
 
 			// Precondition: Mint escrow tokens on module account
@@ -917,7 +923,7 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			receiver := suite.address
 			ctx := sdk.WrapSDKContext(suite.ctx)
 			msg := types.NewMsgConvertCoin(
-				sdk.NewCoin(coinName, sdk.NewInt(tc.convert)),
+				sdk.NewCoin(pair.Denom, sdk.NewInt(tc.convert)),
 				receiver,
 				sender,
 			)
@@ -928,7 +934,7 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			expRes := &types.MsgConvertCoinResponse{}
 			suite.Commit()
 			tokenBalance = suite.BalanceOf(contractAddr, suite.address)
-			cosmosBalance = suite.app.BankKeeper.GetBalance(suite.ctx, sender, coinName)
+			cosmosBalance = suite.app.BankKeeper.GetBalance(suite.ctx, sender, pair.Denom)
 			if tc.expPass {
 				suite.Require().NoError(err, tc.name)
 				suite.Require().Equal(expRes, res)

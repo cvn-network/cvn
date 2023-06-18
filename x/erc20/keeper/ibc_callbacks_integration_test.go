@@ -201,7 +201,7 @@ var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {
 
 			// 2. Transfer back the erc20 from Evmos to Osmosis
 			ibcCoinMeta := fmt.Sprintf("%s/%s", teststypes.UosmoDenomtrace.Path, teststypes.UosmoDenomtrace.BaseDenom)
-			s.SendBackCoins(s.pathOsmosisEvmos, s.CVNChain, types.ModuleName+"/"+pair.GetERC20Contract().String(), amount, receiver, sender, 1, ibcCoinMeta)
+			s.SendBackCoins(s.pathOsmosisEvmos, s.CVNChain, pair.Denom, amount, receiver, sender, 1, ibcCoinMeta)
 
 			// after transfer, ERC-20 token balance should be zero
 			balanceTokenAfter := s.app.Erc20Keeper.BalanceOf(s.CVNChain.GetContext(), contracts.ERC20MinterBurnerDecimalsContract.ABI, pair.GetERC20Contract(), common.BytesToAddress(receiverAcc.Bytes()))
@@ -458,7 +458,7 @@ var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {
 			s.CVNChain.Coordinator.CommitBlock()
 
 			// Attempt to send 1/2 of erc20 balance via ibc, should convert erc20 tokens to ibc coins and send the converted balance via IBC
-			s.SendBackCoins(s.pathOsmosisEvmos, s.CVNChain, types.ModuleName+"/"+pair.GetERC20Contract().String(), amount/2, sender, receiver, 1, "")
+			s.SendBackCoins(s.pathOsmosisEvmos, s.CVNChain, pair.Denom, amount/2, sender, receiver, 1, "")
 			s.IBCOsmosisChain.Coordinator.CommitBlock()
 
 			// IBC coin balance should be zero
