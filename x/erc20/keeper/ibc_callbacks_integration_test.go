@@ -18,6 +18,7 @@ import (
 	"github.com/cvn-network/cvn/v2/contracts"
 	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
 	"github.com/cvn-network/cvn/v2/testutil"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 	teststypes "github.com/cvn-network/cvn/v2/types/tests"
 	"github.com/cvn-network/cvn/v2/utils"
 	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
@@ -49,19 +50,7 @@ var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {
 		Display: teststypes.UosmoDenomtrace.BaseDenom,
 	}
 
-	evmosMeta := banktypes.Metadata{
-		Description: "Base Denom for Cvn Chain",
-		Base:        utils.BaseDenom,
-		DenomUnits: []*banktypes.DenomUnit{
-			{
-				Denom:    teststypes.AcvntDenomtrace.BaseDenom,
-				Exponent: 0,
-			},
-		},
-		Name:    utils.BaseDenom,
-		Symbol:  erc20Symbol,
-		Display: teststypes.AcvntDenomtrace.BaseDenom,
-	}
+	cvnMeta := cvntypes.GetCvnMetadata()
 
 	BeforeEach(func() {
 		s.suiteIBCTesting = true
@@ -152,7 +141,7 @@ var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {
 		})
 		It("should transfer and not convert acvnt", func() {
 			// Register 'acvnt' coin in ERC-20 keeper to validate it is not converting the coins when receiving 'acvnt' thru IBC
-			pair, err := s.app.Erc20Keeper.RegisterCoin(s.CVNChain.GetContext(), evmosMeta)
+			pair, err := s.app.Erc20Keeper.RegisterCoin(s.CVNChain.GetContext(), cvnMeta)
 			s.Require().NoError(err)
 
 			aevmosInitialBalance := s.app.BankKeeper.GetBalance(s.CVNChain.GetContext(), receiverAcc, utils.BaseDenom)

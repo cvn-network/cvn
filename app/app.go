@@ -892,6 +892,8 @@ func (app *CVN) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.Res
 
 	app.UpgradeKeeper.SetModuleVersionMap(ctx, app.mm.GetVersionMap())
 
+	app.BankKeeper.SetDenomMetaData(ctx, cvntypes.GetCvnMetadata())
+
 	return app.mm.InitGenesis(ctx, app.appCodec, genesisState)
 }
 

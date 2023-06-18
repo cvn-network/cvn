@@ -88,9 +88,9 @@ func (suite *UpgradeTestSuite) TestUpdateMetadata() {
 		suite.app.InflationKeeper.GetParams(suite.ctx).InflationDistribution.CommunityPool.String(),
 	)
 
-	suite.Require().False(
-		suite.app.BankKeeper.HasDenomMetaData(suite.ctx, "acvnt"),
-	)
+	//suite.Require().False(
+	//	suite.app.BankKeeper.HasDenomMetaData(suite.ctx, "acvnt"),
+	//)
 
 	suite.Require().False(
 		suite.app.BankKeeper.HasDenomMetaData(suite.ctx, "asoult"),

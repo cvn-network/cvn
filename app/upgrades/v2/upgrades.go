@@ -11,6 +11,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 
 	cvntypes "github.com/cvn-network/cvn/v2/types"
+	erc20keeper "github.com/cvn-network/cvn/v2/x/erc20/keeper"
 	feemarketkeeper "github.com/cvn-network/cvn/v2/x/feemarket/keeper"
 	cvngovtypes "github.com/cvn-network/cvn/v2/x/gov/types"
 	inflationkeeper "github.com/cvn-network/cvn/v2/x/inflation/keeper"
@@ -46,6 +47,7 @@ type Upgrade struct {
 	inflation inflationkeeper.Keeper
 	slashing  slashingkeeper.Keeper
 	feeMarket feemarketkeeper.Keeper
+	erc20     erc20keeper.Keeper
 }
 
 func NewUpgrade(logger log.Logger, bank bankkeeper.Keeper, inflation inflationkeeper.Keeper, slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper) Upgrade {
