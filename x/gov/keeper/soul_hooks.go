@@ -48,7 +48,7 @@ func (m SoulHooks) mint(ctx sdk.Context, valAddr sdk.ValAddress, amount sdkmath.
 	if !amount.IsPositive() {
 		return nil
 	}
-	coin := sdk.NewCoin("asoult", amount)
+	coin := sdk.NewCoin(types.AttoSoult, amount)
 	coins := sdk.NewCoins(coin)
 	if err := m.bank.MintCoins(ctx, govtypes.ModuleName, coins); err != nil {
 		return err

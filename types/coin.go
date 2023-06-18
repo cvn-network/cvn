@@ -5,6 +5,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 )
 
 const (
@@ -44,4 +45,24 @@ func NewCvntDecCoin(amount sdkmath.Int) sdk.DecCoin {
 // The function will panic if the provided amount is negative.
 func NewCvntCoinInt64(amount int64) sdk.Coin {
 	return sdk.NewInt64Coin(AttoCvnt, amount)
+}
+
+func GetCvnMetadata() banktypes.Metadata {
+	return banktypes.Metadata{
+		Description: "The native staking and governance token of the Conscious Network.",
+		DenomUnits: []*banktypes.DenomUnit{
+			{
+				Denom:    AttoCvnt,
+				Exponent: 0,
+			},
+			{
+				Denom:    "cvnt",
+				Exponent: 18,
+			},
+		},
+		Base:    AttoCvnt,
+		Display: "cvnt",
+		Name:    "CVN",
+		Symbol:  "CVN",
+	}
 }

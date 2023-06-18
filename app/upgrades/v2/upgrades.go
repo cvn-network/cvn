@@ -6,12 +6,13 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	"github.com/tendermint/tendermint/libs/log"
 
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 	feemarketkeeper "github.com/cvn-network/cvn/v2/x/feemarket/keeper"
+	cvngovtypes "github.com/cvn-network/cvn/v2/x/gov/types"
 	inflationkeeper "github.com/cvn-network/cvn/v2/x/inflation/keeper"
 	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
@@ -59,42 +60,10 @@ func NewUpgrade(logger log.Logger, bank bankkeeper.Keeper, inflation inflationke
 
 func (u Upgrade) UpdateMetadata(ctx sdk.Context) {
 	u.logger.Info("updating acvnt denom metadata")
-	u.bank.SetDenomMetaData(ctx, banktypes.Metadata{
-		Description: "The native staking and governance token of the Conscious Network.",
-		DenomUnits: []*banktypes.DenomUnit{
-			{
-				Denom:    "acvnt",
-				Exponent: 0,
-			},
-			{
-				Denom:    "cvnt",
-				Exponent: 18,
-			},
-		},
-		Base:    "acvnt",
-		Display: "cvnt",
-		Name:    "CVN",
-		Symbol:  "CVN",
-	})
+	u.bank.SetDenomMetaData(ctx, cvntypes.GetCvnMetadata())
 
 	u.logger.Info("updating soul denom metadata")
-	u.bank.SetDenomMetaData(ctx, banktypes.Metadata{
-		Description: "The governance token of the Conscious Network.",
-		DenomUnits: []*banktypes.DenomUnit{
-			{
-				Denom:    "asoult",
-				Exponent: 0,
-			},
-			{
-				Denom:    "soult",
-				Exponent: 18,
-			},
-		},
-		Base:    "asoult",
-		Display: "soult",
-		Name:    "SOUL",
-		Symbol:  "SOUL",
-	})
+	u.bank.SetDenomMetaData(ctx, cvngovtypes.GetSoulMetadata())
 }
 
 func (u Upgrade) UpdateModuleParam(ctx sdk.Context) {
