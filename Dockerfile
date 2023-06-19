@@ -9,7 +9,7 @@ COPY . .
 
 RUN make build
 
-FROM golang:1.20.2-bullseye
+FROM debian:bullseye
 
 RUN apt-get update -y
 RUN apt-get install ca-certificates jq -y

@@ -6,14 +6,10 @@ TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::'
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-CVN_BINARY = cvnd
-CVN_DIR = cvn
 BUILDDIR ?= $(CURDIR)/build
 HTTPS_GIT := https://github.com/cvn-network/cvn.git
 DOCKER := $(shell which docker)
-NAMESPACE := cvn-network
-PROJECT := cvn
-DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
+DOCKER_IMAGE := ghcr.io/cvn-network/cvn
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)
 DOCKER_TAG := $(COMMIT_HASH)
 # e2e env
@@ -62,7 +58,7 @@ build_tags := $(strip $(build_tags))
 # process linker flags
 
 ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=cvn \
-          -X github.com/cosmos/cosmos-sdk/version.AppName=$(CVN_BINARY) \
+          -X github.com/cosmos/cosmos-sdk/version.AppName=cvnd \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
           -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TMVERSION)
@@ -146,18 +142,6 @@ build-docker:
 	# TODO replace with kaniko
 	$(DOCKER) build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
-	# docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:${COMMIT_HASH}
-	# update old container
-	$(DOCKER) rm cvn || true
-	# create a new container from the latest image
-	$(DOCKER) create --name cvn -t -i ${DOCKER_IMAGE}:latest cvn
-	# move the binaries to the ./build directory
-	mkdir -p ./build/
-	$(DOCKER) cp cvn:/usr/bin/cvnd ./build/
-
-push-docker: build-docker
-	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
-	$(DOCKER) push ${DOCKER_IMAGE}:latest
 
 $(MOCKS_DIR):
 	mkdir -p $(MOCKS_DIR)
@@ -174,7 +158,7 @@ all: build
 
 build-all: tools build lint test vulncheck
 
-.PHONY: distclean clean build-all
+.PHONY: distclean clean build-all build
 
 ###############################################################################
 ###                          Tools & Dependencies                           ###
@@ -235,15 +219,15 @@ else
 	@echo "protoc-gen-go-grpc already installed; skipping..."
 endif
 
-ifeq (, $(shell which solcjs))
-	@echo "Installing solcjs..."
-	@npm install -g solc@0.5.11
-else
-	@echo "solcjs already installed; skipping..."
-endif
+#ifeq (, $(shell which solcjs))
+#	@echo "Installing solcjs..."
+#	@npm install -g solc@0.5.11
+#else
+#	@echo "solcjs already installed; skipping..."
+#endif
 
 tools: tools-stamp
-tools-stamp: contract-tools docs-tools statik runsim
+tools-stamp: contract-tools statik runsim
 	# Create dummy file to satisfy dependency and avoid
 	# rebuilding when this Makefile target is hit twice
 	# in a row.
@@ -256,7 +240,7 @@ tools-clean:
 .PHONY: runsim statik tools contract-tools tools-stamp tools-clean
 
 go.sum: go.mod
-	echo "Ensure dependencies have not been modified ..." >&2
+	@echo "Ensure dependencies have not been modified ..." >&2
 	go mod verify
 	go mod tidy
 
@@ -320,15 +304,10 @@ test-e2e:
 
 run-tests:
 ifneq (,$(shell which tparse 2>/dev/null))
-	go test -mod=readonly -json $(ARGS) $(EXTRA_ARGS) $(TEST_PACKAGES) | tparse
+	@go test -mod=readonly -json $(ARGS) $(EXTRA_ARGS) $(TEST_PACKAGES) | tparse
 else
-	go test -mod=readonly $(ARGS)  $(EXTRA_ARGS) $(TEST_PACKAGES)
+	@go test -mod=readonly $(ARGS)  $(EXTRA_ARGS) $(TEST_PACKAGES)
 endif
-
-test-import:
-	@go test ./tests/importer -v --vet=off --run=TestImportBlocks --datadir tmp \
-	--blockchain blockchain
-	rm -rf tests/importer/tmp
 
 test-rpc:
 	./scripts/integration-test-all.sh -t "rpc" -q 1 -z 1 -s 2 -m "rpc" -r "true"
@@ -348,26 +327,14 @@ benchmark:
 
 lint:
 	golangci-lint run --out-format=tab
-	solhint contracts/**/*.sol
-
-lint-contracts:
-	@cd contracts && \
-	npm i && \
-	npm run lint
 
 lint-fix:
 	golangci-lint run --fix --out-format=tab --issues-exit-code=0
 
-lint-fix-contracts:
-	@cd contracts && \
-	npm i && \
-	npm run lint-fix
-	solhint --fix contracts/**/*.sol
-
 .PHONY: lint lint-fix
 
 format:
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' | xargs gofumpt -w -l
+	golangci-lint run --fix --out-format=tab --issues-exit-code=0
 
 .PHONY: format
 

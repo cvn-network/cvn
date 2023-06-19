@@ -70,7 +70,6 @@ dependency-graph.png
 
 # Latex
 *.aux
-*.out
 *.synctex.gz
 
 # Contracts
