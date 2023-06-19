@@ -2,16 +2,20 @@ package v2
 
 import (
 	"math/big"
+	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
+	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/libs/log"
 
 	cvntypes "github.com/cvn-network/cvn/v2/types"
 	erc20keeper "github.com/cvn-network/cvn/v2/x/erc20/keeper"
+	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
 	feemarketkeeper "github.com/cvn-network/cvn/v2/x/feemarket/keeper"
 	cvngovtypes "github.com/cvn-network/cvn/v2/x/gov/types"
 	inflationkeeper "github.com/cvn-network/cvn/v2/x/inflation/keeper"
@@ -33,6 +37,8 @@ func CreateUpgradeHandler(
 		logger.Info("running upgrade handler", "plan", plan.Name)
 
 		up.UpdateMetadata(ctx)
+
+		up.UpdateSoulTokenPair(ctx)
 
 		up.UpdateModuleParam(ctx)
 
@@ -58,6 +64,31 @@ func NewUpgrade(logger log.Logger, bank bankkeeper.Keeper, inflation inflationke
 		slashing:  slashing,
 		feeMarket: feeMarket,
 	}
+}
+
+func (u Upgrade) UpdateSoulTokenPair(ctx sdk.Context) {
+	u.logger.Info("updating soul token pair")
+	u.bank.IterateAllDenomMetaData(ctx, func(metadata banktypes.Metadata) bool {
+		if metadata.Symbol == "SOUL" {
+			tokenContract := strings.TrimLeft(metadata.Base, erc20types.ModuleName+"/")
+			tokenPairID := u.erc20.GetTokenPairID(ctx, tokenContract)
+			tokenPair, found := u.erc20.GetTokenPair(ctx, tokenPairID)
+			if !found {
+				return true
+			}
+			u.erc20.DeleteTokenPair(ctx, tokenPair)
+
+			tokenPair.Denom = erc20types.CreateBaseDenom(metadata.Symbol)
+			tokenPair.ContractOwner = erc20types.OWNER_MODULE
+			u.erc20.SetTokenPair(ctx, tokenPair)
+
+			newTokenPairID := tokenPair.GetID()
+			u.erc20.SetDenomMap(ctx, tokenPair.Denom, newTokenPairID)
+			u.erc20.SetERC20Map(ctx, common.HexToAddress(tokenPair.Erc20Address), newTokenPairID)
+			return true
+		}
+		return false
+	})
 }
 
 func (u Upgrade) UpdateMetadata(ctx sdk.Context) {
