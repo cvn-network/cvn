@@ -142,17 +142,6 @@ build-docker:
 	# TODO replace with kaniko
 	$(DOCKER) build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
-	# update old container
-	$(DOCKER) rm cvn || true
-	# create a new container from the latest image
-	$(DOCKER) create --name cvn -t -i ${DOCKER_IMAGE}:latest cvn
-	# move the binaries to the ./build directory
-	mkdir -p ./build/
-	$(DOCKER) cp cvn:/usr/bin/cvnd ./build/
-
-push-docker: build-docker
-	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
-	$(DOCKER) push ${DOCKER_IMAGE}:latest
 
 $(MOCKS_DIR):
 	mkdir -p $(MOCKS_DIR)

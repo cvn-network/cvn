@@ -15,7 +15,7 @@ COPY . .
 RUN make build-linux
 
 # Final image
-FROM golang:1.20-bullseye as final
+FROM debian:bullseye as final
 
 WORKDIR /
 
