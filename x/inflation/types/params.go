@@ -23,9 +23,9 @@ var (
 		MaxVariance:   sdk.ZeroDec(),             // 0%
 	}
 	DefaultInflationDistribution = InflationDistribution{
-		StakingRewards:  sdk.NewDecWithPrec(533333334, 9), // 0.53 = 40% / (1 - 25%)
-		UsageIncentives: sdk.NewDecWithPrec(333333333, 9), // 0.33 = 25% / (1 - 25%)
-		CommunityPool:   sdk.NewDecWithPrec(133333333, 9), // 0.13 = 10% / (1 - 25%)
+		StakingRewards:  sdk.NewDecWithPrec(85, 2), // 0.85
+		UsageIncentives: sdk.NewDecWithPrec(5, 2),  // 0.5
+		CommunityPool:   sdk.NewDecWithPrec(10, 2), // 0.10
 	}
 )
 

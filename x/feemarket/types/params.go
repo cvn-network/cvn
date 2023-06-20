@@ -13,7 +13,7 @@ var (
 	// DefaultMinGasMultiplier is 0.5 or 50%
 	DefaultMinGasMultiplier = sdk.NewDecWithPrec(50, 2)
 	// DefaultMinGasPrice is 0 (i.e disabled)
-	DefaultMinGasPrice = sdk.ZeroDec()
+	DefaultMinGasPrice = sdk.NewDec(params.InitialBaseFee)
 	// DefaultEnableHeight is 0 (i.e disabled)
 	DefaultEnableHeight = int64(0)
 	// DefaultNoBaseFee is false
