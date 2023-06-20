@@ -1,7 +1,6 @@
 package v2
 
 import (
-	"math/big"
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -117,6 +116,8 @@ func (u Upgrade) UpdateModuleParam(ctx sdk.Context) {
 	u.slashing.SetParams(ctx, slashingParams)
 
 	u.logger.Info("updating fee market params")
-	u.feeMarket.SetBaseFee(ctx, big.NewInt(0.1*1e9))
+	feeMarketParams := u.feeMarket.GetParams(ctx)
+	feeMarketParams.BaseFee = sdk.NewInt(1e8)
+	feeMarketParams.MinGasPrice = sdk.NewDecFromInt(feeMarketParams.BaseFee)
 	return
 }

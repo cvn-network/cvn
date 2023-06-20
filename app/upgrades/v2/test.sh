@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+#set -eo pipefail
 
-KEYS[0]="dev0"
-KEYS[1]="dev1"
-KEYS[2]="dev2"
+KEYS=("dev0" "dev1" "dev2")
 CHAINID="cvn_2031-1"
 MONIKER="localtestnet"
 # Remember to change to other types of keyring like 'file' in-case exposing to outside world,
@@ -104,7 +102,11 @@ show_inflation_distribution() {
 }
 
 show_base_fee() {
-  cvnd query feemarket base-fee --output json --home "$HOMEDIR"
+  cvnd query feemarket params --output json --home "$HOMEDIR" | jq -r '"base_fee: \(.base_fee)\nmin_gas_price: \(.min_gas_price)"'
+}
+
+show_slashing_signed_blocks_window() {
+  cvnd query slashing params --output json --home "$HOMEDIR" | jq -r '"signed_blocks_window: \(.signed_blocks_window)"'
 }
 
 show_metadata() {
@@ -114,7 +116,7 @@ show_metadata() {
 deploy_soul_contract() {
   echo "deploy contract"
 
-  cd contracts || exit 1
+  cd contracts || echo "contracts directory not found" && exit 1
   npm install
   npx hardhat --network localhost run scripts/deploy.ts
 }
@@ -157,7 +159,7 @@ submit_upgrade_proposal_and_vote() {
   upgrade_height=$(cvnd status --home "$HOMEDIR" | jq -r '.SyncInfo.latest_block_height|tonumber + 20')
   echo "upgrade height = ${upgrade_height}, submitting proposal..."
 
-  cvnd tx gov submit-legacy-proposal software-upgrade "v2" \
+  cvnd tx gov submit-legacy-proposal software-upgrade "v2.0.0" \
     --title "Upgrade to v2" \
     --deposit "10000000000000000000000acvnt" \
     --description "Upgrade to v2" \
@@ -182,6 +184,19 @@ submit_upgrade_proposal_and_vote() {
 
 show_proposal_status() {
   cvnd query gov proposals --output json --home "$HOMEDIR" | jq
+}
+
+withdraw_rewards() {
+  validator_address=$(cvnd keys show dev0 --bech val --address --home "${HOMEDIR}")
+  cvnd tx distribution withdraw-rewards "$validator_address"\
+    --commission \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --broadcast-mode block \
+    --from dev0 --home "${HOMEDIR}" --yes
+}
+
+show_balance() {
+  cvnd query bank balances "$(cvnd keys show dev0 --address --home "$HOMEDIR")" --output json --home "$HOMEDIR" | jq
 }
 
 "$@"

@@ -3,6 +3,7 @@
 git clone https://github.com/cvn-network/cvn.git
 cd cvn
 git checkout v2.0.0
+make install
 
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 .
 
@@ -10,10 +11,14 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh show_inflation_rate
+./app/upgrades/v2/test.sh show_inflation_distribution
+./app/upgrades/v2/test.sh show_base_fee
+./app/upgrades/v2/test.sh show_slashing_params
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh deploy_soul_contract
 ./app/upgrades/v2/test.sh submit_register_erc20_proposal_and_vote <soul-contract-address>
+# if you see `"status": "PROPOSAL_STATUS_PASSED"`, then proposal passed
 ./app/upgrades/v2/test.sh show_proposal_status
 # await for proposal to pass
 ./app/upgrades/v2/test.sh show_erc20_token_pairs
@@ -21,9 +26,24 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh submit_upgrade_proposal_and_vote
+# if you see `"status": "PROPOSAL_STATUS_PASSED"`, then proposal passed
 ./app/upgrades/v2/test.sh show_proposal_status
 # await for proposal to pass
 # check node logs, await for upgrade
+# if you see `ERR UPGRADE "v2" NEEDED at height: xxx` and `ERR CONSENSUS FAILURE!!!`, then upgrade plan is working,
+# and the node will be restarted automatically use the new binary,
+# and you can see the new version in the node logs
+# finally, you can see `INF executed block height=xxx`, then upgrade done
+
+# open another terminal && cd cvn
 ./app/upgrades/v2/test.sh show_inflation_rate
+./app/upgrades/v2/test.sh show_inflation_distribution
+./app/upgrades/v2/test.sh show_base_fee
+./app/upgrades/v2/test.sh show_slashing_signed_blocks_window
+./app/upgrades/v2/test.sh show_metadata
+
+# open another terminal && cd cvn
+./app/upgrades/v2/test.sh withdraw_rewards
+./app/upgrades/v2/test.sh show_balance
 ```
 
