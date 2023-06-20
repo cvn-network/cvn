@@ -83,7 +83,8 @@ func GetCmdQueryParams() *cobra.Command {
 				return err
 			}
 
-			return clientCtx.PrintObjectLegacy(&res.Params)
+			return clientCtx.PrintProto(&res.Params)
+			//return clientCtx.PrintObjectLegacy(&res.Params)
 		},
 	}
 
