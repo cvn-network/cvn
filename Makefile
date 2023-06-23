@@ -1,7 +1,9 @@
 #!/usr/bin/make -f
 
 PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation')
-VERSION ?= $(shell echo $(shell git describe --tags --always) | sed 's/^v//')
+GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+GIT_TAGS := $(shell git describe --tags --always)
+VERSION := $(GIT_BRANCH)-$(GIT_TAGS)
 TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
