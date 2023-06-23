@@ -2,7 +2,7 @@
 ```shell
 git clone https://github.com/cvn-network/cvn.git
 cd cvn
-git checkout v2.0.0
+git checkout v2.0.x
 make install
 
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 .
@@ -13,7 +13,7 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 ./app/upgrades/v2/test.sh show_inflation_rate
 ./app/upgrades/v2/test.sh show_inflation_distribution
 ./app/upgrades/v2/test.sh show_base_fee
-./app/upgrades/v2/test.sh show_slashing_params
+./app/upgrades/v2/test.sh show_slashing_signed_blocks_window
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh deploy_soul_contract

@@ -1,8 +1,6 @@
 package v2
 
 import (
-	"strings"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
@@ -29,19 +27,20 @@ func CreateUpgradeHandler(
 	inflation inflationkeeper.Keeper,
 	slashing slashingkeeper.Keeper,
 	feeMarket feemarketkeeper.Keeper,
+	erc20 erc20keeper.Keeper,
 ) upgradetypes.UpgradeHandler {
 	return func(ctx sdk.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
 		logger := ctx.Logger().With("upgrade", plan.Name)
-		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket)
-		logger.Info("running upgrade handler", "plan", plan.Name)
-
-		up.UpdateMetadata(ctx)
+		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket, erc20)
+		logger.Info("running upgrade handler")
 
 		up.UpdateSoulTokenPair(ctx)
 
+		up.UpdateMetadata(ctx)
+
 		up.UpdateModuleParam(ctx)
 
-		logger.Info("completed upgrade handler", "plan", plan.Name)
+		logger.Info("completed upgrade handler")
 		return mm.RunMigrations(ctx, configurator, vm)
 	}
 }
@@ -55,13 +54,16 @@ type Upgrade struct {
 	erc20     erc20keeper.Keeper
 }
 
-func NewUpgrade(logger log.Logger, bank bankkeeper.Keeper, inflation inflationkeeper.Keeper, slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper) Upgrade {
+func NewUpgrade(
+	logger log.Logger, bank bankkeeper.Keeper, inflation inflationkeeper.Keeper,
+	slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper, erc20 erc20keeper.Keeper) Upgrade {
 	return Upgrade{
 		logger:    logger,
 		bank:      bank,
 		inflation: inflation,
 		slashing:  slashing,
 		feeMarket: feeMarket,
+		erc20:     erc20,
 	}
 }
 
@@ -69,7 +71,7 @@ func (u Upgrade) UpdateSoulTokenPair(ctx sdk.Context) {
 	u.logger.Info("updating soul token pair")
 	u.bank.IterateAllDenomMetaData(ctx, func(metadata banktypes.Metadata) bool {
 		if metadata.Symbol == "SOUL" {
-			tokenContract := strings.TrimLeft(metadata.Base, erc20types.ModuleName+"/")
+			tokenContract := metadata.Base[len(erc20types.ModuleName)+1:]
 			tokenPairID := u.erc20.GetTokenPairID(ctx, tokenContract)
 			tokenPair, found := u.erc20.GetTokenPair(ctx, tokenPairID)
 			if !found {
@@ -119,5 +121,7 @@ func (u Upgrade) UpdateModuleParam(ctx sdk.Context) {
 	feeMarketParams := u.feeMarket.GetParams(ctx)
 	feeMarketParams.BaseFee = sdk.NewInt(1e8)
 	feeMarketParams.MinGasPrice = sdk.NewDecFromInt(feeMarketParams.BaseFee)
-	return
+	if err := u.feeMarket.SetParams(ctx, feeMarketParams); err != nil {
+		panic(err)
+	}
 }
