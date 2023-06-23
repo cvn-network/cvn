@@ -73,6 +73,7 @@ run_cvn_node() {
     for KEY in "${KEYS[@]}"; do
       cvnd add-genesis-account "$KEY" 100000000000000000000000000acvnt --keyring-backend $KEYRING --home "$HOMEDIR"
     done
+    # EIP-55 Address: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
     cvnd add-genesis-account "cvn17w0adeg64ky0daxwd2ugyuneellmjgnxp2hwdj" 100000000000000000000000000acvnt --home "$HOMEDIR"
 
     # bc is required to add these big numbers
@@ -89,8 +90,19 @@ run_cvn_node() {
     cvnd validate-genesis --home "$HOMEDIR"
   fi
 
-  # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-  cvnd start --minimum-gas-prices=1000000000acvnt --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --home "$HOMEDIR"
+#  trap 'docker stop cvn;docker rm cvn' SIGINT SIGTERM EXIT
+  set -x
+  docker run -it --name cvn \
+    -v "$HOMEDIR/data":/root/.cvnd/data \
+    -v "$HOMEDIR/config":/root/.cvnd/config \
+    -p 127.0.0.1:26657:26657 -p 127.0.0.1:1317:1317 -p 127.0.0.1:8545:8545 \
+    ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 \
+    cosmovisor run start --minimum-gas-prices=1000000000acvnt \
+    --rpc.laddr tcp://0.0.0.0:26657 \
+    --json-rpc.address 0.0.0.0:8545 \
+    --json-rpc.api eth,txpool,personal,net,debug,web3 \
+    --rpc.unsafe \
+    --api.enable --api.enabled-unsafe-cors
 }
 
 show_inflation_rate() {
@@ -116,7 +128,7 @@ show_metadata() {
 deploy_soul_contract() {
   echo "deploy contract"
 
-  cd contracts || echo "contracts directory not found" && exit 1
+  if ! cd contracts; then echo "contracts directory not found"; exit 1; fi
   npm install
   npx hardhat --network localhost run scripts/deploy.ts
 }
@@ -188,7 +200,7 @@ show_proposal_status() {
 
 withdraw_rewards() {
   validator_address=$(cvnd keys show dev0 --bech val --address --home "${HOMEDIR}")
-  cvnd tx distribution withdraw-rewards "$validator_address"\
+  cvnd tx distribution withdraw-rewards "$validator_address" \
     --commission \
     --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
     --broadcast-mode block \
