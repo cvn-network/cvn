@@ -11,14 +11,12 @@ COPY . .
 
 RUN git checkout release/v1.0.x
 RUN make build
-RUN cp /root/build/cvnd /root/build/cvnd-v1
+RUN mv /root/build/cvnd /root/build/cvnd-v1
 
 RUN git checkout release/v2.0.x
 RUN make build
 
-# FROM ghcr.io/cvn-network/cvn:v1.0.2 AS cvn-v1
-
-FROM golang:1.20.2-bullseye
+FROM debian:bullseye
 
 RUN apt-get update -y
 RUN apt-get install ca-certificates jq -y
@@ -35,22 +33,16 @@ ENV UNSAFE_SKIP_BACKUP=true
 ENV DAEMON_DATA_BACKUP_DIR=/root/.cvnd
 ENV DAEMON_PREUPGRADE_MAX_RETRIES=3
 
-ENV DAEMON_CHOOSE_VERSION=true
-ENV DAEMON_COSMOVISOR_REPLACE=true
-ENV DAEMON_BINARY_PATH=/cosmovisor/binary
-ENV DAEMON_UPGRADES_INFO_PATH=/cosmovisor/upgrades-info
-
 COPY --from=build-env /go/bin/cosmovisor /usr/bin/cosmovisor
 
-# COPY --from=cvn-v1 /usr/bin/cvnd /usr/bin/cvnd
 COPY --from=build-env /root/build/cvnd-v1 /usr/bin/cvnd
 
 RUN cosmovisor init /usr/bin/cvnd
 
 COPY --from=build-env /root/build/cvnd /usr/bin/cvnd
 
-RUN mkdir -p /root/.cvnd/cosmovisor/upgrades/v2/bin/
-RUN cp /usr/bin/cvnd /root/.cvnd/cosmovisor/upgrades/v2/bin/
+RUN mkdir -p /root/.cvnd/cosmovisor/upgrades/v2.0.0/bin/
+RUN cp /usr/bin/cvnd /root/.cvnd/cosmovisor/upgrades/v2.0.0/bin/
 
 EXPOSE 26656 26657 1317 9090 8545 8546
 
