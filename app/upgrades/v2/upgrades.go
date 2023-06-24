@@ -3,8 +3,11 @@ package v2
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	"github.com/ethereum/go-ethereum/common"
@@ -28,11 +31,14 @@ func CreateUpgradeHandler(
 	slashing slashingkeeper.Keeper,
 	feeMarket feemarketkeeper.Keeper,
 	erc20 erc20keeper.Keeper,
+	auth authkeeper.AccountKeeper,
 ) upgradetypes.UpgradeHandler {
 	return func(ctx sdk.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
 		logger := ctx.Logger().With("upgrade", plan.Name)
-		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket, erc20)
+		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket, erc20, auth)
 		logger.Info("running upgrade handler")
+
+		up.UpdateGovModuleAccountPermissions(ctx)
 
 		up.UpdateSoulTokenPair(ctx)
 
@@ -47,6 +53,7 @@ func CreateUpgradeHandler(
 
 type Upgrade struct {
 	logger    log.Logger
+	auth      authkeeper.AccountKeeper
 	bank      bankkeeper.Keeper
 	inflation inflationkeeper.Keeper
 	slashing  slashingkeeper.Keeper
@@ -56,7 +63,9 @@ type Upgrade struct {
 
 func NewUpgrade(
 	logger log.Logger, bank bankkeeper.Keeper, inflation inflationkeeper.Keeper,
-	slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper, erc20 erc20keeper.Keeper) Upgrade {
+	slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper, erc20 erc20keeper.Keeper,
+	auth authkeeper.AccountKeeper,
+) Upgrade {
 	return Upgrade{
 		logger:    logger,
 		bank:      bank,
@@ -65,6 +74,17 @@ func NewUpgrade(
 		feeMarket: feeMarket,
 		erc20:     erc20,
 	}
+}
+
+func (u Upgrade) UpdateGovModuleAccountPermissions(ctx sdk.Context) {
+	u.logger.Info("updating gov module account permissions")
+	account := u.auth.GetModuleAccount(ctx, govtypes.ModuleName)
+	govModuleAcc, ok := account.(*authtypes.ModuleAccount)
+	if !ok {
+		panic("gov module account is not a module account")
+	}
+	govModuleAcc.Permissions = append(govModuleAcc.Permissions, authtypes.Minter)
+	u.auth.SetModuleAccount(ctx, govModuleAcc)
 }
 
 func (u Upgrade) UpdateSoulTokenPair(ctx sdk.Context) {
