@@ -1128,6 +1128,7 @@ func (app *CVN) setupUpgradeHandlers() {
 			app.SlashingKeeper,
 			app.FeeMarketKeeper,
 			app.Erc20Keeper,
+			app.AccountKeeper,
 		),
 	)
 

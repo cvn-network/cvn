@@ -10,7 +10,7 @@ MONIKER="localtestnet"
 # The keyring test does not require private key to steal tokens from you
 KEYRING="test"
 # Set dedicated home directory for the cvnd instance
-HOMEDIR="$HOME/.tmp-cvnd"
+HOMEDIR="$HOME/.tmp2-cvnd"
 
 # Path variables
 CONFIG=$HOMEDIR/config/config.toml
@@ -90,7 +90,7 @@ run_cvn_node() {
     cvnd validate-genesis --home "$HOMEDIR"
   fi
 
-#  trap 'docker stop cvn;docker rm cvn' SIGINT SIGTERM EXIT
+  trap 'docker stop cvn;docker rm cvn' SIGINT SIGTERM EXIT
   set -x
   docker run -it --name cvn \
     -v "$HOMEDIR/data":/root/.cvnd/data \
