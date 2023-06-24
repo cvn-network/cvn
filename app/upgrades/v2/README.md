@@ -5,6 +5,7 @@ cd cvn
 git checkout v2.0.x
 make install
 
+# build cvn-cosmovisor image
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 .
 
 ./app/upgrades/v2/test.sh run_cvn_node
@@ -14,6 +15,7 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 ./app/upgrades/v2/test.sh show_inflation_distribution
 ./app/upgrades/v2/test.sh show_base_fee
 ./app/upgrades/v2/test.sh show_slashing_signed_blocks_window
+./app/upgrades/v2/test.sh show_gov_module_account
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh deploy_soul_contract
@@ -40,6 +42,8 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 ./app/upgrades/v2/test.sh show_inflation_distribution
 ./app/upgrades/v2/test.sh show_base_fee
 ./app/upgrades/v2/test.sh show_slashing_signed_blocks_window
+
+./app/upgrades/v2/test.sh show_erc20_token_pairs
 ./app/upgrades/v2/test.sh show_metadata
 
 # open another terminal && cd cvn

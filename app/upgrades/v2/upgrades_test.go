@@ -77,6 +77,8 @@ func (suite *UpgradeTestSuite) TestUpdateMetadata() {
 		suite.app.SlashingKeeper,
 		suite.app.FeeMarketKeeper,
 		suite.app.Erc20Keeper,
+		suite.app.AccountKeeper,
+		suite.app,
 	)
 
 	suite.Require().Equal(
@@ -135,6 +137,8 @@ func (suite *UpgradeTestSuite) TestUpdateParams() {
 		suite.app.SlashingKeeper,
 		suite.app.FeeMarketKeeper,
 		suite.app.Erc20Keeper,
+		suite.app.AccountKeeper,
+		suite.app,
 	)
 
 	suite.Require().Equal(
@@ -189,6 +193,8 @@ func (suite *UpgradeTestSuite) TestUpdateTokenPair() {
 		suite.app.SlashingKeeper,
 		suite.app.FeeMarketKeeper,
 		suite.app.Erc20Keeper,
+		suite.app.AccountKeeper,
+		suite.app,
 	)
 
 	soulMetadataV1 := banktypes.Metadata{
@@ -218,6 +224,9 @@ func (suite *UpgradeTestSuite) TestUpdateTokenPair() {
 	suite.app.Erc20Keeper.SetERC20Map(suite.ctx, contractAddr, pairID)
 
 	up.UpdateSoulTokenPair(suite.ctx)
+
+	hasDenomMetaData := suite.app.BankKeeper.HasDenomMetaData(suite.ctx, soulMetadataV1.Base)
+	suite.Require().False(hasDenomMetaData)
 
 	pairs := suite.app.Erc20Keeper.GetTokenPairs(suite.ctx)
 	suite.Require().Equal(1, len(pairs))

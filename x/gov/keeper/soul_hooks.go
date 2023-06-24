@@ -4,6 +4,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	"github.com/ethereum/go-ethereum/common"
 
 	cvntypes "github.com/cvn-network/cvn/v2/types"
 	distributiontypes "github.com/cvn-network/cvn/v2/x/distribution/types"
@@ -64,8 +65,8 @@ func (m SoulHooks) mint(ctx sdk.Context, valAddr sdk.ValAddress, amount sdkmath.
 
 	_, err := m.erc20.ConvertCoin(sdk.WrapSDKContext(ctx), &erc20types.MsgConvertCoin{
 		Coin:     coin,
-		Receiver: sdk.AccAddress(valAddr.Bytes()).String(),
-		Sender:   m.govModuleAddr,
+		Receiver: common.BytesToAddress(valAddr.Bytes()).String(),
+		Sender:   sdk.AccAddress(valAddr.Bytes()).String(),
 	})
 	if err != nil {
 		return err
