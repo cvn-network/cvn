@@ -1,6 +1,7 @@
 package v2
 
 import (
+	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
@@ -22,6 +23,10 @@ import (
 	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
 )
 
+type kvStoreKey interface {
+	GetKey(storeKey string) *storetypes.KVStoreKey
+}
+
 // CreateUpgradeHandler creates an SDK upgrade handler for v2.0.0
 func CreateUpgradeHandler(
 	mm *module.Manager,
@@ -32,10 +37,11 @@ func CreateUpgradeHandler(
 	feeMarket feemarketkeeper.Keeper,
 	erc20 erc20keeper.Keeper,
 	auth authkeeper.AccountKeeper,
+	kvStoreKey kvStoreKey,
 ) upgradetypes.UpgradeHandler {
 	return func(ctx sdk.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
 		logger := ctx.Logger().With("upgrade", plan.Name)
-		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket, erc20, auth)
+		up := NewUpgrade(logger, bank, inflation, slashing, feeMarket, erc20, auth, kvStoreKey)
 		logger.Info("running upgrade handler")
 
 		up.UpdateGovModuleAccountPermissions(ctx)
@@ -52,27 +58,30 @@ func CreateUpgradeHandler(
 }
 
 type Upgrade struct {
-	logger    log.Logger
-	auth      authkeeper.AccountKeeper
-	bank      bankkeeper.Keeper
-	inflation inflationkeeper.Keeper
-	slashing  slashingkeeper.Keeper
-	feeMarket feemarketkeeper.Keeper
-	erc20     erc20keeper.Keeper
+	logger     log.Logger
+	auth       authkeeper.AccountKeeper
+	bank       bankkeeper.Keeper
+	inflation  inflationkeeper.Keeper
+	slashing   slashingkeeper.Keeper
+	feeMarket  feemarketkeeper.Keeper
+	erc20      erc20keeper.Keeper
+	kvStoreKey kvStoreKey
 }
 
 func NewUpgrade(
 	logger log.Logger, bank bankkeeper.Keeper, inflation inflationkeeper.Keeper,
 	slashing slashingkeeper.Keeper, feeMarket feemarketkeeper.Keeper, erc20 erc20keeper.Keeper,
-	auth authkeeper.AccountKeeper,
+	auth authkeeper.AccountKeeper, kvStoreKey kvStoreKey,
 ) Upgrade {
 	return Upgrade{
-		logger:    logger,
-		bank:      bank,
-		inflation: inflation,
-		slashing:  slashing,
-		feeMarket: feeMarket,
-		erc20:     erc20,
+		logger:     logger,
+		bank:       bank,
+		inflation:  inflation,
+		slashing:   slashing,
+		feeMarket:  feeMarket,
+		erc20:      erc20,
+		auth:       auth,
+		kvStoreKey: kvStoreKey,
 	}
 }
 
@@ -91,6 +100,10 @@ func (u Upgrade) UpdateSoulTokenPair(ctx sdk.Context) {
 	u.logger.Info("updating soul token pair")
 	u.bank.IterateAllDenomMetaData(ctx, func(metadata banktypes.Metadata) bool {
 		if metadata.Symbol == "SOUL" {
+			storeKey := u.kvStoreKey.GetKey(banktypes.ModuleName)
+			store := ctx.KVStore(storeKey)
+			store.Delete(append(banktypes.DenomMetadataPrefix, []byte(metadata.Base)...))
+
 			tokenContract := metadata.Base[len(erc20types.ModuleName)+1:]
 			tokenPairID := u.erc20.GetTokenPairID(ctx, tokenContract)
 			tokenPair, found := u.erc20.GetTokenPair(ctx, tokenPairID)

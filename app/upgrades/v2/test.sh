@@ -64,11 +64,6 @@ run_cvn_node() {
     sed -i.bak 's/"max_deposit_period": "172800s"/"max_deposit_period": "30s"/g' "$HOMEDIR"/config/genesis.json
     sed -i.bak 's/"voting_period": "172800s"/"voting_period": "30s"/g' "$HOMEDIR"/config/genesis.json
 
-    # set custom pruning settings
-    sed -i.bak 's/pruning = "default"/pruning = "custom"/g' "$APP_TOML"
-    sed -i.bak 's/pruning-keep-recent = "0"/pruning-keep-recent = "2"/g' "$APP_TOML"
-    sed -i.bak 's/pruning-interval = "0"/pruning-interval = "10"/g' "$APP_TOML"
-
     # Allocate genesis accounts (cosmos formatted addresses)
     for KEY in "${KEYS[@]}"; do
       cvnd add-genesis-account "$KEY" 100000000000000000000000000acvnt --keyring-backend $KEYRING --home "$HOMEDIR"
@@ -105,6 +100,10 @@ run_cvn_node() {
     --api.enable --api.enabled-unsafe-cors
 }
 
+show_gov_module_account() {
+  cvnd query auth module-account gov --output json --home "$HOMEDIR"
+}
+
 show_inflation_rate() {
   echo "inflation rate: $(cvnd query inflation inflation-rate --output json --home "$HOMEDIR")"
 }
@@ -128,8 +127,11 @@ show_metadata() {
 deploy_soul_contract() {
   echo "deploy contract"
 
-  if ! cd contracts; then echo "contracts directory not found"; exit 1; fi
-  npm install
+  if ! cd contracts; then
+    echo "contracts directory not found"
+    exit 1
+  fi
+  npm install >/dev/null 2>&1
   npx hardhat --network localhost run scripts/deploy.ts
 }
 
@@ -201,7 +203,6 @@ show_proposal_status() {
 withdraw_rewards() {
   validator_address=$(cvnd keys show dev0 --bech val --address --home "${HOMEDIR}")
   cvnd tx distribution withdraw-rewards "$validator_address" \
-    --commission \
     --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
