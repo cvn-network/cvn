@@ -33,6 +33,7 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/cvn-network/cvn/v2/app"
+	v2 "github.com/cvn-network/cvn/v2/app/upgrades/v2"
 	evmosclient "github.com/cvn-network/cvn/v2/client"
 	"github.com/cvn-network/cvn/v2/client/debug"
 	cmdcfg "github.com/cvn-network/cvn/v2/cmd/config"
@@ -128,6 +129,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		queryCommand(),
 		txCommand(),
 		evmosclient.KeyCommands(app.DefaultNodeHome),
+		v2.PreUpgradeCommand(),
 	)
 
 	// add rosetta
@@ -201,9 +203,9 @@ func initAppConfig() (string, interface{}) {
 		panic(fmt.Errorf("unknown app config type %T", customAppConfig))
 	}
 
-	srvCfg.StateSync.SnapshotInterval = 5000
-	srvCfg.StateSync.SnapshotKeepRecent = 2
-	srvCfg.IAVLDisableFastNode = false
+	//srvCfg.StateSync.SnapshotInterval = 5000
+	//srvCfg.StateSync.SnapshotKeepRecent = 2
+	//srvCfg.IAVLDisableFastNode = false
 
 	return customAppTemplate, srvCfg
 }
