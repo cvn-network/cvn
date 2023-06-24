@@ -210,6 +210,14 @@ withdraw_rewards() {
 
 show_balance() {
   cvnd query bank balances "$(cvnd keys show dev0 --address --home "$HOMEDIR")" --output json --home "$HOMEDIR" | jq
+
+  contract_address=$1
+  [[ -z "$contract_address" ]] && exit 0
+  hex_balance=$(curl -s 'http://127.0.0.1:8545/' \
+    -H 'Content-Type: application/json' \
+    --data-raw '{"id":1,"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0x0000000000000000000000000000000000000000","to":"'"$contract_address"'","data":"0x70a08231000000000000000000000000ab8ab43933be6181c24ec0edaa6ada4a77a6e139"},"latest"]}' \
+    --compressed | jq -r '.result' | sed 's/0x//' | tr '[:lower:]' '[:upper:]')
+  echo "ERC20 Token Balance: $(echo "ibase=16; $hex_balance" | bc)"
 }
 
 "$@"
