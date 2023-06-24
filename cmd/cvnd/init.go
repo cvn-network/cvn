@@ -75,19 +75,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config := serverCtx.Config
 			config.SetRoot(clientCtx.HomeDir)
 
-			// Set peers in and out to an 8:1 ratio to prevent choking
-			config.P2P.MaxNumInboundPeers = 240
-			config.P2P.MaxNumOutboundPeers = 30
-
-			// Set default seeds
-			//seeds := []string{
-			//}
-			//config.P2P.Seeds = strings.Join(seeds, ",")
-
-			config.Mempool.Size = 10000
-			config.StateSync.TrustPeriod = 112 * time.Hour
-
-			config.SetRoot(clientCtx.HomeDir)
+			config.Consensus.TimeoutCommit = 3 * time.Second
 
 			chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
 
