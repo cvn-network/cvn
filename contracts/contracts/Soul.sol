@@ -29,6 +29,11 @@ contract Soul is ERC20, AccessControl, ERC20Permit {
         _transferEnabled = true;
     }
 
+    function disableTransfer() public onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(_transferEnabled, "Soul: transfer is already disabled");
+        _transferEnabled = false;
+    }
+
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
         _mint(to, amount);
     }
