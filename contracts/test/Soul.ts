@@ -63,6 +63,10 @@ describe("Soul", function () {
             await soul.transfer(otherAccount.address, 1);
 
             expect(await soul.balanceOf(otherAccount.address)).to.equal(1);
+
+            await soul.disableTransfer();
+
+            expect(await soul.transferEnabled()).to.equal(false);
         });
     });
 });
