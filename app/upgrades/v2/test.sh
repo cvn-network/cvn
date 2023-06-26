@@ -3,7 +3,7 @@
 #set -eo pipefail
 
 KEYS=("dev0" "dev1" "dev2")
-CHAINID="cvn_2031-1"
+CHAINID="cvn_2032-2"
 MONIKER="localtestnet"
 # Remember to change to other types of keyring like 'file' in-case exposing to outside world,
 # otherwise your balance will be wiped quickly
@@ -13,8 +13,8 @@ KEYRING="test"
 HOMEDIR="$HOME/.tmp2-cvnd"
 
 # Path variables
-CONFIG=$HOMEDIR/config/config.toml
-APP_TOML=$HOMEDIR/config/app.toml
+#CONFIG=$HOMEDIR/config/config.toml
+#APP_TOML=$HOMEDIR/config/app.toml
 GENESIS=$HOMEDIR/config/genesis.json
 TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
 
@@ -66,17 +66,17 @@ run_cvn_node() {
 
     # Allocate genesis accounts (cosmos formatted addresses)
     for KEY in "${KEYS[@]}"; do
-      cvnd add-genesis-account "$KEY" 100000000000000000000000000acvnt --keyring-backend $KEYRING --home "$HOMEDIR"
+      cvnd add-genesis-account "$KEY" 40000000000000000000000000acvnt --keyring-backend $KEYRING --home "$HOMEDIR"
     done
     # EIP-55 Address: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-    cvnd add-genesis-account "cvn17w0adeg64ky0daxwd2ugyuneellmjgnxp2hwdj" 100000000000000000000000000acvnt --home "$HOMEDIR"
+    cvnd add-genesis-account "cvn17w0adeg64ky0daxwd2ugyuneellmjgnxp2hwdj" 40000000000000000000000000acvnt --home "$HOMEDIR"
 
     # bc is required to add these big numbers
-    total_supply=$(echo "(${#KEYS[@]}+1) * 100000000000000000000000000" | bc)
+    total_supply=$(echo "(${#KEYS[@]}+1) * 40000000000000000000000000" | bc)
     jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
     # Sign genesis transaction
-    cvnd gentx "${KEYS[0]}" 1000000000000000000000acvnt --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"
+    cvnd gentx "${KEYS[0]}" 30000000000000000000000000acvnt --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"
 
     # Collect genesis tx
     cvnd collect-gentxs --home "$HOMEDIR"
@@ -98,6 +98,10 @@ run_cvn_node() {
     --json-rpc.api eth,txpool,personal,net,debug,web3 \
     --rpc.unsafe \
     --api.enable --api.enabled-unsafe-cors
+}
+
+show_node_version() {
+  curl -s http://127.0.0.1:1317/cosmos/base/tendermint/v1beta1/node_info  | jq .application_version | jq 'del(.build_deps)'
 }
 
 show_gov_module_account() {
@@ -209,13 +213,16 @@ withdraw_rewards() {
 }
 
 show_balance() {
+  cvnd debug addr "$(cvnd keys show dev0 --address --home "$HOMEDIR")"
   cvnd query bank balances "$(cvnd keys show dev0 --address --home "$HOMEDIR")" --output json --home "$HOMEDIR" | jq
 
   contract_address=$1
+  from_address=$2
   [[ -z "$contract_address" ]] && exit 0
+  [[ -z "$from_address" ]] && echo "from_address is required" && exit 1
   hex_balance=$(curl -s 'http://127.0.0.1:8545/' \
     -H 'Content-Type: application/json' \
-    --data-raw '{"id":1,"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0x0000000000000000000000000000000000000000","to":"'"$contract_address"'","data":"0x70a08231000000000000000000000000ab8ab43933be6181c24ec0edaa6ada4a77a6e139"},"latest"]}' \
+    --data-raw '{"id":1,"jsonrpc":"2.0","method":"eth_call","params":[{"from":"0x0000000000000000000000000000000000000000","to":"'"$contract_address"'","data":"0x70a08231000000000000000000000000'"${from_address//0x/}"'"},"latest"]}' \
     --compressed | jq -r '.result' | sed 's/0x//' | tr '[:lower:]' '[:upper:]')
   echo "ERC20 Token Balance: $(echo "ibase=16; $hex_balance" | bc)"
 }
