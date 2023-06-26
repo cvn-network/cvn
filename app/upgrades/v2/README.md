@@ -2,13 +2,17 @@
 ```shell
 git clone https://github.com/cvn-network/cvn.git
 cd cvn
-git checkout v2.0.x
+git checkout v1.0.x
 make install
+# check cvn version, should be release/v1.0.x-101a8cfb
+cvnd version
 
 # build cvn-cosmovisor image
+git checkout v2.0.x
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 .
 
 ./app/upgrades/v2/test.sh run_cvn_node
+./app/upgrades/v2/test.sh show_node_version
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh show_inflation_rate
@@ -38,6 +42,9 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 # finally, you can see `INF executed block height=xxx`, then upgrade done
 
 # open another terminal && cd cvn
+make install
+# check cvn version, should be release/v2.0.x-xxx
+cvnd version
 ./app/upgrades/v2/test.sh show_inflation_rate
 ./app/upgrades/v2/test.sh show_inflation_distribution
 ./app/upgrades/v2/test.sh show_base_fee
@@ -48,6 +55,6 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 
 # open another terminal && cd cvn
 ./app/upgrades/v2/test.sh withdraw_rewards
-./app/upgrades/v2/test.sh show_balance
+./app/upgrades/v2/test.sh show_balance <soul-contract-address> <from-address>
 ```
 

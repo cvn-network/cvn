@@ -24,7 +24,7 @@ var (
 	}
 	DefaultInflationDistribution = InflationDistribution{
 		StakingRewards:  sdk.NewDecWithPrec(85, 2), // 0.85
-		UsageIncentives: sdk.NewDecWithPrec(5, 2),  // 0.5
+		UsageIncentives: sdk.NewDecWithPrec(5, 2),  // 0.05
 		CommunityPool:   sdk.NewDecWithPrec(10, 2), // 0.10
 	}
 )
