@@ -2,13 +2,13 @@
 ```shell
 git clone https://github.com/cvn-network/cvn.git
 cd cvn
-git checkout v1.0.x
+git checkout release/v1.0.x
 make install
 # check cvn version, should be release/v1.0.x-101a8cfb
 cvnd version
 
 # build cvn-cosmovisor image
-git checkout v2.0.x
+git checkout release/v2.0.x
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 .
 
 ./app/upgrades/v2/test.sh run_cvn_node
