@@ -1,3 +1,13 @@
+# Upgrade v2.0.0 Test
+
+## Environment Requirements
+
+* OS: Mac or Linux
+* Golang: 1.20+
+* Node.js: 14+
+* Docker: 24+
+
+## Test Steps
 
 ```shell
 git clone https://github.com/cvn-network/cvn.git
