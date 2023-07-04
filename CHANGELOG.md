@@ -37,6 +37,10 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+### Improvement
+
+- (deps) Update cometbft `v0.34.29` with several minor bug fixes and low-severity security-fixes
+
 ### Features
 
 - Add `acvnt` metadata
