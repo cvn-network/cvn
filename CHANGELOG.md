@@ -35,6 +35,12 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 # Changelog
 
+## [v1.0.3] - 2023-07-05
+
+### Improvement
+
+- (deps) Update cometbft `v0.34.29` with several minor bug fixes and low-severity security-fixes
+
 ## [v1.0.2] - 2023-06-09
 
 ### Improvements
