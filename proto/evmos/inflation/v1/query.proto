@@ -40,6 +40,11 @@ service Query {
     option (google.api.http).get = "/evmos/inflation/v1/inflation_rate";
   }
 
+  rpc Inflation(QueryInflationRequest)
+      returns (QueryInflationResponse) {
+    option (google.api.http).get = "/cosmos/mint/v1beta1/inflation";
+  }
+
   // Params retrieves the total set of minting parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/evmos/inflation/v1/params";
@@ -104,6 +109,20 @@ message QueryInflationRateRequest {}
 message QueryInflationRateResponse {
   // inflation_rate by which the total supply increases within one period
   string inflation_rate = 1 [
+    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
+    (gogoproto.nullable) = false
+  ];
+}
+
+// QueryInflationRequest is the request type for the Query/InflationRate RPC
+// method.
+message QueryInflationRequest {}
+
+// QueryInflationResponse is the response type for the Query/InflationRate
+// RPC method.
+message QueryInflationResponse {
+  // inflation by which the total supply increases within one period
+  string inflation = 1 [
     (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
     (gogoproto.nullable) = false
   ];

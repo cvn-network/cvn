@@ -80,3 +80,12 @@ func (k Keeper) Params(
 	params := k.GetParams(ctx)
 	return &types.QueryParamsResponse{Params: params}, nil
 }
+
+func (k Keeper) Inflation(c context.Context, _ *types.QueryInflationRequest) (*types.QueryInflationResponse, error) {
+	ctx := sdk.UnwrapSDKContext(c)
+	mintDenom := k.GetParams(ctx).MintDenom
+	inflationRate := k.GetInflationRate(ctx, mintDenom)
+	return &types.QueryInflationResponse{
+		Inflation: inflationRate,
+	}, nil
+}
