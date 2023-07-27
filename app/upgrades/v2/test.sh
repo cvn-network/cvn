@@ -92,7 +92,7 @@ run_cvn_node() {
     -v "$HOMEDIR/config":/root/.cvnd/config \
     -p 127.0.0.1:26657:26657 -p 127.0.0.1:1317:1317 -p 127.0.0.1:8545:8545 \
     ghcr.io/cvn-network/cvn-cosmovisor:2.0.0 \
-    cosmovisor run start --minimum-gas-prices=1000000000acvnt \
+    cosmovisor run start --minimum-gas-prices=100000000acvnt \
     --rpc.laddr tcp://0.0.0.0:26657 \
     --json-rpc.address 0.0.0.0:8545 \
     --json-rpc.api eth,txpool,personal,net,debug,web3 \
@@ -151,7 +151,7 @@ submit_register_erc20_proposal_and_vote() {
     --title "Register ERC20 Token" \
     --deposit "10000000000000000000000acvnt" \
     --description "Register ERC20 Token" \
-    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
   echo "create register erc20 proposal success, wait for voting..."
@@ -161,7 +161,7 @@ submit_register_erc20_proposal_and_vote() {
   echo "vote proposal id = ${proposal_id}, vote..."
 
   cvnd tx gov vote "${proposal_id}" yes \
-    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
   echo "vote success, wait for proposal passed..."
@@ -184,7 +184,7 @@ submit_upgrade_proposal_and_vote() {
     --upgrade-height "${upgrade_height}" \
     --no-validate \
     --upgrade-info '{"binaries":{"linux/amd64":"https://github.com/cvn-network/cvn/releases/download/v2.0.0/cvnd-v2.0.0-linux-amd64"}}' \
-    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
   echo "create upgrade proposal success, wait for voting..."
@@ -194,7 +194,7 @@ submit_upgrade_proposal_and_vote() {
   echo "vote proposal id = ${proposal_id}, vote..."
 
   cvnd tx gov vote "${proposal_id}" yes \
-    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
   echo "vote success, wait for proposal passed..."
@@ -207,7 +207,7 @@ show_proposal_status() {
 withdraw_rewards() {
   validator_address=$(cvnd keys show dev0 --bech val --address --home "${HOMEDIR}")
   cvnd tx distribution withdraw-rewards "$validator_address" \
-    --gas=auto --gas-adjustment=1.5 --gas-prices="1000000000acvnt" \
+    --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
     --from dev0 --home "${HOMEDIR}" --yes
 }

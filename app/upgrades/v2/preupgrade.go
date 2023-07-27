@@ -1,6 +1,7 @@
 package v2
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"time"
@@ -11,6 +12,7 @@ import (
 	tmcfg "github.com/tendermint/tendermint/config"
 
 	servercfg "github.com/cvn-network/cvn/v2/server/config"
+	cvntypes "github.com/cvn-network/cvn/v2/types"
 )
 
 func PreUpgradeCommand() *cobra.Command {
@@ -30,11 +32,12 @@ func PreUpgradeCommand() *cobra.Command {
 			config.SetConfigTemplate(
 				config.DefaultConfigTemplate + servercfg.DefaultConfigTemplate,
 			)
-			appConfig := servercfg.DefaultConfig()
 
+			appConfig := servercfg.DefaultConfig()
 			if err := serverCtx.Viper.Unmarshal(appConfig); err != nil {
 				os.Exit(30)
 			}
+			appConfig.MinGasPrices = fmt.Sprintf("100000000%s", cvntypes.AttoCvnt)
 			config.WriteConfigFile(
 				filepath.Join(serverCtx.Config.RootDir, "config/app.toml"),
 				appConfig,

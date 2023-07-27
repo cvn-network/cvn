@@ -13,7 +13,7 @@ var (
 	// DefaultMinGasMultiplier is 0.5 or 50%
 	DefaultMinGasMultiplier = sdk.NewDecWithPrec(50, 2)
 	// DefaultMinGasPrice is 0 (i.e disabled)
-	DefaultMinGasPrice = sdk.NewDec(params.InitialBaseFee)
+	DefaultMinGasPrice = sdk.NewDec(1e8)
 	// DefaultEnableHeight is 0 (i.e disabled)
 	DefaultEnableHeight = int64(0)
 	// DefaultNoBaseFee is false
@@ -77,7 +77,7 @@ func DefaultParams() Params {
 		NoBaseFee:                DefaultNoBaseFee,
 		BaseFeeChangeDenominator: params.BaseFeeChangeDenominator,
 		ElasticityMultiplier:     params.ElasticityMultiplier,
-		BaseFee:                  sdkmath.NewIntFromUint64(params.InitialBaseFee),
+		BaseFee:                  sdkmath.NewIntFromUint64(100000000),
 		EnableHeight:             DefaultEnableHeight,
 		MinGasPrice:              DefaultMinGasPrice,
 		MinGasMultiplier:         DefaultMinGasMultiplier,
