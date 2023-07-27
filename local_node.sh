@@ -124,7 +124,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 	# Sign genesis transaction
-	cvnd gentx "${KEYS[0]}" 1000000000000000000000acvnt --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"
+	cvnd gentx "${KEYS[0]}" 1000000000000000000000acvnt --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR" --gas-prices 100000000acvnt
 	## In case you want to create multiple validators at genesis
 	## 1. Back to `cvnd keys add` step, init more keys
 	## 2. Back to `cvnd add-genesis-account` step, add balance for those

@@ -74,7 +74,7 @@ var evmTracers = []string{"json", "markdown", "struct", "access_list"}
 // Config defines the server's top level configuration. It includes the default app config
 // from the SDK as well as the EVM configuration to enable the JSON-RPC APIs.
 type Config struct {
-	config.Config
+	config.Config `mapstructure:",squash"`
 
 	EVM     EVMConfig     `mapstructure:"evm"`
 	JSONRPC JSONRPCConfig `mapstructure:"json-rpc"`
@@ -160,7 +160,8 @@ func AppConfig(denom string) (string, interface{}) {
 	//
 	// In evmos, we set the min gas prices to 0.
 	if denom != "" {
-		srvCfg.MinGasPrices = "0" + denom
+		//srvCfg.MinGasPrices = "0" + denom
+		srvCfg.MinGasPrices = "100000000" + denom
 	}
 
 	customAppConfig := Config{

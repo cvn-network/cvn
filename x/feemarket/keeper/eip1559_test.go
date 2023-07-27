@@ -55,7 +55,7 @@ func (suite *KeeperTestSuite) TestCalculateBaseFee() {
 			1,
 			100,
 			sdk.ZeroDec(),
-			big.NewInt(1125000000),
+			big.NewInt(112500000),
 		},
 		{
 			"with BaseFee - parent block wanted more gas than its target, with higher min gas price (ElasticityMultiplier = 2)",
@@ -63,7 +63,7 @@ func (suite *KeeperTestSuite) TestCalculateBaseFee() {
 			1,
 			100,
 			sdk.NewDec(1500000000),
-			big.NewInt(1125000000),
+			big.NewInt(112500000),
 		},
 		{
 			"with BaseFee - Parent gas wanted smaller than parent gas target (ElasticityMultiplier = 2)",
@@ -71,7 +71,7 @@ func (suite *KeeperTestSuite) TestCalculateBaseFee() {
 			1,
 			25,
 			sdk.ZeroDec(),
-			big.NewInt(937500000),
+			big.NewInt(93750000),
 		},
 		{
 			"with BaseFee - Parent gas wanted smaller than parent gas target, with higher min gas price (ElasticityMultiplier = 2)",
