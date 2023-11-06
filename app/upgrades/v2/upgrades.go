@@ -136,6 +136,15 @@ func (u Upgrade) UpdateMetadata(ctx sdk.Context) {
 func (u Upgrade) UpdateModuleParam(ctx sdk.Context) {
 	u.logger.Info("updating inflation module params")
 	inflationParams := u.inflation.GetParams(ctx)
+	if ctx.ChainID() == "cvn_2032-1" {
+		inflationParams.ExponentialCalculation = inflationtypes.ExponentialCalculation{
+			A:             sdk.ZeroDec(),
+			R:             sdk.NewDecWithPrec(50, 2),
+			C:             sdk.NewDec(int64(10_000_000)),
+			BondingTarget: sdk.NewDecWithPrec(66, 2),
+			MaxVariance:   sdk.ZeroDec(),
+		}
+	}
 	inflationParams.InflationDistribution = inflationtypes.InflationDistribution{
 		StakingRewards:  sdk.NewDecWithPrec(85, 2),
 		UsageIncentives: sdk.NewDecWithPrec(5, 2),

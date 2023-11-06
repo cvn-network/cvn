@@ -41,7 +41,7 @@ func (suite *UpgradeTestSuite) SetupTest() {
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "test-chain-1",
+		ChainID:         "cvn_2032-1",
 		Time:            time.Now(),
 		ProposerAddress: suite.consAddress.Bytes(),
 
@@ -153,20 +153,37 @@ func (suite *UpgradeTestSuite) TestUpdateParams() {
 
 	up.UpdateModuleParam(suite.ctx)
 
+	inflationParams := suite.app.InflationKeeper.GetParams(suite.ctx)
 	suite.Require().Equal(
 		"0.850000000000000000",
-		suite.app.InflationKeeper.GetParams(suite.ctx).InflationDistribution.StakingRewards.String(),
+		inflationParams.InflationDistribution.StakingRewards.String(),
 	)
-
 	suite.Require().Equal(
 		"0.050000000000000000",
-		suite.app.InflationKeeper.GetParams(suite.ctx).InflationDistribution.UsageIncentives.String(),
+		inflationParams.InflationDistribution.UsageIncentives.String(),
 	)
-
 	suite.Require().Equal(
 		"0.100000000000000000",
-		suite.app.InflationKeeper.GetParams(suite.ctx).InflationDistribution.CommunityPool.String(),
+		inflationParams.InflationDistribution.CommunityPool.String(),
 	)
+
+	if suite.ctx.ChainID() == "cvn_2032-1" {
+		suite.Require().Equal(
+			"0.000000000000000000",
+			inflationParams.ExponentialCalculation.A.String())
+		suite.Require().Equal(
+			"0.500000000000000000",
+			inflationParams.ExponentialCalculation.R.String())
+		suite.Require().Equal(
+			"10000000.000000000000000000",
+			inflationParams.ExponentialCalculation.C.String())
+		suite.Require().Equal(
+			"0.660000000000000000",
+			inflationParams.ExponentialCalculation.BondingTarget.String())
+		suite.Require().Equal(
+			"0.000000000000000000",
+			inflationParams.ExponentialCalculation.MaxVariance.String())
+	}
 
 	suite.Require().Equal(
 		int64(5000),
@@ -177,7 +194,6 @@ func (suite *UpgradeTestSuite) TestUpdateParams() {
 		sdk.NewInt(1e8).String(),
 		suite.app.FeeMarketKeeper.GetParams(suite.ctx).BaseFee.String(),
 	)
-
 	suite.Require().Equal(
 		sdk.NewDec(1e8).String(),
 		suite.app.FeeMarketKeeper.GetParams(suite.ctx).MinGasPrice.String(),
