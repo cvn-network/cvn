@@ -37,6 +37,12 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## [v2.1.0] - 2023-11-06
+
+### Features
+
+- Update CVN annual inflation to 10 million
+
 ## [v2.0.0] - 2023-08-04
 
 ### Improvement
