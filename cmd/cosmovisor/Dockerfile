@@ -13,7 +13,7 @@ RUN git checkout release/v1.0.x
 RUN make build
 RUN mv /root/build/cvnd /root/build/cvnd-v1
 
-RUN git checkout release/v2.0.x
+RUN git checkout release/v2.1.x
 RUN make build
 
 FROM debian:bullseye
