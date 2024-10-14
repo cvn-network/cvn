@@ -14,10 +14,10 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v2/contracts"
-	"github.com/cvn-network/cvn/v2/server/config"
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/contracts"
+	"github.com/cvn-network/cvn/v3/server/config"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // DeployERC20Contract creates and deploys an ERC20 contract on the EVM with the

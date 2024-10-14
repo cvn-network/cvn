@@ -12,9 +12,9 @@ import (
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/encoding"
 )
 
 func (suite *AnteTestSuite) CreateTestCosmosTxBuilder(gasPrice sdkmath.Int, denom string, msgs ...sdk.Msg) client.TxBuilder {

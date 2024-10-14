@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
 )
 
 type ParamsTestSuite struct {

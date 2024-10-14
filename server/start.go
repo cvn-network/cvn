@@ -40,11 +40,11 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/cvn-network/cvn/v2/indexer"
-	ethdebug "github.com/cvn-network/cvn/v2/rpc/namespaces/ethereum/debug"
-	"github.com/cvn-network/cvn/v2/server/config"
-	srvflags "github.com/cvn-network/cvn/v2/server/flags"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v3/indexer"
+	ethdebug "github.com/cvn-network/cvn/v3/rpc/namespaces/ethereum/debug"
+	"github.com/cvn-network/cvn/v3/server/config"
+	srvflags "github.com/cvn-network/cvn/v3/server/flags"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 // DBOpener is a function to open `application.db`, potentially with customized options.

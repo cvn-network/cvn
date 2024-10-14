@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
+	erc20types "github.com/cvn-network/cvn/v3/x/erc20/types"
 )
 
 var _ types.MsgServer = Keeper{}

@@ -8,8 +8,8 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
 
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
 )
 
 // QueryClient defines a gRPC Client used for:

@@ -8,9 +8,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v2/contracts"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/contracts"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the erc20 hook is already set
@@ -116,7 +116,7 @@ func (suite *KeeperTestSuite) TestEvmHooksRegisteredERC20() {
 
 			tc.malleate(contractAddr)
 
-			//balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateDenom(contractAddr.String()))
+			// balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateDenom(contractAddr.String()))
 			balance := suite.app.BankKeeper.GetBalance(suite.ctx, sdk.AccAddress(suite.address.Bytes()), types.CreateBaseDenom("token"))
 			suite.Commit()
 			if tc.result {

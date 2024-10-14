@@ -18,14 +18,14 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	"github.com/cvn-network/cvn/v2/server/config"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	"github.com/cvn-network/cvn/v3/server/config"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // BackendI implements the Cosmos and EVM backend.
-type BackendI interface { //nolint: revive
+type BackendI interface { // nolint: revive
 	CosmosBackend
 	EVMBackend
 }

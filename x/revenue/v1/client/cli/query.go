@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

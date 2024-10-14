@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 // NewHandler returns a handler for Inflation type messages.

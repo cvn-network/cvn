@@ -18,9 +18,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/client/cli"
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/keeper"
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/client/cli"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/keeper"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/types"
 )
 
 // type check to ensure the interface is properly implemented

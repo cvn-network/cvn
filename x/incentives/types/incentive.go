@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 // NewIncentive returns an instance of Incentive

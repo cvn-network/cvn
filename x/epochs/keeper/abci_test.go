@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cvn-network/cvn/v2/x/epochs"
-	"github.com/cvn-network/cvn/v2/x/epochs/types"
+	"github.com/cvn-network/cvn/v3/x/epochs"
+	"github.com/cvn-network/cvn/v3/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochInfoChangesBeginBlockerAndInitGenesis() {

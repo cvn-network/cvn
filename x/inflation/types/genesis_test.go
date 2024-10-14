@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
+	epochstypes "github.com/cvn-network/cvn/v3/x/epochs/types"
 )
 
 type GenesisTestSuite struct {

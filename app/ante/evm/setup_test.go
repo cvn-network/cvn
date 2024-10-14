@@ -15,13 +15,13 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/cvn-network/cvn/v2/app"
-	ante "github.com/cvn-network/cvn/v2/app/ante"
-	"github.com/cvn-network/cvn/v2/encoding"
-	"github.com/cvn-network/cvn/v2/ethereum/eip712"
-	"github.com/cvn-network/cvn/v2/utils"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	"github.com/cvn-network/cvn/v3/app"
+	ante "github.com/cvn-network/cvn/v3/app/ante"
+	"github.com/cvn-network/cvn/v3/encoding"
+	"github.com/cvn-network/cvn/v3/ethereum/eip712"
+	"github.com/cvn-network/cvn/v3/utils"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
 )
 
 type AnteTestSuite struct {

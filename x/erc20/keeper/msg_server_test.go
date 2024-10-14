@@ -10,10 +10,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cvn-network/cvn/v2/x/erc20/keeper"
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/erc20/keeper"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestConvertCoinNativeCoin() {
@@ -682,7 +682,7 @@ func (suite *KeeperTestSuite) TestConvertERC20NativeERC20() {
 			pair, found := suite.app.Erc20Keeper.GetTokenPair(suite.ctx, id)
 			suite.Require().True(found)
 			coinName = pair.Denom
-			//coinName = types.CreateDenom(contractAddr.String())
+			// coinName = types.CreateDenom(contractAddr.String())
 
 			sender := sdk.AccAddress(suite.address.Bytes())
 			msg := types.NewMsgConvertERC20(
@@ -899,7 +899,7 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			pair, found := suite.app.Erc20Keeper.GetTokenPair(suite.ctx, id)
 			suite.Require().True(found)
 			coins := sdk.NewCoins(sdk.NewCoin(pair.Denom, sdk.NewInt(tc.mint)))
-			//coinName := types.CreateDenom(contractAddr.String())
+			// coinName := types.CreateDenom(contractAddr.String())
 			sender := sdk.AccAddress(suite.address.Bytes())
 
 			// Precondition: Mint Coins to convert on sender account

@@ -6,11 +6,11 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/evm"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/evm"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *EvmTestSuite) TestInitGenesis() {

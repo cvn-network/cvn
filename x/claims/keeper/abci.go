@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 // EndBlocker checks if the airdrop claiming period has ended in order to

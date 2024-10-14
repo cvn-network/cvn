@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/cvn-network/cvn/v2/x/epochs/types"
+	"github.com/cvn-network/cvn/v3/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochLifeCycle() {

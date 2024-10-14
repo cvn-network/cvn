@@ -11,14 +11,14 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/app"
-	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/utils"
-	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
-	"github.com/cvn-network/cvn/v2/x/recovery/types"
+	"github.com/cvn-network/cvn/v3/app"
+	ibctesting "github.com/cvn-network/cvn/v3/ibc/testing"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/utils"
+	claimstypes "github.com/cvn-network/cvn/v3/x/claims/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
+	"github.com/cvn-network/cvn/v3/x/recovery/types"
 )
 
 var (

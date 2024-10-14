@@ -5,8 +5,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // GetQueryCmd returns the parent command for all x/bank CLi query commands.

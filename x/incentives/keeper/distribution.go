@@ -12,7 +12,7 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v2/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/incentives/types"
 )
 
 // DistributeRewards transfers the allocated rewards to the participants of a given

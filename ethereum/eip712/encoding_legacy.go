@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	evmos "github.com/cvn-network/cvn/v2/types"
+	evmos "github.com/cvn-network/cvn/v3/types"
 )
 
 type aminoMessage struct {

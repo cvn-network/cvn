@@ -3,7 +3,7 @@ package types
 import (
 	"github.com/ethereum/go-ethereum/common"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 // NewGasMeter returns an instance of GasMeter

@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/mock"
 	tmbytes "github.com/tendermint/tendermint/libs/bytes"
 
-	"github.com/cvn-network/cvn/v2/x/recovery/types"
+	"github.com/cvn-network/cvn/v3/x/recovery/types"
 )
 
 var _ types.TransferKeeper = &MockTransferKeeper{}

@@ -20,11 +20,11 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	"github.com/cvn-network/cvn/v2/server/config"
-	"github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	"github.com/cvn-network/cvn/v3/server/config"
+	"github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // Accounts returns the list of accounts available to this node.

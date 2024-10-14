@@ -3,8 +3,8 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	incentivestypes "github.com/cvn-network/cvn/v3/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 // MintAndAllocateInflation performs inflation minting and allocation

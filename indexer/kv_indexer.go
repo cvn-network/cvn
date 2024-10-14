@@ -14,9 +14,9 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 const (

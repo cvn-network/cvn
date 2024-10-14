@@ -9,9 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cvn-network/cvn/v2/app"
-	cvnd "github.com/cvn-network/cvn/v2/cmd/cvnd"
-	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v3/app"
+	cvnd "github.com/cvn-network/cvn/v3/cmd/cvnd"
+	"github.com/cvn-network/cvn/v3/utils"
 )
 
 func TestInitCmd(t *testing.T) {

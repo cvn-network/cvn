@@ -8,12 +8,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/testutil"
-	"github.com/cvn-network/cvn/v2/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/gov/keeper"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/testutil"
+	"github.com/cvn-network/cvn/v3/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/gov/keeper"
 )
 
 func TestSoulHooksTestSuite(t *testing.T) {

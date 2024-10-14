@@ -6,10 +6,10 @@ import (
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	evmante "github.com/cvn-network/cvn/v2/app/ante/evm"
-	"github.com/cvn-network/cvn/v2/testutil"
-	testutiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	evmante "github.com/cvn-network/cvn/v3/app/ante/evm"
+	"github.com/cvn-network/cvn/v3/testutil"
+	testutiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *AnteTestSuite) TestEthSetupContextDecorator() {

@@ -6,13 +6,13 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 var (
 	//go:embed compiled_contracts/ERC20MinterBurnerDecimals.json
-	ERC20MinterBurnerDecimalsJSON []byte //nolint: golint
+	ERC20MinterBurnerDecimalsJSON []byte // nolint: golint
 
 	// ERC20MinterBurnerDecimalsContract is the compiled erc20 contract
 	ERC20MinterBurnerDecimalsContract evmtypes.CompiledContract

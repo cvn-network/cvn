@@ -13,8 +13,8 @@ import (
 	ethcrypto "github.com/ethereum/go-ethereum/crypto"
 	"github.com/spf13/cobra"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/crypto/hd"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/crypto/hd"
 )
 
 // UnsafeExportEthKeyCommand exports a key with the given name as a private key in hex format.

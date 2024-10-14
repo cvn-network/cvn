@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	evm "github.com/cvn-network/cvn/v2/x/evm/types"
+	evm "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 var ParamsKey = []byte("Params")

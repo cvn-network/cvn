@@ -8,7 +8,7 @@ import (
 	rpcclient "github.com/tendermint/tendermint/rpc/client"
 	"github.com/tendermint/tendermint/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 const (

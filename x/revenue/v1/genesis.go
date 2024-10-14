@@ -4,8 +4,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/keeper"
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/keeper"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/types"
 )
 
 // InitGenesis import module genesis

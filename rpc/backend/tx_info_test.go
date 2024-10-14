@@ -14,11 +14,11 @@ import (
 	dbm "github.com/tendermint/tm-db"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v2/indexer"
-	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/indexer"
+	"github.com/cvn-network/cvn/v3/rpc/backend/mocks"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestGetTransactionByHash() {

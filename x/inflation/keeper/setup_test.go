@@ -8,9 +8,9 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/app"
-	evm "github.com/cvn-network/cvn/v2/x/evm/types"
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v3/app"
+	evm "github.com/cvn-network/cvn/v3/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 var denomMint = types.DefaultInflationDenom

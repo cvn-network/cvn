@@ -3,8 +3,8 @@ package testutil
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/encoding"
 )
 
 // NextFn is a no-op function that returns the context and no error in order to mock

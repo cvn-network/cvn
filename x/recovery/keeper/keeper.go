@@ -12,7 +12,7 @@ import (
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v2/x/recovery/types"
+	"github.com/cvn-network/cvn/v3/x/recovery/types"
 )
 
 var _ porttypes.ICS4Wrapper = Keeper{}

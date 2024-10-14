@@ -15,10 +15,10 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
-	ethrpc "github.com/cvn-network/cvn/v2/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/rpc/backend/mocks"
+	ethrpc "github.com/cvn-network/cvn/v3/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestBlockNumber() {

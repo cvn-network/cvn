@@ -17,8 +17,8 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v2/encoding"
-	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v3/encoding"
+	"github.com/cvn-network/cvn/v3/utils"
 )
 
 func TestEvmosExport(t *testing.T) {

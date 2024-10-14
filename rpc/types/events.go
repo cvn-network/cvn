@@ -9,8 +9,8 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	"github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // EventFormat is the format version of the events.

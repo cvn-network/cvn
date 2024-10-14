@@ -16,7 +16,7 @@ import (
 	rpcclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
 	"golang.org/x/net/netutil"
 
-	"github.com/cvn-network/cvn/v2/server/config"
+	"github.com/cvn-network/cvn/v3/server/config"
 )
 
 // AddCommands adds server commands

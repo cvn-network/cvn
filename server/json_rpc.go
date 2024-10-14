@@ -12,9 +12,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 
-	"github.com/cvn-network/cvn/v2/rpc"
-	"github.com/cvn-network/cvn/v2/server/config"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v3/rpc"
+	"github.com/cvn-network/cvn/v3/server/config"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 // StartJSONRPC starts the JSON-RPC server

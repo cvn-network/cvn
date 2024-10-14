@@ -32,16 +32,16 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v2/app"
-	v2 "github.com/cvn-network/cvn/v2/app/upgrades/v2"
-	evmosclient "github.com/cvn-network/cvn/v2/client"
-	"github.com/cvn-network/cvn/v2/client/debug"
-	cmdcfg "github.com/cvn-network/cvn/v2/cmd/config"
-	evmoskr "github.com/cvn-network/cvn/v2/crypto/keyring"
-	"github.com/cvn-network/cvn/v2/encoding"
-	"github.com/cvn-network/cvn/v2/ethereum/eip712"
-	evmosserver "github.com/cvn-network/cvn/v2/server"
-	servercfg "github.com/cvn-network/cvn/v2/server/config"
+	"github.com/cvn-network/cvn/v3/app"
+	v2 "github.com/cvn-network/cvn/v3/app/upgrades/v2"
+	evmosclient "github.com/cvn-network/cvn/v3/client"
+	"github.com/cvn-network/cvn/v3/client/debug"
+	cmdcfg "github.com/cvn-network/cvn/v3/cmd/config"
+	evmoskr "github.com/cvn-network/cvn/v3/crypto/keyring"
+	"github.com/cvn-network/cvn/v3/encoding"
+	"github.com/cvn-network/cvn/v3/ethereum/eip712"
+	evmosserver "github.com/cvn-network/cvn/v3/server"
+	servercfg "github.com/cvn-network/cvn/v3/server/config"
 )
 
 const (
@@ -203,9 +203,9 @@ func initAppConfig() (string, interface{}) {
 		panic(fmt.Errorf("unknown app config type %T", customAppConfig))
 	}
 
-	//srvCfg.StateSync.SnapshotInterval = 5000
-	//srvCfg.StateSync.SnapshotKeepRecent = 2
-	//srvCfg.IAVLDisableFastNode = false
+	// srvCfg.StateSync.SnapshotInterval = 5000
+	// srvCfg.StateSync.SnapshotKeepRecent = 2
+	// srvCfg.IAVLDisableFastNode = false
 
 	return customAppTemplate, srvCfg
 }
@@ -299,9 +299,9 @@ func (a appCreator) appExport(
 // return tmcfg.DefaultConfig if no custom configuration is required for the application.
 func initTendermintConfig() *tmcfg.Config {
 	cfg := tmcfg.DefaultConfig()
-	//cfg.Consensus.TimeoutCommit = time.Second
+	// cfg.Consensus.TimeoutCommit = time.Second
 	// use v0 since v1 severely impacts the node's performance
-	//cfg.Mempool.Version = tmcfg.MempoolV0
+	// cfg.Mempool.Version = tmcfg.MempoolV0
 
 	// to put a higher strain on node memory, use these values:
 	// cfg.P2P.MaxNumInboundPeers = 100

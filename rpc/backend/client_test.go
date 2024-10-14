@@ -17,9 +17,9 @@ import (
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"github.com/tendermint/tendermint/types"
 
-	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
-	rpc "github.com/cvn-network/cvn/v2/rpc/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/rpc/backend/mocks"
+	rpc "github.com/cvn-network/cvn/v3/rpc/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // Client defines a mocked object that implements the Tendermint JSON-RPC Client

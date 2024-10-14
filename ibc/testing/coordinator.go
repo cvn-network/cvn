@@ -12,7 +12,7 @@ import (
 	ibchelpers "github.com/cosmos/ibc-go/v6/testing/simapp/helpers"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cvn-network/cvn/v2/app"
+	"github.com/cvn-network/cvn/v3/app"
 )
 
 const DefaultFeeAmt = int64(150_000_000_000_000_000) // 0.15 EVMOS

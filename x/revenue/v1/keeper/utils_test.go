@@ -14,12 +14,12 @@ import (
 	"github.com/stretchr/testify/require"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/utils"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	"github.com/cvn-network/cvn/v2/x/revenue/v1/types"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/utils"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/revenue/v1/types"
 )
 
 func (suite *KeeperTestSuite) SetupApp() {

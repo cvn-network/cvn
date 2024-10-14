@@ -10,11 +10,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/claims/types"
-	vestingtypes "github.com/cvn-network/cvn/v2/x/vesting/types"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
+	vestingtypes "github.com/cvn-network/cvn/v3/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

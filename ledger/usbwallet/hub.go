@@ -26,7 +26,7 @@ import (
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
 	usb "github.com/zondax/hid"
 
-	"github.com/cvn-network/cvn/v2/ledger/accounts"
+	"github.com/cvn-network/cvn/v3/ledger/accounts"
 )
 
 const (

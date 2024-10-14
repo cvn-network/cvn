@@ -19,10 +19,10 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/cvn-network/cvn/v2/rpc/backend/mocks"
-	rpc "github.com/cvn-network/cvn/v2/rpc/types"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/rpc/backend/mocks"
+	rpc "github.com/cvn-network/cvn/v3/rpc/types"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // QueryClient defines a mocked object that implements the ethermint GRPC
@@ -140,13 +140,13 @@ func TestRegisterParamsError(t *testing.T) {
 
 // ETH Call
 func RegisterEthCall(queryClient *mocks.EVMQueryClient, request *evmtypes.EthCallRequest) {
-	ctx, _ := context.WithCancel(rpc.ContextWithHeight(1)) //nolint
+	ctx, _ := context.WithCancel(rpc.ContextWithHeight(1)) // nolint
 	queryClient.On("EthCall", ctx, request).
 		Return(&evmtypes.MsgEthereumTxResponse{}, nil)
 }
 
 func RegisterEthCallError(queryClient *mocks.EVMQueryClient, request *evmtypes.EthCallRequest) {
-	ctx, _ := context.WithCancel(rpc.ContextWithHeight(1)) //nolint
+	ctx, _ := context.WithCancel(rpc.ContextWithHeight(1)) // nolint
 	queryClient.On("EthCall", ctx, request).
 		Return(nil, errortypes.ErrInvalidRequest)
 }

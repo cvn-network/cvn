@@ -13,8 +13,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/incentives/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/incentives/types"
 )
 
 var _ types.QueryServer = Keeper{}
@@ -110,7 +110,7 @@ func (k Keeper) GasMeters(
 
 	// check if the contract is a hex address
 	if err := cvntypes.ValidateAddress(req.Contract); err != nil {
-		return nil, status.Errorf(
+		return nil, status.Error(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid contract address %s", req.Contract).Error(),
 		)
@@ -169,7 +169,7 @@ func (k Keeper) GasMeter(
 
 	// check if the contract is a hex address
 	if err := cvntypes.ValidateAddress(req.Contract); err != nil {
-		return nil, status.Errorf(
+		return nil, status.Error(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid contract address %s", req.Contract).Error(),
 		)
@@ -184,7 +184,7 @@ func (k Keeper) GasMeter(
 
 	// check if the participant is a hex address
 	if err := cvntypes.ValidateAddress(req.Participant); err != nil {
-		return nil, status.Errorf(
+		return nil, status.Error(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid participant address %s", req.Participant).Error(),
 		)

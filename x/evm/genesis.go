@@ -10,9 +10,9 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/evm/keeper"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/evm/keeper"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // InitGenesis initializes genesis state based on exported genesis

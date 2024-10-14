@@ -11,9 +11,9 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/encoding"
-	"github.com/cvn-network/cvn/v2/testutil/tx"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/encoding"
+	"github.com/cvn-network/cvn/v3/testutil/tx"
 )
 
 // Commit commits a block at a given time. Reminder: At the end of each
@@ -149,7 +149,7 @@ func BroadcastTxBytes(app *app.CVN, txEncoder sdk.TxEncoder, tx sdk.Tx) (abci.Re
 	req := abci.RequestDeliverTx{Tx: bz}
 	res := app.BaseApp.DeliverTx(req)
 	if res.Code != 0 {
-		return abci.ResponseDeliverTx{}, errorsmod.Wrapf(errortypes.ErrInvalidRequest, res.Log)
+		return abci.ResponseDeliverTx{}, errorsmod.Wrap(errortypes.ErrInvalidRequest, res.Log)
 	}
 
 	return res, nil
@@ -165,7 +165,7 @@ func checkTxBytes(app *app.CVN, txEncoder sdk.TxEncoder, tx sdk.Tx) (abci.Respon
 	req := abci.RequestCheckTx{Tx: bz}
 	res := app.BaseApp.CheckTx(req)
 	if res.Code != 0 {
-		return abci.ResponseCheckTx{}, errorsmod.Wrapf(errortypes.ErrInvalidRequest, res.Log)
+		return abci.ResponseCheckTx{}, errorsmod.Wrap(errortypes.ErrInvalidRequest, res.Log)
 	}
 
 	return res, nil

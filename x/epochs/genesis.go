@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v2/x/epochs/keeper"
-	"github.com/cvn-network/cvn/v2/x/epochs/types"
+	"github.com/cvn-network/cvn/v3/x/epochs/keeper"
+	"github.com/cvn-network/cvn/v3/x/epochs/types"
 )
 
 // InitGenesis initializes the epochs module's state from a provided genesis

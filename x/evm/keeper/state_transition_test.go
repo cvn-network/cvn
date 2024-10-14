@@ -16,10 +16,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/x/evm/keeper"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/x/evm/keeper"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestGetHashFn() {

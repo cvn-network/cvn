@@ -4,7 +4,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *TxDataTestSuite) TestTestNewAccessList() {

@@ -8,8 +8,8 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 
-	"github.com/cvn-network/cvn/v2/ibc"
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	"github.com/cvn-network/cvn/v3/ibc"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 // OnAcknowledgementPacket performs an IBC send callback. Once a user submits an
@@ -175,7 +175,7 @@ func (k Keeper) OnRecvPacket(
 		// case 2: only the sender has a claims record
 		// -> migrate the sender record to the recipient address and claim IBC action
 
-		claimedAmt := sdk.ZeroInt() //nolint
+		claimedAmt := sdk.ZeroInt() // nolint
 		claimedAmt, err = k.ClaimCoinsForAction(ctx, recipient, senderClaimsRecord, types.ActionIBCTransfer, params)
 
 		// if the transfer fails or the claimable amount is 0 (eg: action already

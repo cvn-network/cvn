@@ -6,8 +6,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
 
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/types"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/types"
 )
 
 func TestIsEmptyHash(t *testing.T) {

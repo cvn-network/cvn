@@ -8,11 +8,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cvn-network/cvn/v2/contracts"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/x/erc20/keeper"
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/contracts"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/x/erc20/keeper"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

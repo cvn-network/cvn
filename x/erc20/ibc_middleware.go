@@ -9,8 +9,8 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 
-	"github.com/cvn-network/cvn/v2/ibc"
-	"github.com/cvn-network/cvn/v2/x/erc20/keeper"
+	"github.com/cvn-network/cvn/v3/ibc"
+	"github.com/cvn-network/cvn/v3/x/erc20/keeper"
 )
 
 var _ porttypes.IBCModule = &IBCMiddleware{}

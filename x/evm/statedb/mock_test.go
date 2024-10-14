@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
 )
 
 var (

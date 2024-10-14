@@ -10,8 +10,8 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/tests/e2e/upgrade"
-	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v3/tests/e2e/upgrade"
+	"github.com/cvn-network/cvn/v3/utils"
 )
 
 const (

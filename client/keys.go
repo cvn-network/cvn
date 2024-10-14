@@ -10,8 +10,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/tendermint/tendermint/libs/cli"
 
-	clientkeys "github.com/cvn-network/cvn/v2/client/keys"
-	"github.com/cvn-network/cvn/v2/crypto/hd"
+	clientkeys "github.com/cvn-network/cvn/v3/client/keys"
+	"github.com/cvn-network/cvn/v3/crypto/hd"
 )
 
 // KeyCommands registers a sub-tree of commands to interact with

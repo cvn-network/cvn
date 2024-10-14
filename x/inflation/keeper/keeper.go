@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 // Keeper of the inflation store

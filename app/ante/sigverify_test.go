@@ -15,10 +15,10 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/app/ante"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/app/ante"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/encoding"
 )
 
 func TestConsumeSignatureVerificationGas(t *testing.T) {

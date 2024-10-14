@@ -13,9 +13,9 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // NewEVM generates a go-ethereum VM from the provided Message fields and the chain parameters

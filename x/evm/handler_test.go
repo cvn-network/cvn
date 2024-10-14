@@ -28,16 +28,16 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/utils"
-	"github.com/cvn-network/cvn/v2/x/evm"
-	"github.com/cvn-network/cvn/v2/x/evm/keeper"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/utils"
+	"github.com/cvn-network/cvn/v3/x/evm"
+	"github.com/cvn-network/cvn/v3/x/evm/keeper"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
 )
 
 type EvmTestSuite struct {
@@ -316,7 +316,7 @@ func (suite *EvmTestSuite) TestDeployAndCallContract() {
 	//
 	// pragma solidity >=0.4.22 <0.7.0;
 	//
-	///**
+	// /**
 	// * @title Owner
 	// * @dev Set & change owner
 	// */
@@ -336,7 +336,7 @@ func (suite *EvmTestSuite) TestDeployAndCallContract() {
 	//	// As a second argument, you can also provide an explanation about what went wrong.
 	//	require(msg.sender == owner, "Caller is not owner");
 	//	_;
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Set contract deployer as owner
@@ -344,7 +344,7 @@ func (suite *EvmTestSuite) TestDeployAndCallContract() {
 	//	constructor() public {
 	//	owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
 	//	emit OwnerSet(address(0), owner);
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Change owner
@@ -353,7 +353,7 @@ func (suite *EvmTestSuite) TestDeployAndCallContract() {
 	//	function changeOwner(address newOwner) public isOwner {
 	//	emit OwnerSet(owner, newOwner);
 	//	owner = newOwner;
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Return owner address
@@ -361,8 +361,8 @@ func (suite *EvmTestSuite) TestDeployAndCallContract() {
 	//	 */
 	//	function getOwner() external view returns (address) {
 	//	return owner;
-	//}
-	//}
+	// }
+	// }
 
 	// Deploy contract - Owner.sol
 	gasLimit := uint64(100000000)
@@ -471,7 +471,7 @@ func (suite *EvmTestSuite) TestOutOfGasWhenDeployContract() {
 	//
 	// pragma solidity >=0.4.22 <0.7.0;
 	//
-	///**
+	// /**
 	// * @title Owner
 	// * @dev Set & change owner
 	// */
@@ -491,7 +491,7 @@ func (suite *EvmTestSuite) TestOutOfGasWhenDeployContract() {
 	//	// As a second argument, you can also provide an explanation about what went wrong.
 	//	require(msg.sender == owner, "Caller is not owner");
 	//	_;
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Set contract deployer as owner
@@ -499,7 +499,7 @@ func (suite *EvmTestSuite) TestOutOfGasWhenDeployContract() {
 	//	constructor() public {
 	//	owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
 	//	emit OwnerSet(address(0), owner);
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Change owner
@@ -508,7 +508,7 @@ func (suite *EvmTestSuite) TestOutOfGasWhenDeployContract() {
 	//	function changeOwner(address newOwner) public isOwner {
 	//	emit OwnerSet(owner, newOwner);
 	//	owner = newOwner;
-	//}
+	// }
 	//
 	//	/**
 	//	 * @dev Return owner address
@@ -516,8 +516,8 @@ func (suite *EvmTestSuite) TestOutOfGasWhenDeployContract() {
 	//	 */
 	//	function getOwner() external view returns (address) {
 	//	return owner;
-	//}
-	//}
+	// }
+	// }
 
 	// Deploy contract - Owner.sol
 	gasLimit := uint64(1)

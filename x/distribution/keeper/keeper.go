@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/distribution/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	distributiontypes "github.com/cvn-network/cvn/v2/x/distribution/types"
+	distributiontypes "github.com/cvn-network/cvn/v3/x/distribution/types"
 )
 
 type Keeper struct {

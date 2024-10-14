@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	vestingtypes "github.com/cvn-network/cvn/v2/x/vesting/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	vestingtypes "github.com/cvn-network/cvn/v3/x/vesting/types"
 )
 
 // TODO: remove once Cosmos SDK is upgraded to v0.46

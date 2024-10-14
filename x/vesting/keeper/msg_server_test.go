@@ -9,10 +9,10 @@ import (
 	vestingexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/vesting/types"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/vesting/types"
 )
 
 var (

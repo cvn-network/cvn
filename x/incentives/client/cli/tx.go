@@ -13,7 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/spf13/cobra"
 
-	"github.com/cvn-network/cvn/v2/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/incentives/types"
 )
 
 // NewRegisterIncentiveProposalCmd implements the command to submit a register

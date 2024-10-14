@@ -10,9 +10,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	evm "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	evm "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 var _ types.EVMKeeper = &MockEVMKeeper{}

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/cvn-network/cvn/v2/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/x/erc20/types"
 )
 
 // Migrator is a struct for handling in-place store migrations.

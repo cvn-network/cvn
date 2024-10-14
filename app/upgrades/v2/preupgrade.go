@@ -11,8 +11,8 @@ import (
 	"github.com/spf13/cobra"
 	tmcfg "github.com/tendermint/tendermint/config"
 
-	servercfg "github.com/cvn-network/cvn/v2/server/config"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	servercfg "github.com/cvn-network/cvn/v3/server/config"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 func PreUpgradeCommand() *cobra.Command {

@@ -10,7 +10,7 @@ import (
 	sm "github.com/tendermint/tendermint/state"
 	tmstore "github.com/tendermint/tendermint/store"
 
-	"github.com/cvn-network/cvn/v2/indexer"
+	"github.com/cvn-network/cvn/v3/indexer"
 )
 
 func NewIndexTxCmd() *cobra.Command {

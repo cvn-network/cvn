@@ -8,10 +8,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/x/evm/keeper"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/x/evm/keeper"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestWithChainID() {

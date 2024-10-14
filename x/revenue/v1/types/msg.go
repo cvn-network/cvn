@@ -6,7 +6,7 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
 )
 
 var (

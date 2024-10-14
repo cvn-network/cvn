@@ -32,7 +32,7 @@ import (
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	usb "github.com/zondax/hid"
 
-	"github.com/cvn-network/cvn/v2/ledger/accounts"
+	"github.com/cvn-network/cvn/v3/ledger/accounts"
 )
 
 // Maximum time between wallet health checks to detect USB unplugs.
@@ -188,7 +188,7 @@ func (w *wallet) heartbeat() {
 
 		if err != nil {
 			w.stateLock.Lock() // Lock state to tear the wallet down
-			//#nosec G703 -- ignoring the returned error on purpose here
+			// #nosec G703 -- ignoring the returned error on purpose here
 			_ = w.close()
 			w.stateLock.Unlock()
 		}
@@ -242,7 +242,7 @@ func (w *wallet) close() error {
 		return nil
 	}
 	// Close the device, clear everything, then return
-	//#nosec G703 -- ignoring the returned error on purpose here
+	// #nosec G703 -- ignoring the returned error on purpose here
 	_ = w.device.Close()
 	w.device = nil
 

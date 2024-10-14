@@ -10,7 +10,7 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 // Keeper struct

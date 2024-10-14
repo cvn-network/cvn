@@ -8,12 +8,12 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v2/app/ante/evm"
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/types"
-	"github.com/cvn-network/cvn/v2/utils"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/app/ante/evm"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/types"
+	"github.com/cvn-network/cvn/v3/utils"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *AnteTestSuite) TestGasWantedDecorator() {

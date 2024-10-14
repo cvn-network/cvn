@@ -34,10 +34,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/ethereum/eip712"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/ethereum/eip712"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *AnteTestSuite) BuildTestEthTx(

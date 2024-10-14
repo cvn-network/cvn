@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module
@@ -84,7 +84,7 @@ func GetCmdQueryParams() *cobra.Command {
 			}
 
 			return clientCtx.PrintProto(&res.Params)
-			//return clientCtx.PrintObjectLegacy(&res.Params)
+			// return clientCtx.PrintObjectLegacy(&res.Params)
 		},
 	}
 

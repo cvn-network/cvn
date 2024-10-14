@@ -17,9 +17,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cvn-network/cvn/v2/x/vesting/client/cli"
-	"github.com/cvn-network/cvn/v2/x/vesting/keeper"
-	"github.com/cvn-network/cvn/v2/x/vesting/types"
+	"github.com/cvn-network/cvn/v3/x/vesting/client/cli"
+	"github.com/cvn-network/cvn/v3/x/vesting/keeper"
+	"github.com/cvn-network/cvn/v3/x/vesting/types"
 )
 
 var (

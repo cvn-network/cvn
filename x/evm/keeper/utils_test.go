@@ -13,10 +13,10 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cvn-network/cvn/v2/server/config"
-	"github.com/cvn-network/cvn/v2/testutil"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/server/config"
+	"github.com/cvn-network/cvn/v3/testutil"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) EvmDenom() string {

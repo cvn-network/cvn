@@ -13,14 +13,14 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/cvn-network/cvn/v2/app"
-	v2 "github.com/cvn-network/cvn/v2/app/upgrades/v2"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/types"
-	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
-	cvngovtypes "github.com/cvn-network/cvn/v2/x/gov/types"
-	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v3/app"
+	v2 "github.com/cvn-network/cvn/v3/app/upgrades/v2"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/types"
+	erc20types "github.com/cvn-network/cvn/v3/x/erc20/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
+	cvngovtypes "github.com/cvn-network/cvn/v3/x/gov/types"
+	inflationtypes "github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 type UpgradeTestSuite struct {
@@ -96,9 +96,9 @@ func (suite *UpgradeTestSuite) TestUpdateMetadata() {
 		suite.app.InflationKeeper.GetParams(suite.ctx).InflationDistribution.CommunityPool.String(),
 	)
 
-	//suite.Require().False(
+	// suite.Require().False(
 	//	suite.app.BankKeeper.HasDenomMetaData(suite.ctx, "acvnt"),
-	//)
+	// )
 
 	suite.Require().False(
 		suite.app.BankKeeper.HasDenomMetaData(suite.ctx, "asoult"),

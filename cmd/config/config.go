@@ -3,7 +3,7 @@ package config
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v3/types"
 )
 
 const (
@@ -42,7 +42,7 @@ func SetBech32Prefixes(config *sdk.Config) {
 func SetBip44CoinType(config *sdk.Config) {
 	config.SetCoinType(types.Bip44CoinType)
 	config.SetPurpose(sdk.Purpose)                  // Shared
-	config.SetFullFundraiserPath(types.BIP44HDPath) //nolint: staticcheck
+	config.SetFullFundraiserPath(types.BIP44HDPath) // nolint: staticcheck
 }
 
 // RegisterDenoms registers the base and display denominations to the SDK.

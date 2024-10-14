@@ -12,7 +12,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/cvn-network/cvn/v2/encoding"
+	"github.com/cvn-network/cvn/v3/encoding"
 )
 
 // NewDefaultGenesisState generates the default state for the application.

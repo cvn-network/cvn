@@ -12,10 +12,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking/teststaking"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/cvn-network/cvn/v2/app"
-	testutiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/utils"
-	cvndistrkeeper "github.com/cvn-network/cvn/v2/x/distribution/keeper"
+	"github.com/cvn-network/cvn/v3/app"
+	testutiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/utils"
+	cvndistrkeeper "github.com/cvn-network/cvn/v3/x/distribution/keeper"
 )
 
 // PrepareAccountsForDelegationRewards prepares the test suite for testing to withdraw delegation rewards.

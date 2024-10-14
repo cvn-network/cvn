@@ -17,10 +17,10 @@ import (
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cvn-network/cvn/v2/ledger"
-	"github.com/cvn-network/cvn/v2/ledger/accounts"
-	"github.com/cvn-network/cvn/v2/ledger/mocks"
-	"github.com/cvn-network/cvn/v2/ledger/usbwallet"
+	"github.com/cvn-network/cvn/v3/ledger"
+	"github.com/cvn-network/cvn/v3/ledger/accounts"
+	"github.com/cvn-network/cvn/v3/ledger/mocks"
+	"github.com/cvn-network/cvn/v3/ledger/usbwallet"
 )
 
 type LedgerTestSuite struct {

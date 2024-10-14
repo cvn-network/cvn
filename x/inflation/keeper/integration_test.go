@@ -7,9 +7,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	epochstypes "github.com/cvn-network/cvn/v2/x/epochs/types"
-	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	epochstypes "github.com/cvn-network/cvn/v3/x/epochs/types"
+	incentivestypes "github.com/cvn-network/cvn/v3/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 var (

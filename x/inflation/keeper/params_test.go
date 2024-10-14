@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

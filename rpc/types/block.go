@@ -15,7 +15,7 @@ import (
 	"github.com/spf13/cast"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/cvn-network/cvn/v2/types"
+	"github.com/cvn-network/cvn/v3/types"
 )
 
 // BlockNumber represents decoding hex string to block values

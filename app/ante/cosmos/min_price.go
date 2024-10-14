@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	evmante "github.com/cvn-network/cvn/v2/app/ante/evm"
+	evmante "github.com/cvn-network/cvn/v3/app/ante/evm"
 )
 
 // MinGasPriceDecorator will check if the transaction's fee is at least as large

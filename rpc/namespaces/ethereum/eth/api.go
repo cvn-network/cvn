@@ -10,10 +10,10 @@ import (
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cvn-network/cvn/v2/rpc/backend"
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	"github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/rpc/backend"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	"github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // The Ethereum API allows applications to connect to an Evmos node that is
@@ -128,9 +128,9 @@ func NewPublicAPI(logger log.Logger, backend backend.EVMBackend) *PublicAPI {
 	return api
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Blocks						                            ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Blocks						                            ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // BlockNumber returns the current block number.
 func (e *PublicAPI) BlockNumber() (hexutil.Uint64, error) {
@@ -150,9 +150,9 @@ func (e *PublicAPI) GetBlockByHash(hash common.Hash, fullTx bool) (map[string]in
 	return e.backend.GetBlockByHash(hash, fullTx)
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Read Txs					                            ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Read Txs					                            ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // GetTransactionByHash returns the transaction identified by hash.
 func (e *PublicAPI) GetTransactionByHash(hash common.Hash) (*rpctypes.RPCTransaction, error) {
@@ -201,9 +201,9 @@ func (e *PublicAPI) GetTransactionByBlockNumberAndIndex(blockNum rpctypes.BlockN
 	return e.backend.GetTransactionByBlockNumberAndIndex(blockNum, idx)
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Write Txs					                            ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Write Txs					                            ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // SendRawTransaction send a raw Ethereum transaction.
 func (e *PublicAPI) SendRawTransaction(data hexutil.Bytes) (common.Hash, error) {
@@ -217,9 +217,9 @@ func (e *PublicAPI) SendTransaction(args evmtypes.TransactionArgs) (common.Hash,
 	return e.backend.SendTransaction(args)
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Account Information				                    ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Account Information				                    ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // Accounts returns the list of accounts available to this node.
 func (e *PublicAPI) Accounts() ([]common.Address, error) {
@@ -254,9 +254,9 @@ func (e *PublicAPI) GetProof(address common.Address,
 	return e.backend.GetProof(address, storageKeys, blockNrOrHash)
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           EVM/Smart Contract Execution				          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           EVM/Smart Contract Execution				          ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // Call performs a raw contract call.
 func (e *PublicAPI) Call(args evmtypes.TransactionArgs,
@@ -277,14 +277,14 @@ func (e *PublicAPI) Call(args evmtypes.TransactionArgs,
 	return (hexutil.Bytes)(data.Ret), nil
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Event Logs													          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Event Logs													          ///
+// /////////////////////////////////////////////////////////////////////////////
 // FILTER API at ./filters/api.go
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Chain Information										          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Chain Information										          ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // ProtocolVersion returns the supported Ethereum protocol version.
 func (e *PublicAPI) ProtocolVersion() hexutil.Uint {
@@ -324,14 +324,14 @@ func (e *PublicAPI) MaxPriorityFeePerGas() (*hexutil.Big, error) {
 }
 
 // ChainId is the EIP-155 replay-protection chain id for the current ethereum chain config.
-func (e *PublicAPI) ChainId() (*hexutil.Big, error) { //nolint
+func (e *PublicAPI) ChainId() (*hexutil.Big, error) { // nolint
 	e.logger.Debug("eth_chainId")
 	return e.backend.ChainID()
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Uncles															          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Uncles															          ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // GetUncleByBlockHashAndIndex returns the uncle identified by hash and index. Always returns nil.
 func (e *PublicAPI) GetUncleByBlockHashAndIndex(_ common.Hash, _ hexutil.Uint) map[string]interface{} {
@@ -353,9 +353,9 @@ func (e *PublicAPI) GetUncleCountByBlockNumber(_ rpctypes.BlockNumber) hexutil.U
 	return 0
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Proof of Work												          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Proof of Work												          ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // Hashrate returns the current node's hashrate. Always 0.
 func (e *PublicAPI) Hashrate() hexutil.Uint64 {
@@ -369,9 +369,9 @@ func (e *PublicAPI) Mining() bool {
 	return false
 }
 
-///////////////////////////////////////////////////////////////////////////////
-///                           Other 															          ///
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// /                           Other 															          ///
+// /////////////////////////////////////////////////////////////////////////////
 
 // Syncing returns false in case the node is currently not syncing with the network. It can be up to date or has not
 // yet received the latest block headers from its pears. In case it is synchronizing:

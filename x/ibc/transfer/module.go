@@ -5,7 +5,7 @@ import (
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
 	"github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 
-	"github.com/cvn-network/cvn/v2/x/ibc/transfer/keeper"
+	"github.com/cvn-network/cvn/v3/x/ibc/transfer/keeper"
 )
 
 var (

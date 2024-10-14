@@ -9,12 +9,12 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/cvn-network/cvn/v2/app"
-	ibctesting "github.com/cvn-network/cvn/v2/ibc/testing"
-	"github.com/cvn-network/cvn/v2/testutil"
-	teststypes "github.com/cvn-network/cvn/v2/types/tests"
-	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
-	"github.com/cvn-network/cvn/v2/x/recovery/types"
+	"github.com/cvn-network/cvn/v3/app"
+	ibctesting "github.com/cvn-network/cvn/v3/ibc/testing"
+	"github.com/cvn-network/cvn/v3/testutil"
+	teststypes "github.com/cvn-network/cvn/v3/types/tests"
+	claimstypes "github.com/cvn-network/cvn/v3/x/claims/types"
+	"github.com/cvn-network/cvn/v3/x/recovery/types"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {

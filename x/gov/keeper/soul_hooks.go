@@ -6,10 +6,10 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	distributiontypes "github.com/cvn-network/cvn/v2/x/distribution/types"
-	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
-	"github.com/cvn-network/cvn/v2/x/gov/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	distributiontypes "github.com/cvn-network/cvn/v3/x/distribution/types"
+	erc20types "github.com/cvn-network/cvn/v3/x/erc20/types"
+	"github.com/cvn-network/cvn/v3/x/gov/types"
 )
 
 var _ distributiontypes.DistributionHooks = SoulHooks{}

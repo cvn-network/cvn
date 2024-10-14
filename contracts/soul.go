@@ -6,12 +6,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 var (
 	//go:embed compiled_contracts/SOUL.json
-	SoulJSON []byte //nolint: golint
+	SoulJSON []byte // nolint: golint
 
 	// SoulContract is the compiled Soul contract
 	SoulContract evmtypes.CompiledContract

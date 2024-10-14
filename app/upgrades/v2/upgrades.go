@@ -14,13 +14,13 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/libs/log"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	erc20keeper "github.com/cvn-network/cvn/v2/x/erc20/keeper"
-	erc20types "github.com/cvn-network/cvn/v2/x/erc20/types"
-	feemarketkeeper "github.com/cvn-network/cvn/v2/x/feemarket/keeper"
-	cvngovtypes "github.com/cvn-network/cvn/v2/x/gov/types"
-	inflationkeeper "github.com/cvn-network/cvn/v2/x/inflation/keeper"
-	inflationtypes "github.com/cvn-network/cvn/v2/x/inflation/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	erc20keeper "github.com/cvn-network/cvn/v3/x/erc20/keeper"
+	erc20types "github.com/cvn-network/cvn/v3/x/erc20/types"
+	feemarketkeeper "github.com/cvn-network/cvn/v3/x/feemarket/keeper"
+	cvngovtypes "github.com/cvn-network/cvn/v3/x/gov/types"
+	inflationkeeper "github.com/cvn-network/cvn/v3/x/inflation/keeper"
+	inflationtypes "github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 type kvStoreKey interface {

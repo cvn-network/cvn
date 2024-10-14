@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/params"
 
-	"github.com/cvn-network/cvn/v2/utils"
+	"github.com/cvn-network/cvn/v3/utils"
 )
 
 var (

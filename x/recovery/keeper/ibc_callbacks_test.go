@@ -14,14 +14,14 @@ import (
 	ibcmock "github.com/cosmos/ibc-go/v6/testing/mock"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	"github.com/cvn-network/cvn/v2/testutil"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
-	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
-	"github.com/cvn-network/cvn/v2/x/recovery/keeper"
-	"github.com/cvn-network/cvn/v2/x/recovery/types"
-	vestingtypes "github.com/cvn-network/cvn/v2/x/vesting/types"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	"github.com/cvn-network/cvn/v3/testutil"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	claimstypes "github.com/cvn-network/cvn/v3/x/claims/types"
+	incentivestypes "github.com/cvn-network/cvn/v3/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/recovery/keeper"
+	"github.com/cvn-network/cvn/v3/x/recovery/types"
+	vestingtypes "github.com/cvn-network/cvn/v3/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestOnRecvPacket() {

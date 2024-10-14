@@ -7,9 +7,9 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	"github.com/cvn-network/cvn/v2/x/incentives/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	"github.com/cvn-network/cvn/v3/x/incentives/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

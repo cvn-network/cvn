@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"github.com/tendermint/tendermint/abci/types"
 
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

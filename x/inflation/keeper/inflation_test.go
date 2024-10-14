@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	incentivestypes "github.com/cvn-network/cvn/v2/x/incentives/types"
-	"github.com/cvn-network/cvn/v2/x/inflation/types"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	incentivestypes "github.com/cvn-network/cvn/v3/x/incentives/types"
+	"github.com/cvn-network/cvn/v3/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {

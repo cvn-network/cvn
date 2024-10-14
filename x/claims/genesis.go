@@ -6,8 +6,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cvn-network/cvn/v2/x/claims/keeper"
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	"github.com/cvn-network/cvn/v3/x/claims/keeper"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 // InitGenesis initializes the claim module's state from a provided genesis

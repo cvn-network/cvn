@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/auth/tx"
 
-	enccodec "github.com/cvn-network/cvn/v2/encoding/codec"
+	enccodec "github.com/cvn-network/cvn/v3/encoding/codec"
 )
 
 // MakeConfig creates an EncodingConfig for testing

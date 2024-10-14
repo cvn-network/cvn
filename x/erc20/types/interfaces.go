@@ -11,9 +11,9 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/vm"
 
-	claimstypes "github.com/cvn-network/cvn/v2/x/claims/types"
-	"github.com/cvn-network/cvn/v2/x/evm/statedb"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	claimstypes "github.com/cvn-network/cvn/v3/x/claims/types"
+	"github.com/cvn-network/cvn/v3/x/evm/statedb"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

@@ -9,8 +9,8 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v6/testing"
 	"github.com/stretchr/testify/require"
 
-	teststypes "github.com/cvn-network/cvn/v2/types/tests"
-	"github.com/cvn-network/cvn/v2/x/claims/types"
+	teststypes "github.com/cvn-network/cvn/v3/types/tests"
+	"github.com/cvn-network/cvn/v3/x/claims/types"
 )
 
 func init() {

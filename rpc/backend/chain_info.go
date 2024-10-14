@@ -12,10 +12,10 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	rpctypes "github.com/cvn-network/cvn/v2/rpc/types"
-	"github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
-	feemarkettypes "github.com/cvn-network/cvn/v2/x/feemarket/types"
+	rpctypes "github.com/cvn-network/cvn/v3/rpc/types"
+	"github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
+	feemarkettypes "github.com/cvn-network/cvn/v3/x/feemarket/types"
 )
 
 // ChainID is the EIP-155 replay-protection chain id for the current ethereum chain config.
@@ -145,14 +145,14 @@ func (b *Backend) FeeHistory(
 	lastBlock rpc.BlockNumber, // the block to start search , to oldest
 	rewardPercentiles []float64, // percentiles to fetch reward
 ) (*rpctypes.FeeHistoryResult, error) {
-	blockEnd := int64(lastBlock) //#nosec G701 -- checked for int overflow already
+	blockEnd := int64(lastBlock) // #nosec G701 -- checked for int overflow already
 
 	if blockEnd < 0 {
 		blockNumber, err := b.BlockNumber()
 		if err != nil {
 			return nil, err
 		}
-		blockEnd = int64(blockNumber) //#nosec G701 -- checked for int overflow already
+		blockEnd = int64(blockNumber) // #nosec G701 -- checked for int overflow already
 	}
 
 	blocks := int64(userBlockCount)                     // #nosec G701 -- checked for int overflow already

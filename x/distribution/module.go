@@ -5,7 +5,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/distribution"
 	"github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	"github.com/cvn-network/cvn/v2/x/distribution/keeper"
+	"github.com/cvn-network/cvn/v3/x/distribution/keeper"
 )
 
 var _ module.AppModule = AppModule{}

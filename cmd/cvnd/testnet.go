@@ -35,14 +35,14 @@ import (
 	"github.com/tendermint/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	cmdcfg "github.com/cvn-network/cvn/v2/cmd/config"
-	"github.com/cvn-network/cvn/v2/crypto/hd"
-	evmoskr "github.com/cvn-network/cvn/v2/crypto/keyring"
-	"github.com/cvn-network/cvn/v2/server/config"
-	srvflags "github.com/cvn-network/cvn/v2/server/flags"
-	"github.com/cvn-network/cvn/v2/testutil/network"
-	cvntypes "github.com/cvn-network/cvn/v2/types"
-	evmtypes "github.com/cvn-network/cvn/v2/x/evm/types"
+	cmdcfg "github.com/cvn-network/cvn/v3/cmd/config"
+	"github.com/cvn-network/cvn/v3/crypto/hd"
+	evmoskr "github.com/cvn-network/cvn/v3/crypto/keyring"
+	"github.com/cvn-network/cvn/v3/server/config"
+	srvflags "github.com/cvn-network/cvn/v3/server/flags"
+	"github.com/cvn-network/cvn/v3/testutil/network"
+	cvntypes "github.com/cvn-network/cvn/v3/types"
+	evmtypes "github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 var (

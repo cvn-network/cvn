@@ -14,13 +14,13 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cvn-network/cvn/v2/app"
-	"github.com/cvn-network/cvn/v2/crypto/ethsecp256k1"
-	evmenc "github.com/cvn-network/cvn/v2/encoding"
-	"github.com/cvn-network/cvn/v2/indexer"
-	utiltx "github.com/cvn-network/cvn/v2/testutil/tx"
-	"github.com/cvn-network/cvn/v2/utils"
-	"github.com/cvn-network/cvn/v2/x/evm/types"
+	"github.com/cvn-network/cvn/v3/app"
+	"github.com/cvn-network/cvn/v3/crypto/ethsecp256k1"
+	evmenc "github.com/cvn-network/cvn/v3/encoding"
+	"github.com/cvn-network/cvn/v3/indexer"
+	utiltx "github.com/cvn-network/cvn/v3/testutil/tx"
+	"github.com/cvn-network/cvn/v3/utils"
+	"github.com/cvn-network/cvn/v3/x/evm/types"
 )
 
 func TestKVIndexer(t *testing.T) {
