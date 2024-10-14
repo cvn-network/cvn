@@ -33,7 +33,7 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/cvn-network/cvn/v3/app"
-	v2 "github.com/cvn-network/cvn/v3/app/upgrades/v2"
+	v3 "github.com/cvn-network/cvn/v3/app/upgrades/v3"
 	evmosclient "github.com/cvn-network/cvn/v3/client"
 	"github.com/cvn-network/cvn/v3/client/debug"
 	cmdcfg "github.com/cvn-network/cvn/v3/cmd/config"
@@ -129,7 +129,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		queryCommand(),
 		txCommand(),
 		evmosclient.KeyCommands(app.DefaultNodeHome),
-		v2.PreUpgradeCommand(),
+		v3.PreUpgradeCommand(),
 	)
 
 	// add rosetta

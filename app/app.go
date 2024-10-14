@@ -105,7 +105,7 @@ import (
 
 	"github.com/cvn-network/cvn/v3/app/ante"
 	ethante "github.com/cvn-network/cvn/v3/app/ante/evm"
-	v2 "github.com/cvn-network/cvn/v3/app/upgrades/v2"
+	v3 "github.com/cvn-network/cvn/v3/app/upgrades/v3"
 	_ "github.com/cvn-network/cvn/v3/client/docs/statik"
 	"github.com/cvn-network/cvn/v3/encoding"
 	"github.com/cvn-network/cvn/v3/ethereum/eip712"
@@ -1117,19 +1117,12 @@ func initParamsKeeper(
 
 func (app *CVN) setupUpgradeHandlers() {
 
-	// v2 upgrade handler
 	app.UpgradeKeeper.SetUpgradeHandler(
-		v2.UpgradeName,
-		v2.CreateUpgradeHandler(
+		v3.UpgradeName,
+		v3.CreateUpgradeHandler(
 			app.mm,
 			app.configurator,
 			app.BankKeeper,
-			app.InflationKeeper,
-			app.SlashingKeeper,
-			app.FeeMarketKeeper,
-			app.Erc20Keeper,
-			app.AccountKeeper,
-			app,
 		),
 	)
 
@@ -1147,7 +1140,7 @@ func (app *CVN) setupUpgradeHandlers() {
 
 	var storeUpgrades *storetypes.StoreUpgrades
 	switch upgradeInfo.Name {
-	case v2.UpgradeName:
+	case v3.UpgradeName:
 		// no store upgrades
 	}
 
