@@ -20,10 +20,11 @@ cvnd version
 git checkout release/v3.0.x
 docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmovisor:3.0.0 .
 
+# start cvn node
 ./app/upgrades/v3/test.sh run_cvn_node
-./app/upgrades/v3/test.sh show_node_version
 
 # open another terminal && cd cvn
+./app/upgrades/v3/test.sh show_node_version
 ./app/upgrades/v3/test.sh submit_upgrade_proposal_and_vote
 # if you see `"status": "PROPOSAL_STATUS_PASSED"`, then proposal passed
 ./app/upgrades/v3/test.sh show_proposal_status
@@ -33,5 +34,7 @@ docker build -f ./cmd/cosmovisor/Dockerfile -t ghcr.io/cvn-network/cvn-cosmoviso
 # and the node will be restarted automatically use the new binary,
 # and you can see the new version in the node logs
 # finally, you can see `INF executed block height=xxx`, then upgrade done
+./app/upgrades/v3/test.sh show_node_version
+./app/upgrades/v3/test.sh show_test_account
 ```
 

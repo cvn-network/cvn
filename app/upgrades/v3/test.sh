@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -eo pipefail
+set -eo pipefail
 
 KEYS=("dev0" "dev1" "dev2")
 CHAINID="cvn_2032-2"
@@ -71,8 +71,12 @@ run_cvn_node() {
     # EIP-55 Address: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
     cvnd add-genesis-account "cvn17w0adeg64ky0daxwd2ugyuneellmjgnxp2hwdj" 40000000000000000000000000acvnt --home "$HOMEDIR"
 
+    cvnd add-genesis-account "cvn1jl0ge6qx4q9tgnly2d25znj0vrmh9xa25ql2xt" 10000000000000000000000000acvnt --home "$HOMEDIR"
+    cvnd add-genesis-account "cvn172nmmsdcu69hlydjxeance8q220gzea59trt7a" 10000000000000000000000000acvnt --home "$HOMEDIR"
+    cvnd add-genesis-account "cvn1vrdxetc3x5km3kkq3kead85rgzwnvw8qudx72v" 20000000000000000000000000acvnt --home "$HOMEDIR"
+
     # bc is required to add these big numbers
-    total_supply=$(echo "(${#KEYS[@]}+1) * 40000000000000000000000000" | bc)
+    total_supply=$(echo "(${#KEYS[@]}+2) * 40000000000000000000000000" | bc)
     jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
     # Sign genesis transaction
@@ -135,6 +139,13 @@ submit_upgrade_proposal_and_vote() {
 
 show_proposal_status() {
   cvnd query gov proposals --output json --home "$HOMEDIR" | jq
+}
+
+show_test_account() {
+  cvnd query bank balances "cvn1jl0ge6qx4q9tgnly2d25znj0vrmh9xa25ql2xt" --output json --home "$HOMEDIR"
+  cvnd query bank balances "cvn172nmmsdcu69hlydjxeance8q220gzea59trt7a" --output json --home "$HOMEDIR"
+  cvnd query bank balances "cvn1vrdxetc3x5km3kkq3kead85rgzwnvw8qudx72v" --output json --home "$HOMEDIR"
+  cvnd query bank balances "cvn1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq35vrp0" --output json --home "$HOMEDIR"
 }
 
 "$@"

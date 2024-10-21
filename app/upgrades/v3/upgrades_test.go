@@ -9,6 +9,7 @@ import (
 	inflationtypes "github.com/cvn-network/cvn/v3/x/inflation/types"
 	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/crypto/tmhash"
+	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
@@ -73,16 +74,15 @@ func (suite *UpgradeTestSuite) TestUpgrade() {
 	migrates, err := v3.ReadMigrates()
 	suite.NoError(err)
 	for _, migrate := range migrates {
-		coins := sdk.NewCoins(sdk.NewCoin(types.AttoCvnt, migrate.Value))
+		coins := sdk.NewCoins(sdk.NewCoin(types.AttoCvnt, sdk.NewIntFromUint64(tmrand.Uint64())))
 		suite.NoError(suite.app.BankKeeper.MintCoins(suite.ctx, inflationtypes.ModuleName, coins))
-		suite.NoError(suite.app.BankKeeper.SendCoinsFromModuleToAccount(suite.ctx, inflationtypes.ModuleName, migrate.Holder, coins))
+		suite.NoError(suite.app.BankKeeper.SendCoinsFromModuleToAccount(suite.ctx, inflationtypes.ModuleName, migrate.Holder.Bytes(), coins))
 	}
 
 	logger := suite.ctx.Logger().With("upgrade", v3.UpgradeName)
 	upgrade := v3.NewUpgrade(
 		logger,
 		suite.app.BankKeeper,
-		"",
 	)
 
 	suite.NoError(upgrade.MigrateCVNToken(suite.ctx))
