@@ -2,21 +2,14 @@
 
 set -eo pipefail
 
-KEYS=("dev0" "dev1" "dev2")
-CHAINID="cvn_2032-2"
-MONIKER="localtestnet"
+export ADMIN_NAME=${ADMIN_NAME:-"dev0"}
+export CHAINID=${CHAINID:-"cvn_2032-2"}
 # Remember to change to other types of keyring like 'file' in-case exposing to outside world,
 # otherwise your balance will be wiped quickly
 # The keyring test does not require private key to steal tokens from you
-KEYRING="test"
+export KEYRING=${KEYRING:-"test"}
 # Set dedicated home directory for the cvnd instance
-HOMEDIR="$HOME/.tmp2-cvnd"
-
-# Path variables
-#CONFIG=$HOMEDIR/config/config.toml
-#APP_TOML=$HOMEDIR/config/app.toml
-GENESIS=$HOMEDIR/config/genesis.json
-TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
+export HOMEDIR=${HOMEDIR:-"$HOME/.tmp2-cvnd"}
 
 # validate dependencies are installed
 command -v jq >/dev/null 2>&1 || {
@@ -25,6 +18,10 @@ command -v jq >/dev/null 2>&1 || {
 }
 
 run_cvn_node() {
+  KEYS=("dev0" "dev1" "dev2")
+  MONIKER="localtestnet"
+  GENESIS=$HOMEDIR/config/genesis.json
+  TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
   if [ -d "$HOMEDIR" ]; then
     printf "\nAn existing folder at '%s' was found. You can choose to delete this folder and start a new local node with new keys from genesis. When declined, the existing local node is started. \n" "$HOMEDIR"
     echo "Overwrite the existing configuration and start a new local node? [y/n]"
@@ -114,6 +111,7 @@ submit_upgrade_proposal_and_vote() {
   upgrade_height=$(cvnd status --home "$HOMEDIR" | jq -r '.SyncInfo.latest_block_height|tonumber + 20')
   echo "upgrade height = ${upgrade_height}, submitting proposal..."
 
+  set -x
   cvnd tx gov submit-legacy-proposal software-upgrade "v3.0.0" \
     --title "Upgrade to v3" \
     --deposit "10000000000000000000000acvnt" \
@@ -123,17 +121,20 @@ submit_upgrade_proposal_and_vote() {
     --upgrade-info '{"binaries":{"linux/amd64":"https://github.com/cvn-network/cvn/releases/download/v3.0.0/cvnd-v3.0.0-linux-amd64"}}' \
     --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
-    --from dev0 --home "${HOMEDIR}" --yes
+    --from "${ADMIN_NAME}" --home "${HOMEDIR}" --yes
+  set +x
   echo "create upgrade proposal success, wait for voting..."
 
   sleep 5
   proposal_id=$(cvnd query gov proposals --status=voting_period --output json --home "$HOMEDIR" | jq -r '.proposals[0].id')
   echo "vote proposal id = ${proposal_id}, vote..."
 
+  set -x
   cvnd tx gov vote "${proposal_id}" yes \
     --gas=auto --gas-adjustment=1.5 --gas-prices="100000000acvnt" \
     --broadcast-mode block \
-    --from dev0 --home "${HOMEDIR}" --yes
+    --from "${ADMIN_NAME}" --home "${HOMEDIR}" --yes
+  set +x
   echo "vote success, wait for proposal passed..."
 }
 
