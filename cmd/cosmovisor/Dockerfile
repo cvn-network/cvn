@@ -9,12 +9,10 @@ WORKDIR /root
 
 COPY . .
 
-RUN git checkout release/v2.1.x
-RUN make build
-RUN mv /root/build/cvnd /root/build/cvnd-v2
-
 RUN git checkout release/v3.0.x
 RUN make build
+
+FROM ghcr.io/cvn-network/cvn-cosmovisor:2.1.1 AS v2
 
 FROM debian:bullseye
 
@@ -35,9 +33,7 @@ ENV DAEMON_PREUPGRADE_MAX_RETRIES=3
 
 COPY --from=build-env /go/bin/cosmovisor /usr/bin/cosmovisor
 
-COPY --from=build-env /root/build/cvnd-v2 /usr/bin/cvnd
-
-RUN cosmovisor init /usr/bin/cvnd
+COPY --from=v2 /root/.cvnd /root/.cvnd
 
 COPY --from=build-env /root/build/cvnd /usr/bin/cvnd
 
